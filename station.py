@@ -29,5 +29,5 @@ def getStationNameVersion():
 def createUrlForStationName(station_name_version):
     return "https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=" + station_name_version
 
-def convertStationNameToCode():
+# def convertStationNameToCode():
 
