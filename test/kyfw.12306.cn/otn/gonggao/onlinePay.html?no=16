@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+<title>信息服务 | 客运服务 | 铁路客户服务中心</title>
+<script src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript"></script>
+<!-- js i18n -->
+<script src="../resources/js/i18n/messages_zh_CN.js" type="text/javascript"></script>
+<script src="../resources/js/rich/dhtmlxcommon.js"></script>
+<script src="../resources/js/rich/windows/dhtmlxwindows.js" type="text/javascript"></script>
+<script src="../resources/js/rich/dhtmlxcontainer.js" type="text/javascript"></script>
+<script src="../resources/js/framework/baseInit.js" type="text/javascript"></script>
+<script script="javascript">
+/*<![CDATA[*/
+ var ctx="";
+ /*]]>*/
+</script>
+<script src="../resources/js/common.js" type="text/javascript"></script>
+<link href="../resources/css/common.css" rel="stylesheet" />
+<link href="../resources/css/help.css"  rel="stylesheet"  type="text/css" />
+<script src="../resources/js/help/help.js"></script>
+
+<script type="text/javascript">
+	$(function(){$.sidebar_init(46);});
+</script>
+</head>
+<body>
+<!--header start-->
+<div class="header" th:include="common::header-frag">
+			<div class="header-bd">
+		<a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1></a>
+		<div class="login-info">
+			<div class="menu">
+				<a  class="menu-bd" id="js-my" href="../index/initMy12306">我的12306<b></b></a>
+				<div class="menu-list">
+					<b></b>
+					<ul>		
+						<li><a  href="../queryOrder/initNoComplete">未完成订单</a></li>	
+						<li><a  href="../queryOrder/init">已完成订单(改/退)</a></li>
+						<li class="line"></li>
+						<li><a href="../modifyUser/initQueryUserInfo">查看个人信息</a></li>
+						<li><a href="../userSecurity/init">账户安全</a></li>
+						<li class="line"></li>						
+						<li><a href="../passengers/init">常用联系人</a></li>
+					</ul>
+				</div>
+			</div>
+			<span class="login-txt" style="color: #666666"><span></span><a id="login_user" href="../login/init" class="colorA" style="margin-left:-0.5px;">登录</a>| <a id="regist_out" href="../regist/init">注册</a>
+			</span>
+			<!-- 
+            <span class="login-txt">
+            	<a id="" href="#nogo" class="colorA" th:if="${null!=session}" th:text="${session._CURRENT_USER.loginUserDTO.user_name}"></a>
+            	<a href="#" th:if="${session==null}">登录</a>|<a href="#nogo">注册</a>
+            </span>
+             var session = /*[[${session._CURRENT_USER.loginUserDTO.user_name}]]*/;    th:href="(${username})?${#httpServletRequest.contextPath}+'/login/init':${#httpServletRequest.contextPath}+'/index/initMy12306'" th:text="#{loginOrName}" -->
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="../index/init">客运首页</a></li>
+				<li id="selectYuding"><a href="../leftTicket/init">车票预订</a></li>
+				<li><a href="../lcxxcx/init">余票查询</a></li>
+				<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+					<div class="nav-list">
+						<ul style="font-weight:normal">
+							<li><a href="../queryTrainInfo/init">车次查询</a></li>
+							<li><a href="../leftTicketPrice/init" >票价查询</a></li>
+							<li><a href="../czxx/init" >车站车次查询</a></li>
+							<li><a href="../zzzcx/init" >中转查询</a></li>
+							<li><a href="../zwdch/init" >正晚点查询</a></li>
+							<li><a href="../queryAgencySellTicket/init">代售点查询</a></li>
+						</ul>
+					</div></li>
+				<li id="selectHelp"><a href="../gonggao/help.html">信息服务</a></li>
+			</ul>
+		</div>
+
+
+	</div>
+</div>
+<!--header end-->
+
+<!--页面主体  开始-->
+<div class="content clearfix">
+	<!--当前位置 开始-->
+    <div class="crumbs">
+    	您现在的位置：<a href="../index/init">客运首页</a>&nbsp;>&nbsp;<a href="../gonggao/help.html">信息服务</a>&nbsp;>&nbsp;<a href="#nogo" >常见问题</a>&nbsp;>&nbsp;<strong>在线支付</strong>
+    </div>
+    <!--当前位置 结束-->
+    
+	<!--左侧导航 开始-->
+    <div class="sidebar">
+        <div class="layout my">
+            <div class="lay-hd">常见问题</div>
+            <div class="lay-bd">
+                <div class="nav-label" style="display:none"><span></span></div>
+                <dl>
+                    <dt><a href="#nogo">车票</a><b></b></dt>
+                    <dd id="help1_1"><a id="ticketType" href="#nogo">车票的种类</a></dd>
+                    <dd id="help1_2"><a id="realNameTicket" href="#nogo">实名制车票</a></dd>
+                    <dd id="help1_3"><a id="reimburseVoucher" href="#nogo">报销凭证</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">购票</a><b></b></dt>
+                    <dd id="help2_1"><a id="ticketWindow" href="#nogo">售票窗口购票</a></dd>
+                    <dd id="help2_2"><a id="ticketVendor" href="#nogo">自动售票机购票</a></dd>
+                    <dd id="help2_3"><a id="phoneBooking" href="#nogo">电话订票</a></dd>
+                    <dd id="help2_4"><a id="onlineBooking" href="#nogo">互联网购票、换票</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">改签、变更到站</a><b></b></dt>
+                    <dd id="help3_1"><a id="windowEndorse" href="#nogo">售票窗口改签、变更到站</a></dd>
+                    <dd id="help3_2"><a id="onlineEndorse" href="#nogo">互联网改签、变更到站</a></dd>
+                    <dd id="help3_3"><a id="changeOrDelay" href="#nogo">列车变更或延迟</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">退票</a><b></b></dt>
+                    <dd id="help4_1"><a id="windowRefund" href="#nogo">售票窗口退票</a></dd>
+                    <dd id="help4_2"><a id="onlineRefund" href="#nogo">互联网退票</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">特殊旅客服务</a><b></b></dt>
+                    <dd id="help5_1"><a id="children" href="#nogo">儿童</a></dd>
+                    <dd id="help5_2"><a id="student" href="#nogo">学生</a></dd>
+                    <dd id="help5_3"><a id="disabledSoldier" href="#nogo">残疾军人</a></dd>
+                    <dd id="help5_4"><a id="disabledPassenger" href="#nogo">残疾旅客</a></dd>
+                    <dd id="help5_5"><a id="groupPassengers" href="#nogo">团体旅客</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">携带品和行李</a><b></b></dt>
+                    <dd id="help6_1"><a id="luggage" href="#nogo">随身携带品</a></dd>
+                    <dd id="help6_2"><a id="luggageTransportation" href="#nogo">行李托运</a></dd>
+                    <dd id="help6_3"><a id="insuredTransportation" href="#nogo">保价运输</a></dd>
+                    <dd id="help6_4"><a id="compensation" href="#nogo">索赔</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">进站乘车</a><b></b></dt>
+                    <dd id="help7_1"><a id="enterAndExit" href="#nogo">进出站</a></dd>
+                    <dd id="help7_2"><a id="riding" href="#nogo">乘车</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">特殊情况 </a><b></b></dt>
+                    <dd id="help8_1"><a id="soldByMistake" href="#nogo">误售误购</a></dd>
+                    <dd id="help8_2"><a id="ticketLost" href="#nogo">丢失车票</a></dd>
+                    <dd id="help8_3"><a id="sickOnTheTrain" href="#nogo">途中生病</a></dd>
+                    <dd id="help8_4"><a id="personalInjury" href="#nogo">人身伤害</a></dd>
+                    <dd id="help8_5"><a id="lostItem" href="#nogo">遗失物品</a></dd>
+                    <dd id="help8_6"><a id="airconditionMalfunction" href="#nogo">空调故障</a></dd>
+                    <dd id="help8_7"><a id="trafficSuspension" href="#nogo">运输中断</a></dd>
+                    <dd id="help8_8"><a id="specialLine" href="#nogo">特殊线路</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">客运服务</a><b></b></dt>
+                    <dd id="help9_1"><a id="railwayService" href="#nogo">站车服务</a></dd>
+                    <dd id="help9_2"><a id="dining" href="#nogo">餐饮</a></dd>
+                </dl>
+                <dl class="on">
+                    <dt><a href="#nogo">互联网售票</a><b></b></dt>
+                    <dd id="help10_1"><a id="checkIdentity" href="#nogo">身份核验</a></dd>
+                    <dd id="help10_2"><a id="register" href="#nogo">用户注册</a></dd>
+                    <dd id="help10_3"><a id="buyTicket" href="#nogo">购票</a></dd>
+                    <dd id="help10_4"><a id="onlinePay" href="#nogo">在线支付</a></dd>
+                    <dd id="help10_5"><a id="endorseAndRefund" href="#nogo">改签、变更到站、退票</a></dd>
+                    <dd id="help10_6"><a id="changeToPaperTicket" href="#nogo">换取纸质车票</a></dd>
+                    <dd id="help10_7"><a id="sgc" href="#nogo">使用居民身份证直接检票乘车</a></dd>
+                </dl>
+
+                <!--点击后DL添加样式on后下拉项DD会自动下限-->
+            </div>
+        </div>
+    </div>
+    <!--左侧导航 结束-->
+    
+    <!-- 右侧主体开始 -->
+    <div class="main">
+    	<ul class="q-list">
+        	<li class="on">
+            	<dt>1. 在12306.cn网站购票要支付票款吗？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站成功申请席位后，请在网站提示的支付时间内，通过以下方式在线支付票款；逾期席位不保留，将释放给其他旅客使用。<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp; （1）开通工商银行、农业银行、中国银行、招商银行和建设银行网银账户的用户，可以直接使用银行网银。<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp; （2）开通其他银行网银账户的用户，可以使用银联网银。<br/>
+           &nbsp;&nbsp;&nbsp;&nbsp; （3）未开通网银账户的用户，可以使用银联快捷支付。<br/>
+               &nbsp;&nbsp;&nbsp;&nbsp; （4）用户可以使用支付宝。<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp; 同一订单请使用一个在线支付工具一次性支付。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>2. 可以在12306.cn网站预订车票，到铁路售票窗口支付吗？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站或手机客户端成功申请席位后，请在网站提示的支付时间内在线支付票款。目前不支持铁路售票窗口支付。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>3. 在12306.cn网站订票成功后，在多长时间内支付可以保留席位？ </dt>
+                <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp; 购票人在12306.cn网站或手机客户端成功申请席位后，请在网站提示的支付时间内在线支付票款，逾期席位不保留，将释放给其他旅客使用。<br/>
+                </dd>
+            </li>
+           	<li>
+            	<dt>4. 在12306.cn购票时，怎么付款？</dt>
+                <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp; 目前，12306.cn网站支持以下在线支付工具支付票款：<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;（1）开通工商银行、农业银行、中国银行、招商银行和建设银行网银账户的用户，可以直接使用银行网银。<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;（2）开通其他银行网银账户的用户，可以使用银联网银。<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;（3）未开通网银账户的用户，可以使用银联快捷支付。<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;（4）用户可以使用支付宝。<br/>
+           	&nbsp;&nbsp;&nbsp;&nbsp; 同一订单请使用一个在线支付工具一次性支付。<br/>
+              
+                 
+                </dd>
+            </li>
+            	<li>
+            	<dt>5. 在12306.cn网站，可以用哪些银行卡支付票款？</dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 开通工商银行、农业银行、中国银行、招商银行和建设银行网银账户的用户直接使用银行网银支付；开通其它银行网银账户的用户使用银联网银支付；未开通网银账户的用户使用银联快捷支付。<br/>
+	 &nbsp;&nbsp;&nbsp;&nbsp; 同一订单请使用一个在线支付工具一次性支付。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>6.我怎样才能知道自己的银行卡能不能支付我的票款？</dt>
+                <dd>
+ 	 &nbsp;&nbsp;&nbsp;&nbsp; （1）请联系你的发卡银行，确保您的银行卡已开通网上银行功能。<br/>
+	 &nbsp;&nbsp;&nbsp;&nbsp; （2）请确认您已经安装发卡银行支付控件，部分银行卡还需U盾。<br/>
+	 &nbsp;&nbsp;&nbsp;&nbsp; （3）请确认您的银行卡支付限额大于票款金额。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>7. 在线支付安全吗？</dt>
+                <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp; 合理正确的进行在线支付可以有效地规避风险：<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 请仔细阅读银行的网上银行相关条款并遵照提示进行相关操作。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 避免在网吧等公共上网设施上使用网上银行。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 使用U-Key等工具进行在线支付。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 不要向第三方泄露卡号，密码等信息。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 请您认准铁路互联网售票官方网址（中国铁路客户服务中心网站：12306.cn）。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>8. 在线支付需要提前做哪些准备？ </dt>
+                <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp; 请仔细发卡阅读银行的网上银行相关条款并遵照提示进行相关操作。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 请通过发卡银行开通网上银行功能。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 请确保网上支付额度授权可支持交易需要。<br/>
+                </dd>
+            </li>
+           	<li>
+            	<dt>9. 如何开通网上银行？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp; 请联系您的发卡银行咨询相关事宜。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>10. 我开通了网上银行，但是为什么还不能支付呢？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp; 请确认您安装了发卡行支付控件，如没有安装可通过发卡行12306.cn网站进行下载。部分银行卡需要U盾才可进行支付，请确认其支付限额大于票款金额。 如果以上都已经确认但仍不能支付，请联系您的发卡银行。
+
+                </dd>
+            </li>
+            <li>
+            	<dt>11. 我的网上银行额度低于我要购买的车票价格，我能分两次付款吗？</dt>
+                <dd>
+   	 &nbsp;&nbsp;&nbsp;&nbsp; 同一订单请使用一个在线支付工具一次性支付，不能分次付款。如果您的在线支付工具余额不足，请及时存款。如果您的使用额度有限制，请联系你的发卡银行调整。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>12. 在付款的最后阶段我该注意什么？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp; 在付款的最后阶段，请不要点击“返回”键、“提交”键、“更新”键或关闭窗口，以免资金账户被双重扣减或资金账户付款后仍未能完成订票。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>13. 提交退票后款项要多久到账？ </dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 提交退款申请后，按购票时所使用的在线支付工具相关规定，应退款将在规定时间退还至原原购票时所使用的在线支付工具。<br/>
+                </dd>
+            </li>
+           	<li>
+            	<dt>14. 为什么我确认支付后，看不到任何支付网页？</dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 确保您上网环境安全；<br/>
+	 &nbsp;&nbsp;&nbsp;&nbsp; 确保您没有安装不必要的插件；<br/>
+	 &nbsp;&nbsp;&nbsp;&nbsp; 是否中毒；<br/>
+	 &nbsp;&nbsp;&nbsp;&nbsp; 以上都做到，若仍有问题，请联系您的发卡银行。<br/>
+                </dd>
+            </li>
+            	<li>
+            	<dt>15. 我不小心关掉了在线支付工具支付页面怎么办？（或支付时断电、断网）？</dt>
+                <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp; 请查询自己的在线支付工具账户是否扣款成功，如果扣款成功且未出票，请旅客致电客服电话12306。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>16. 我在12306.cn网站购票时，扣款成功但购票不成功怎么办？</dt>
+                <dd>
+ 		&nbsp;&nbsp;&nbsp;&nbsp; 这可能是由于支付时间过长导致的。遇到这一问题后，首先，请不要多次重复购票，以避免多次扣款；其次，请点击附件，下载表格，正确填写相关内容后，将表格以附件方式发送邮件至kyfw@12306.cn，我们将尽快核实后，按购票时所使用的在线支付工具相关规定，所扣款项将在规定时间内退回原购票时所使用的在线支付工具。<br/>
+ 	&nbsp;&nbsp;&nbsp;&nbsp; <b>附件：</b><a href="http://www.12306.cn/mormhweb/kyfw/question/201202/P020120309684488545791.zip">互联网扣款成功、购票不成功信息表</a><br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>17. 我在12306.cn网站购票时不小心重复支付了，重复扣的票款没有及时到账，怎么办？</dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 由于在线支付工具系统故障、网络传送不及时等原因，可能在第一次支付后未收到12306.cn网站回应的情况下，又点击第二次支付，从而出现12306.cn网站提示支付成功并出票，清算时又出现两次都支付成功的情况，形成同一订单重复支付。遇到这一问题时，请点击附件，下载表格，正确填写相关内容后，将表格以附件方式发送邮件至kyfw@12306.cn，我们将尽快核实后，按购票时所使用的在线支付工具相关规定，所重复扣款将在规定时间内退回原购票时所使用的在线支付工具。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 下次购票时，请耐心等待12306.cn网站回应，切勿多次点击支付，以避免同一订单重复扣款的问题再次发生。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; <b>附件：</b><a href="http://www.12306.cn/mormhweb/kyfw/question/201202/P020120309684839013965.zip">互联网购票重复支付信息表</a><br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>18. 我在12306.cn网站改签或变更到站时，扣款成功但改签或变更到站不成功，或者不小心重复支付了，款项未到账怎么办？</dt>
+                <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp; 可能是由于支付时间过长、在线支付工具系统故障、网络传送不及时等原因造成的。遇到这一问题时，首先，请确认您的车票是否改签或变更到站成功。其次，请点击附件，下载表格，正确填写相关内容后，将表格以附件方式发送邮件至kyfw@12306.cn，我们将尽快核实后，按购票时所使用的在线支付工具相关规定，所扣款项将在规定时间内退回原购票时所使用的在线支付工具。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 下次购票时，请耐心等待12306.cn网站回应，不要多次重复改签或变更到站，切勿多次点击支付。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; <b>附件：</b><a href="http://www.12306.cn/mormhweb/kyfw/question/201202/P020120309685164638524.zip">互联网改签信息表</a><br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>19. 我在12306.cn网站购票又退票后，为什么钱没有及时退还给我的银行卡？</dt>
+                <dd>
+ 	&nbsp;&nbsp;&nbsp;&nbsp; 首先，请确认您的车票已退。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 其次，提交退款申请后，按购票时所使用的在线支付工具相关规定，应退款额将在规定时间内退回原购票时所使用的在线支付工具。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 如果您到时仍没有收到退票款项，请联系您的在线支付工具发行单位，或者请点击附件，下载表格，正确填写相关内容后，将表格以附件方式发送邮件至kyfw@12306.cn，我们将尽快核实后，按购票时所使用的在线支付工具相关规定，所扣款项将在规定时间内退回原购票时所使用的在线支付工具。<br/>
+ 	&nbsp;&nbsp;&nbsp;&nbsp; <b>附件：</b><a href="http://www.12306.cn/mormhweb/kyfw/question/201202/P020120309686014791793.zip">互联网购票车站改签、退票信息表</a><br/>
+                </dd>
+            </li>
+             <li>
+            	<dt>20. 订票后没有接收到短信或邮件通知怎么办？</dt>
+                <dd>
+ 	&nbsp;&nbsp;&nbsp;&nbsp; 由于在电信运营商、电子邮件服务商的处理过程中可能发生信息丢失，请使用12306.cn网站订票查询功能及时确认订单状态，购票、改签、变更到站和退票的交易结果以订单查询结果为准。<br/>
+                </dd>
+            </li>
+        </ul>
+	</div>
+ 	<!-- 右侧主体结束 -->	  
+</div>
+<!--页面主体  结束-->
+
+<!--页面底部  开始-->
+<div class="footer">
+	<p><a href="#nogo">关于我们</a>|<a href="#nogo">网站声明</a></p>
+    <p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+    <p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+
+</body>
+</html>
+	
+	

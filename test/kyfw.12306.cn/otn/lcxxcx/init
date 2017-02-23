@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="icon" href="/otn/resources/images/ots/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/otn/resources/images/ots/favicon.ico" type="image/x-icon" />
+<script>
+/*<![CDATA[*/
+ var ctx='/otn/';
+ var global_lang = 'zh_CN';
+ var sessionInit = '';
+ var date = new Date();
+ var vYear = date.getFullYear();
+ var vMon = date.getMonth() + 1;
+ var vDay = date.getDate();
+ var today=vYear+"-"+vMon+"-"+vDay;
+ var initTrainDate=index_train_date= '2017-02-23';
+ var initToDate = '2017-03-24';
+ var openRandCodeCheck = null;
+ var stu_buy_date = '2017-02-23&2017-03-24';
+ var other_buy_date = '2017-02-23&2017-03-24';
+ var isTestFlow = null;
+ /*]]>*/
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>余票查询 | 客运服务 | 铁路客户服务中心</title>
+<!-- 双日历 -->
+<link href="/otn/resources/js/rich/calender_double/datepicker/skin/WdatePicker.css" rel="stylesheet" />
+<script type="text/javascript" src="/otn/resources/js/rich/calender_double/datepicker/WdatePicker.js" xml:space="preserve"></script>
+<!-- <link utils:merger="lcxxcx_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/dhtmlxcalendar.css'" href="../../../resources/js/rich/calendar/dhtmlxcalendar.css" rel="stylesheet" ></link> 
+<link utils:merger="lcxxcx_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css'" href="../../../resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css" rel="stylesheet" ></link>-->
+<link href="/otn/resources/merged/lcxxcx_css.css?cssVersion=1.8968" rel="stylesheet" />
+<script src="/otn/resources/merged/lcxxcx_js.js?scriptVersion=1.8997" type="text/javascript" xml:space="preserve"></script>
+<!--<script utils:merger="lcxxcx_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/dhtmlxcalendar.js'"  
+	type="text/javascript" src="../../../resources/js/rich/calendar/dhtmlxcalendar.js"></script>-->
+<script type="text/javascript" src="/otn/resources/js/framework/favorite_name.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/framework/station_name.js?station_version=1.8997" xml:space="preserve"></script>
+<script src="/otn/resources/js/query/qss.js?station_version=1.8997" type="text/javascript" xml:space="preserve"></script>
+<style xml:space="preserve">
+.fix-yh{
+	width: 130px;
+	height: 355px;
+	position: fixed;
+	top: 150px;
+	left: 50%;
+	margin-left: 500px;
+	z-index: 100;
+}
+.fix-yh .close{
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	width: 26px;
+	height: 26px;
+	text-indent: -9999px;
+}
+</style>
+</head>
+<body><!--header start-->
+<div class="header"><div style="z-index: 2000" class="header-bd"><a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1>
+</a>
+<div class="login-info"><div class="phone-link"><a href="/otn/appDownload/init" target="true">手机版</a>
+</div>
+<div class="menu"><a href="/otn/index/initMy12306" class="menu-bd" id="js-my">我的12306<b></b>
+</a>
+<div class="menu-list"><b></b>
+<ul><li><a href="/otn/queryOrder/initNoComplete">未完成订单</a>
+</li>
+<li><a href="/otn/queryOrder/init">已完成订单(改/退)</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/insurance/init">我的保险</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/modifyUser/initQueryUserInfo">查看个人信息</a>
+</li>
+<li><a href="/otn/userSecurity/init">账户安全</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/passengers/init">常用联系人</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/icentre/qxyyInfo">重点旅客预约</a>
+</li>
+<li><a href="/otn/icentre/lostInfo">遗失物品查找</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/icentre/serviceQuery">服务查询</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/advice/complaintInfo">投诉</a>
+</li>
+<li><a href="/otn/advice/adviceInfo">建议</a>
+</li>
+</ul>
+</div>
+</div>
+<span class="login-txt" style="color: #666666"><span>意见反馈:<a class="cursor colorA" href="mailto:12306yjfk@rails.com.cn">12306yjfk@rails.com.cn</a>
+          您好，请</span>
+<a id="login_user" href="/otn/login/init" class="colorA" style="margin-left:-0.5px;">登录</a>
+| <a id="regist_out" href="/otn/regist/init">注册</a>
+</span>
+</div>
+<div class="nav"><ul><li><a href="/otn/index/init">客运首页</a>
+</li>
+<li id="selectYuding"><a href="/otn/leftTicket/init">车票预订</a>
+</li>
+<li><a href="/otn/leftTicket/init">余票查询</a>
+</li>
+<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+<div class="nav-list"><ul style="font-weight:normal"><li><a href="/otn/queryTrainInfo/init">车次查询</a>
+</li>
+<li><a href="/otn/leftTicketPrice/init">票价查询</a>
+</li>
+<li><a href="/otn/leftTicketPrice/initPublicPrice">公布票价查询</a>
+</li>
+<li><a href="/otn/czxx/init">车站车次查询</a>
+</li>
+<li><a href="/otn/zzzcx/init">中转查询</a>
+</li>
+<li><a href="/otn/zwdch/init">正晚点查询</a>
+</li>
+<li><a href="/otn/queryAgencySellTicket/init">代售点查询</a>
+</li>
+</ul>
+</div>
+</li>
+<li id="selectHelp"><a href="/otn/gonggao/help.html">信息服务</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!--header end-->
+<!--页面主体  开始-->
+<div class="content"><!--出行向导导航 开始-->
+<!-- div class="guide-nav" th:include="common::guide-frag">
+    	<ul>
+        	<li><a href="列车信息查询.html" class="cur">列车信息查询</a></li>
+            <li><a href="车站信息查询.html">车站信息查询</a></li>
+            <li><a href="中转查询.html">中转查询</a></li>
+            <li><a href="正晚点查询.html">正晚点查询</a></li>
+            <li class="last"><a href="客票代售点.html">客票代售点</a></li>
+        </ul>
+    </div -->
+<!--出行向导导航 结束-->
+<!--搜索框 开始-->
+<div class="lay-sear lay-sear-yp clearfix"><ul><li><span class="label">出发地</span>
+<div class="inp-w"><input id="fromStation" type="hidden" value="" name="train_station_code" />
+<input name="train_station_name" maxlength="15" type="text" id="fromStationText" class="inptxt inp-txt" value="简拼/全拼/汉字" />
+<span id="from_station_imageB" class="i-city"></span>
+</div>
+</li>
+<li class="i-change" id="change_station"></li>
+<li><span class="label">目的地</span>
+<div class="inp-w"><input id="toStation" type="hidden" value="" name="to_station_code" />
+<input name="_to_station_name" maxlength="15" type="text" id="toStationText" class="inptxt inp-txt" value="简拼/全拼/汉字" />
+<span class="i-city" id="to_station_imageB"></span>
+</div>
+</li>
+<li><span class="label">出发日</span>
+<div class="inp-w"><input readonly="readonly" id="train_start_date" name="train_start_date" type="text" class="inptxt" value="" />
+<span id="_date_btn" class="i-date"></span>
+</div>
+</li>
+<!--li>
+                <span class="label">验证码</span>
+                <div class="yzm"><input  name="randCode" id="randCode" type="text" class="inptxt color333" /><span class="img"><img id="img_rand_code" src="../images/pic/yzm.jpg" th:src="${#httpServletRequest.contextPath}+'/passcode/getPassCode(rand=\'sjrand\')}'" onclick="refreshImg('sjrand')" title="单击刷新验证码"  /></span><span class="i-re" onclick="refreshImg('sjrand')" title="单击刷新验证码"></span></div>
+            </li-->
+</ul>
+<div class="btn-area"><a id="_a_search_btn1" href="javascript:$._to_search(&#39;ADULT&#39;,&#39;1&#39;)" class="btn122s" shape="rect">查询</a>
+<a href="javascript:$._to_search(&#39;0X00&#39;,&#39;2&#39;)" id="_a_search_btn2" class="btn122s" shape="rect">查询学生票</a>
+</div>
+</div>
+<!--搜索框 结束-->
+<!--车票筛选框 开始-->
+<div class="sear-sel mt10"><div class="sear-sel-hd clearfix" id="date_range"><ul id="date_range_ul"><li><span>02-23</span>
+<span class="hide">02-23</span>
+</li>
+<li><span>02-24</span>
+<span class="hide">02-24</span>
+</li>
+<li><span>02-25</span>
+<span class="hide">02-25</span>
+</li>
+<li><span>02-26</span>
+<span class="hide">02-26</span>
+</li>
+<li><span>02-27</span>
+<span class="hide">02-27</span>
+</li>
+<li><span>02-28</span>
+<span class="hide">02-28</span>
+</li>
+<li><span>03-01</span>
+<span class="hide">03-01</span>
+</li>
+<li><span>03-02</span>
+<span class="hide">03-02</span>
+</li>
+<li><span>03-03</span>
+<span class="hide">03-03</span>
+</li>
+<li><span>03-04</span>
+<span class="hide">03-04</span>
+</li>
+<li><span>03-05</span>
+<span class="hide">03-05</span>
+</li>
+<li><span>03-06</span>
+<span class="hide">03-06</span>
+</li>
+<li><span>03-07</span>
+<span class="hide">03-07</span>
+</li>
+<li><span>03-08</span>
+<span class="hide">03-08</span>
+</li>
+<li><span>03-09</span>
+<span class="hide">03-09</span>
+</li>
+<li><span>03-10</span>
+<span class="hide">03-10</span>
+</li>
+<li><span>03-11</span>
+<span class="hide">03-11</span>
+</li>
+<li><span>03-12</span>
+<span class="hide">03-12</span>
+</li>
+<li><span>03-13</span>
+<span class="hide">03-13</span>
+</li>
+<li><span>03-14</span>
+<span class="hide">03-14</span>
+</li>
+<li style="display: none;"><span>03-15</span>
+<span class="hide">03-15</span>
+</li>
+<li style="display: none;"><span>03-16</span>
+<span class="hide">03-16</span>
+</li>
+<li style="display: none;"><span>03-17</span>
+<span class="hide">03-17</span>
+</li>
+<li style="display: none;"><span>03-18</span>
+<span class="hide">03-18</span>
+</li>
+<li style="display: none;"><span>03-19</span>
+<span class="hide">03-19</span>
+</li>
+<li style="display: none;"><span>03-20</span>
+<span class="hide">03-20</span>
+</li>
+<li style="display: none;"><span>03-21</span>
+<span class="hide">03-21</span>
+</li>
+<li style="display: none;"><span>03-22</span>
+<span class="hide">03-22</span>
+</li>
+<li style="display: none;"><span>03-23</span>
+<span class="hide">03-23</span>
+</li>
+<li style="display: none;"><span>03-24</span>
+<span class="hide">03-24</span>
+</li>
+</ul>
+<div class="clear"></div>
+</div>
+<!-- script>
+        $(".sear-sel-hd li").click(function(){
+			$(this).addClass("sel");
+			$(this).find("span").eq(0).addClass("hide");
+			$(this).find("span").eq(1).removeClass("hide");
+			$(this).siblings().removeClass("sel")
+		})
+        </script -->
+<div class="sear-sel-bd" id="sear-sel-bd"><!--展开式高度设置为272px，合拢时为72px,一行行高为34，可计算下-->
+<div class="section clearfix"><div class="section-hd">车次类型：</div>
+<div class="section-bd"><span id="span_station_train_code" class="btn-all" onclick="$._checkAll(&#39;station_train_code&#39;,this)">全部</span>
+<ul id="_ul_station_train_code"></ul>
+</div>
+</div>
+<div class="section clearfix"><div class="section-hd">出发车站：</div>
+<div class="section-bd"><span id="span_from_station_name" class="btn-all" onclick="$._checkAll(&#39;from_station_name&#39;,this)">全部</span>
+<ul style="display: none" id="_ul_station"><li><input type="checkbox" class="check" />
+<label for="">北京南</label>
+</li>
+<li><input type="checkbox" class="check" />
+<label for="">北京站</label>
+</li>
+</ul>
+</div>
+</div>
+<div class="section clearfix"><div class="section-hd">出发时段：</div>
+<div class="section-bd"><span id="span_cc_start_time" class="btn-all" onclick="$._checkAll(&#39;cc_start_time&#39;,this)">全部</span>
+<ul id="_ul_cc_start_time"></ul>
+</div>
+</div>
+<div class="section clearfix"><div class="section-hd">到达车站：</div>
+<div class="section-bd"><span id="span_to_station_name" class="btn-all" onclick="$._checkAll(&#39;to_station_name&#39;,this)">全部</span>
+<ul style="display: none" id="_ul_arrive_station"><li><input type="checkbox" class="check" />
+<label for="">上海虹桥</label>
+</li>
+<li><input type="checkbox" class="check" />
+<label for="">上海</label>
+</li>
+</ul>
+</div>
+</div>
+<div class="section clearfix"><div class="section-hd">到达时段：</div>
+<div class="section-bd"><span id="span_cc_arrive_time" class="btn-all" onclick="$._checkAll(&#39;cc_arrive_time&#39;,this)">全部</span>
+<ul id="_ul_cc_arrive_time"></ul>
+</div>
+</div>
+<div class="section clearfix"><div class="section-hd">席别：</div>
+<div class="section-bd"><span id="span_cc_seat_type" class="btn-all" onclick="$._checkAll(&#39;cc_seat_type&#39;,this)">全部</span>
+<ul id="_ul_xibie" style="display: none;"><li><input type="checkbox" class="check" value="SWZ" name="cc_seat_type" />
+<label for="">商务座</label>
+</li>
+<li><input type="checkbox" class="check" value="TZ" name="cc_seat_type" />
+<label for="">特等座</label>
+</li>
+<li><input type="checkbox" class="check" value="ZY" name="cc_seat_type" />
+<label for="">一等座</label>
+</li>
+<li><input type="checkbox" class="check" value="ZE" name="cc_seat_type" />
+<label for="">二等座</label>
+</li>
+<li><input type="checkbox" class="check" value="GR" name="cc_seat_type" />
+<label for="">高级软卧</label>
+</li>
+<li><input type="checkbox" class="check" value="RW" name="cc_seat_type" />
+<label for="">软卧</label>
+</li>
+<li><input type="checkbox" class="check" value="YW" name="cc_seat_type" />
+<label for="">硬卧</label>
+</li>
+<li><input type="checkbox" class="check" value="RZ" name="cc_seat_type" />
+<label for="">软座</label>
+</li>
+<li><input type="checkbox" class="check" value="YZ" name="cc_seat_type" />
+<label for="">硬座</label>
+</li>
+</ul>
+</div>
+</div>
+<div class="section clearfix"><div class="section-hd">始发过路：</div>
+<div class="section-bd"><span class="btn-all" id="span_sf_gl" onclick="$._checkAll(&#39;stationStarting&#39;,this)">全部</span>
+<ul id="_ul_sf_gl"></ul>
+</div>
+</div>
+<div class="section cc-pos"><div class="section-hd">车次：</div>
+<div class="section-bd" id="train_combo_box_div"><span class="inptxt w90" id="train_combo_box" style="float: left;"></span>
+</div>
+</div>
+<!-- div class="check-item"><input name="stationStarting" type="checkbox" id="sf" class="check" /><label>始发</label></div -->
+</div>
+<div class="btn-sear-sel"><span id="show_more" title="展开">更多选项</span>
+</div>
+<!--展开时添加样式open-->
+</div>
+<!--车票筛选框 结束-->
+<div class="sear-tips" id="_sear_tips" style="display: none"><p><strong>北京 -> 上海（12月26日 周六）</strong>
+共计<strong>120</strong>
+个车次</p>
+</div>
+<div class="t-list  mt10"><table><thead><tr class="th" id="float"><th width="90" rowspan="1" colspan="1">车次</th>
+<th width="100" rowspan="1" colspan="1"><div class="two-line"><span>出发站</span>
+<br clear="none" />
+<span>到达站</span>
+</div>
+</th>
+<th width="82" rowspan="1" colspan="1"><div class="two-line" id="startendtime"></div>
+</th>
+<th width="82" rowspan="1" colspan="1"><span class="b2" id="_span_lishi">历时</span>
+</th>
+<th width="49" rowspan="1" colspan="1">商务座</th>
+<th width="49" rowspan="1" colspan="1">特等座</th>
+<th width="49" rowspan="1" colspan="1">一等座</th>
+<th width="49" rowspan="1" colspan="1">二等座</th>
+<th width="49" rowspan="1" colspan="1">高级<br clear="none" />
+软卧</th>
+<th width="49" rowspan="1" colspan="1">软卧</th>
+<th width="49" rowspan="1" colspan="1">硬卧</th>
+<th width="49" rowspan="1" colspan="1">软座</th>
+<th width="49" rowspan="1" colspan="1">硬座</th>
+<th width="49" rowspan="1" colspan="1">无座</th>
+<th width="49" rowspan="1" colspan="1">其它</th>
+<th class="last" rowspan="1" colspan="1">备注</th>
+</tr>
+</thead>
+<tbody id="_query_table_datas" style="display: none"></tbody>
+</table>
+</div>
+</div>
+<!--页面主体  结束-->
+<!--页面底部  开始-->
+<div class="footer"><p><a href="http://www.12306.cn/mormhweb/gljd/gywm" target="true">关于我们</a>
+|<a href="http://www.12306.cn/mormhweb/gljd/wzls/" target="true">网站声明</a>
+</p>
+<p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+<p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+<!-- 检索车站下拉框 -->
+<div id="search_div" style="z-index: 1000; position: absolute;"><div id="form_cities"><div id="top_cities">操作提示</div>
+<div id="panel_cities"></div>
+<div id="flip_cities">翻页控制区</div>
+</div>
+</div>
+<!-- 选择车站下拉框 -->
+<div id="choice_div" style="z-index: 2000; position: absolute;"><div id="form_cities2"><div id="panel_cities2"></div>
+</div>
+</div>
+<div id="floatTable" class="t-list" style="display: none;width: 978px;"><table><tr class="th"><th width="90" rowspan="1" colspan="1">车次</th>
+<th width="100" rowspan="1" colspan="1"><div class="two-line"><span>出发站</span>
+<br clear="none" />
+<span>到达站</span>
+</div>
+</th>
+<th width="82" rowspan="1" colspan="1"><div class="two-line" id="floatstartendtime"></div>
+</th>
+<th width="82" rowspan="1" colspan="1"><span class="b2" id="other_span_lishi">历时</span>
+</th>
+<th width="49" rowspan="1" colspan="1">商务座</th>
+<th width="49" rowspan="1" colspan="1">特等座</th>
+<th width="49" rowspan="1" colspan="1">一等座</th>
+<th width="49" rowspan="1" colspan="1">二等座</th>
+<th width="49" rowspan="1" colspan="1">高级<br clear="none" />
+软卧</th>
+<th width="49" rowspan="1" colspan="1">软卧</th>
+<th width="49" rowspan="1" colspan="1">硬卧</th>
+<th width="49" rowspan="1" colspan="1">软座</th>
+<th width="49" rowspan="1" colspan="1">硬座</th>
+<th width="49" rowspan="1" colspan="1">无座</th>
+<th width="49" rowspan="1" colspan="1">其它</th>
+<th class="last" rowspan="1" colspan="1">备注</th>
+</tr>
+</table>
+</div>
+<div class="station" style="display:none;" id="train_div_"><b></b>
+<div class="station-info" id="train_span_"><span class="item1">T69</span>
+<span class="item2">北京南<em>--></em>
+乌鲁木齐</span>
+<span class="item3">特快</span>
+<span class="item4">空调</span>
+</div>
+<div class="station-hd"><span class="zx">站序</span>
+<span class="zm">站名</span>
+<span class="dzsj">到站时间</span>
+<span class="cfsj">出发时间</span>
+<span class="tlsj">停留时间</span>
+<a class="close" title="关闭" href="javascript:" onclick="myStopStation.close()"></a>
+</div>
+<div class="station-bd"><table><tbody id="train_table_"></tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
+<script xml:space="preserve">
+/*<![CDATA[*/
+ $.views.helpers({
+	 arriveDay : function(arrive_day_diff) {
+		if('0'==arrive_day_diff){
+			return "当日到达";
+		}else if('1'==arrive_day_diff){
+            return "次日到达";
+		}else if('2'==arrive_day_diff){
+			return "第三日到达";
+		}else{
+			return "第四日到达";
+		}
+	},
+	changeLiShi : function(value) {
+		if (value.substring(0,1) == "0") {
+			if (value.substring(1,2) == "0") {
+			    if (value.substring(3,4) == "0") {
+				    value = value.substring(4,5) + "分";
+			    } else {
+			    	value = value.substring(3,5) + "分";
+				}
+			} else {
+				value = value.substring(1,2) + "小时" + value.substring(3,5) + "分";
+			}
+		} else {
+			if (value.substring(3,5) == "00") {
+				value = value.substring(0,2) + "小时";
+			} else {
+			    value = value.substring(0,2) + "小时" + value.substring(3,5) + "分";;
+			}
+		}
+		return value;
+	},
+	isNum : function(value) {
+		if(''==value||'--'==value||'无'==value){
+			return 0;
+		}
+		//return parseInt(value);
+		return 1;
+	},
+	isZK : function(key,value) {
+		var _index=value?value.indexOf(key):-1;
+		var flag=false;
+		if(_index>-1&&(_index%2)==0){
+			flag=true;
+		}
+		return flag;
+	},
+	returnStr : function() {
+		
+		return '------';
+	}
+ });
+ var dateArr =['02-23','02-24','02-25','02-26','02-27','02-28','03-01','03-02','03-03','03-04','03-05','03-06','03-07','03-08','03-09','03-10','03-11','03-12','03-13','03-14','03-15','03-16','03-17','03-18','03-19','03-20','03-21','03-22','03-23','03-24'];
+ var fullDateArr =['2017-02-23','2017-02-24','2017-02-25','2017-02-26','2017-02-27','2017-02-28','2017-03-01','2017-03-02','2017-03-03','2017-03-04','2017-03-05','2017-03-06','2017-03-07','2017-03-08','2017-03-09','2017-03-10','2017-03-11','2017-03-12','2017-03-13','2017-03-14','2017-03-15','2017-03-16','2017-03-17','2017-03-18','2017-03-19','2017-03-20','2017-03-21','2017-03-22','2017-03-23','2017-03-24'];
+ var initFromDate = '2017-02-23';
+ /*]]>*/
+</script>
+<script id="queryTemplate" type="text/x-jsrender" xml:space="preserve"><!--
+ <tr class="{{:#index%2 ? '' : 'bgc'}}" id="ticket_{{>train_no}}">
+  <td colspan="4" width="370">
+          <div class="ticket-info clearfix" id='train_num_{{:#index+1}}'>
+              <div  class="train">
+				  {{if '1'==controlled_train_flag || '2'==controlled_train_flag}}
+                     <div><a href="javascript:" class="number">{{>station_train_code}}</a>
+                     </div>
+                     <span></span>
+                  {{else}}
+                     <div><a title="点击查看停靠站信息" onclick="myStopStation.open('{{:#parent.index+1}}','{{>train_no}}','{{>from_station_telecode}}','{{>to_station_telecode}}','{{>start_train_date}}','{{>train_seat_feature}}')" href="javascript:" class="number">{{>station_train_code}}</a>
+                       {{if is_support_card=='1'}}
+                          <span class="i-card" title="可凭二代身份证直接进出站"></span>   
+                       {{/if}} 
+                     </div>
+                     <span onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')" class="lookup" id="{{>train_no}}_{{>from_station_no}}_{{>to_station_no}}_{{>seat_types}}"><b></b></span>
+                  {{else}}        
+                  {{/if}} 
+              </div>
+              <div class="cdz">
+                  {{if start_station_telecode==from_station_telecode}}
+                    <strong class="start-s">{{>from_station_name}}</strong> 
+                  {{else}}
+                    <strong>{{>from_station_name}}</strong>  
+                  {{else}}        
+                  {{/if}} 
+                  {{if end_station_telecode==to_station_telecode}}
+                    <strong class="end-s">{{>to_station_name}}</strong> 
+                  {{else}}
+                    <strong>{{>to_station_name}}</strong> 
+                  {{else}}        
+                  {{/if}} 
+              </div>
+              <div class="cds">
+				  {{if '1'==controlled_train_flag || '2'==controlled_train_flag}}
+					<strong class="start-t"  style="color:#999;">{{>~returnStr()}}</strong>
+                    <strong class="color999">{{>~returnStr()}}</strong>
+				  {{else}}
+					<strong class="start-t">{{>start_time}}</strong>
+                    <strong class="color999">{{>arrive_time}}</strong>
+ 				  {{else}}        
+                  {{/if}} 
+                  
+              </div>
+              <div class="ls">
+				  {{if '1'==controlled_train_flag || '2'==controlled_train_flag}}
+					<strong class="color999" style="font-size: 14px;">{{>~returnStr()}}</strong>
+                    <strong class="color999" style="font-size: 14px;">{{>~returnStr()}}</strong>
+				  {{else}}
+					<strong>{{>~changeLiShi(lishi)}}</strong>
+                    <span class="color999">{{>~arriveDay(day_difference)}}</span>
+ 				  {{else}}        
+                  {{/if}} 
+              </div>
+          </div>
+         </td>
+         {{if ~isNum(swz_num)}}
+            {{if ~isZK('91',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>swz_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>swz_num}}</span></td>  
+            {{else}}        
+            {{/if}}
+         {{else}}
+            <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>swz_num}}</span></td> 
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(tz_num)}}
+            {{if ~isZK('P1',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>tz_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>tz_num}}</span></td>  
+            {{else}}        
+            {{/if}}  
+         {{else}}
+            <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>tz_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(zy_num)}}
+            {{if ~isZK('M1',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>zy_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>zy_num}}</span></td>  
+            {{else}}        
+            {{/if}}   
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>zy_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(ze_num)}}
+           {{if ~isZK('O1',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>ze_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>ze_num}}</span></td>  
+            {{else}}        
+            {{/if}} 
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>ze_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(gr_num)}}
+            {{if ~isZK('61',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>gr_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>gr_num}}</span></td>  
+            {{else}}        
+            {{/if}} 
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>gr_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(rw_num)}}
+           {{if ~isZK('41',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>rw_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>rw_num}}</span></td>  
+            {{else}}        
+            {{/if}}
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>rw_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(yw_num)}}
+           {{if ~isZK('31',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>yw_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>yw_num}}</span></td>  
+            {{else}}        
+            {{/if}}
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>yw_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(rz_num)}}
+           {{if ~isZK('21',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>rz_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>rz_num}}</span></td>  
+            {{else}}        
+            {{/if}}
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>rz_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(yz_num)}}
+           {{if ~isZK('11',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>yz_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>yz_num}}</span></td>  
+            {{else}}        
+            {{/if}} 
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>yz_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(wz_num)}}
+           {{if ~isZK('W1',yp_ex)}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333"><div class="sale" title="本席别票价打折">{{>wz_num}}<span class="i-mark">折</span></div></span></td>  
+            {{else}}
+                 <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>wz_num}}</span></td>  
+            {{else}}        
+            {{/if}} 
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>wz_num}}</span></td>
+         {{else}}        
+         {{/if}}
+         {{if ~isNum(qt_num)}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color333">{{>qt_num}}</span></td> 
+         {{else}}
+           <td width="49" class="cursor" onclick="$.showTicketPrice('{{>train_no}}','{{>wz_num}}','{{>controlled_train_flag}}')"><span class="color999">{{>qt_num}}</span></td>
+         {{else}}        
+         {{/if}}
+		 
+
+		{{if '1'==controlled_train_flag || '2'==controlled_train_flag}}
+			<td width="49" class="no-br"><span class="color999">{{>controlled_train_message}}</span></td>  
+	    {{else}}
+			{{if 'Y' == canWebBuy}}
+               <td width="49" class="no-br"><span class="color999">{{:note}}</span></td>  
+            {{else}}
+               <td width="49" class="no-br"><span class="color999">{{:note}}</span></td>  
+            {{else}}        
+            {{/if}}
+ 		{{else}}        
+        {{/if}} 
+
+         
+      </tr>
+      <tr id="price_{{>train_no}}" style="display:none;">
+      </tr>
+-->
+</script>
+<!-- 农历日历 -->
+<link href="/otn/resources/css/calendarNew.css" rel="stylesheet" />
+<script type="text/javascript" src="/otn/resources/js/framework/data.jcalendar.js" xml:space="preserve"></script>

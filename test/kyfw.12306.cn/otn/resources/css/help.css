@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+/*帮助*/
+.search{ height:20px; margin:10px 0}
+.s-search{ width:143px; height:22px; margin:30px auto 10px;}
+.search .s-box{ float:right}
+.s-box{ height:20px; width:141px; border:1px solid #125C94;}
+.s-box .txt{ width:120px; height:20px; line-height:20px; background:#fff; border:0 none; float:left; border-right:1px solid #125C94; color:#999; text-indent:5px;}
+.s-box .sub{ display:block; width:20px; height:20px; border:none; background-position:0 -850px; text-indent:-9999px; float:left}
+
+
+.help-tab{}
+.help-tab .hd{ height:70px; background:#298CCE; color:#fff;}
+.help-tab .hd li{ width:245px; height:30px; line-height:30px; padding:20px 0;  float:left; text-align:center; position:relative; font-family:"微软雅黑"; font-size:20px; cursor:pointer}
+.help-tab .hd li span{ display:inline-block; width:32px; height:30px; vertical-align:middle; margin-right:5px;}
+.help-tab .hd li .cjwt{ width:26px; height:26px; background-position:-60px -330px;}
+.help-tab .hd .on .cjwt{ background-position:-100px -330px;}
+.help-tab .hd li .syxz{ background-position:-60px -360px;}
+.help-tab .hd .on .syxz{ background-position:-100px -360px;}
+.help-tab .hd li .xggz{ height:24px; background-position:-60px -400px;}
+.help-tab .hd .on .xggz{ background-position:-100px -400px;}
+.help-tab .hd li b{ display:block; width:15px; height:6px; background-position:-60px -285px; position:absolute; top:71px; left:50%; margin-left:-8px; display:none; overflow: hidden}
+.help-tab .hd .on{ background:#66C8E8;}
+.help-tab .hd .on b{ display:block;}
+
+.help-tab .hd li .tlbx{ background: url(../images/bg17.png) no-repeat;}
+.help-tab .hd .on .tlbx{ background-position:-32px 0px;}
+
+.help-tab .bd{ border:1px solid #66C8E8; height:400px;}
+.help-tab .bd .down{ display:none}
+
+.question{ width:960px; margin:20px auto 0}
+.question li{ width:151px; height:160px; padding:0 10px 0 30px; float:left; border-right:1px dashed #999999} 
+.question .end{ border-right:none; width:152px;}
+.question .line20{ width:960px; height:1px; padding:0; background:#999; overflow:hidden; margin:20px 0;}
+.question dt{ height:38px; line-height:38px; font-family:"微软雅黑","黑体"; font-size:16px; font-weight:700; padding-left:16px;}
+.question dt a{ float:right; color:#0080FF; font-family:"宋体"; font-weight:400; font-size:12px;}
+.question dd{ background:url(../images/bg_li01.png) left center no-repeat; height:22px; line-height:22px; padding-left:16px;}
+.question dd a{ color:#666;}
+.question dd a:hover{ color:#000; text-decoration:underline}
+
+
+
+.help-tab .list{ padding-top:30px;}
+.help-tab .list li{ float:left; padding:0 93px; margin-bottom:20px;}
+.help-tab .list li a{ display:block;width:300px; height:60px; line-height:60px; text-align:center; border:1px solid #66C8E8;font-family:"微软雅黑","黑体"; font-size:16px; color:#666;}
+.help-tab .list li a:hover{ background:#66C8E8; color:#fff;}
+
+.help-tab .list-lg li{padding:0 83px;}
+.help-tab .list-lg li a{  width:320px; }
+/*常见问题*/
+.my .lay-bd{ position:relative; z-index:0; background:#EEF1F8; padding:20px 14px;}
+.my dl{ position:relative; }
+.my dl dd{ display:none;}
+.my .on dd{ display:block; white-space:nowrap; text-overflow:ellipsis; overflow: hidden;}
+.my dl dt,.my dl dd{ height:39px; line-height:39px; border-bottom:1px solid #ddd;vertical-align:bottom;}
+.my dl dt{ position:relative;}
+.my dl dt b{ display:block; width:8px; height:14px; background-position:-20px -65px; position:absolute; top:13px; right:0;}
+.my .on dt b{width:14px; height:8px; background-position:0 -85px;top:15px;}
+.my dl a:hover{ color:#66C8E8;}
+.my dl .prev{border-bottom:1px solid #fff;}/*设置移入的上一项边框是白色*/
+.my dl .cur{ border-bottom:1px solid #fff;}/*设置移入项边框是白色*/
+.my dl .last{ border-bottom:none;}
+.my dl .cur-txt,.my dl .cur a{ color:#66C8E8; }
+.my dl dt a{ font-size:14px; color:#333}
+.my dl dd a{ color:#666; padding-left:28px;}
+.nav-label{ width:198px; height:41px; z-index:-1; background:#fff; position:absolute; left:0px; _left:-14px; top:59px;}
+.nav-label span{ display:block; width:5px; height:100%; background:#66C8E8; float:left}
+
+.q-list{}
+.q-list li{ border:1px solid #66C8E8; margin-bottom:10px;}
+.q-list li dt{ cursor:pointer}
+.q-list dt{ line-height:34px; font-size:14px; padding-left:10px;}
+.q-list dd{ padding:5px 0 5px 8px; line-height:22px; color:#666; display:none}
+.q-list .on dt{ background:#66C8E8; color:#fff;}
+.q-list .on dd{ display:block;}
+
+/*使用须知*/
+.txt-box{ border:1px solid #2A8CCE; padding:20px;}
+.txt-box h1{ text-align:center; font-size:16px;}
+.txt-box h2{ font-size:14px; line-height:30px; margin-top:20px;}
+.txt-box p{ line-height:22px; color:#666;}
+.txt-box .tc{ padding-left:0}

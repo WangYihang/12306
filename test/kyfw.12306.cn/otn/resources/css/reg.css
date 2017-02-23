@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*注册步骤*/
+.step{ height:30px; margin-bottom:10px;}
+.step li{ width:225px; height:30px; line-height:30px; padding-right:20px; background:#E3EDF4;float:left; color:#999; text-align:center; font-weight:400;position:relative; font-size:14px; overflow:hidden}
+.step li.current{ background:#60C6E7;color:#FFF; font-weight:700;}
+.step li em{display:block;width:20px; height:30px; background-position:-60px -140px; position:absolute; top:0; right:-1px;}
+.step li.current em{background-position:-80px -140px;}
+.step .past{ background:#60C6E7; color:#fff; font-weight:700;}
+.step .past em{ background-position:-100px -140px; }
+
+.reg .lay-bd{ background:#fff; padding:0 10px;}
+.reg-list{ padding-top:40px;}
+.reg-list li{ height:30px; line-height:30px; margin-bottom:5px;}
+
+.reg-list li{zoom:1;}
+.reg-list li:after{display:block;clear:both;height:0;content:"\0020";}
+
+.reg-list .label{ display:block; height:30px; float:left; text-align:right; width:375px; padding-right:5px;}
+.reg-list label.error{display:block;margin-left:380px;padding-bottom:4px;}
+.reg-list li label.error{float:left;display:inline;margin-left:4px;margin-top:2px;}
+.reg-list .safe-rank span{float:left;display:inline;}
+.reg-list .r-txt{ float:left;}
+.reg-list .tips{ float:left;display:inline;margin-left:8px;color:#FF7F00;height:30px; line-height:30px;}
+.reg-list .tips .icon{ margin-top:7px;}
+.reg .line{ height:1px; line-height:1px; border-top:1px dashed #999; margin:50px 0;}
+.reg .lay-btn{ padding:0; margin:50px 0}
+.w200sel{ width:202px;}
+.fg-line{ display:inline-block; width:18px; height:18px; line-height:18px; padding:6px 0; text-align:center}
+
+.reg-list .yzm{ float:left}
+.reg-list .yzm input{ float:left; margin-right:10px; width:90px;}
+.reg-list .yzm .img{ display:block; width:82px; height:39px; border:1px solid #999; margin-right:10px; float:left}
+.reg-list .yzm .img img{width:58px; height:28px;}
+.reg-list .yzm .i-re{ display:block; float:left; margin-top:5px;}
+
+/*服务条款*/
+.contract{ padding-bottom:50px;}
+.contract h1{ font-family:"微软雅黑","黑体"; font-size:18px; text-align:center; line-height:60px;}
+.contract h2{ font-size:14px; line-height:30px;}
+.contract .tit{ color:#333; font-size:14px;}
+.contract p{ text-indent:2em; line-height:22px; color:#666}
+
+/*注册成功*/
+.reg-succ{ margin-top:10px; background:#EDFFCC; border:1px solid #298CCE; position:relative}
+.reg-succ .reg-tips{ padding:20px 0 0 45px;}
+.reg-succ .greet{ font-size:16px; color:#26A306; line-height:30px; font-weight:700}
+.reg-succ .tips{ border-top:1px dashed #999; background:#FFFBE5; color:#666; line-height:25px; padding-left:10px; font-size:12px;}
+.reg-succ .tips strong{ color:#333}
+.i-success{ float:left; margin-right:20px; margin-bottom:20px;}
+
+/*取回密码*/
+.find-pass{ margin-top:20px;}
+.find-pass .hd{ height:70px; background:#298CCE; color:#fff;}
+.find-pass .hd li{ width:326px;height:40px; line-height:40px; padding:15px 0;  float:left; text-align:center; position:relative; font-family:"微软雅黑"; font-size:20px; cursor:pointer;}
+.find-pass .hd .on{ width: 328px;}
+.find-pass .hd li span{ display:inline-block; width:32px; height:30px; vertical-align:middle; margin-right:5px;}
+.find-pass .hd li .answer{ background-position:-60px -250px;}
+.find-pass .hd .on .answer{ background-position:-100px -250px;}
+.find-pass .hd li .email{ height:26px; background-position:-60px -300px;}
+.find-pass .hd .on .email{ background-position:-100px -300px;}
+.find-pass .hd li .phone{ width: 28px; height:40px; background-position:-60px -440px;}
+.find-pass .hd .on .phone{ background-position: -105px -440px;}
+
+.find-pass ._hd{ height:70px; background:#298CCE; color:#fff;}
+.find-pass ._hd li{ width:50%;height:30px; line-height:30px; padding:20px 0;  float:left; text-align:center; position:relative; font-family:"微软雅黑"; font-size:20px; cursor:pointer}
+.find-pass ._hd li span{ display:inline-block; width:32px; height:30px; vertical-align:middle; margin-right:5px;}
+.find-pass ._hd li .email{ background-position:-60px -250px;}
+.find-pass ._hd .on .email{ background-position:-100px -250px;}
+.find-pass ._hd li .answer{ height:26px; background-position:-60px -300px;}
+.find-pass ._hd .on .answer{ background-position:-100px -300px;}
+.find-pass ._hd li b{ display:block; width:15px; height:6px; background-position:-60px -285px; position:absolute; top:71px; left:50%; margin-left:-8px; display:none; overflow: hidden}
+.find-pass ._hd .on{ background:#66C8E8;}
+.find-pass ._hd .on b{ display:block;}
+.find-pass .bd{ border:1px solid #66C8E8; height:450px;}
+.find-pass .bd .down{ display:none}
+
+.find-pass .hd li b{ display:block; width:15px; height:6px; background-position:-60px -285px; position:absolute; top:71px; left:50%; margin-left:-8px; display:none; overflow: hidden}
+.find-pass .hd .on{ background:#66C8E8;}
+.find-pass .hd .on b{ display:block;}
+.find-pass .bd{ border:1px solid #66C8E8; height:450px;}
+.find-pass .bd .down{ display:none}
+
+.pass-succ{ font-size:14px; text-align:center; margin-top:50px; margin-bottom:20px; font-weight:700}
+
+.find-step{ width: 940px; margin: 40px auto; }
+.find-step .step-pic{background: url(../images/bg_step.png) top center no-repeat; height: 36px; }
+.find-step li{ float: left; line-height: 24px;}
+.find-step .step-txt1{ width: 285px;}
+.find-step .step-txt2{ width: 300px;}
+.find-step .step-txt3{ width: 308px;}
+.find-step2 .step-pic{ background-position: center -40px;}
+.find-step3 .step-pic{ background-position: center -80px;}
+.find-step4 .step-pic{ background-position: center -120px;}
+
+
+
+
+
+
+

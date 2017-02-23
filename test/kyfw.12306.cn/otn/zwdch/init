@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>出行向导 | 客运服务 | 铁路客户服务中心</title>
+<link rel="icon" href="/otn/resources/images/ots/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/otn/resources/images/ots/favicon.ico" type="image/x-icon" />
+<link href="/otn/resources/merged/zwdch_css.css?cssVersion=1.8968" rel="stylesheet" />
+<script src="/otn/resources/js/i18n/messages_zh_CN.js" type="text/javascript" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/rich/dhtmlxcommon.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/rich/dhtmlxCombo/dhtmlxcombo.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/rich/message/dhtmlxmessage.js" xml:space="preserve"></script>
+<script src="/otn/resources/js/framework/jquery-1.9.1.js" type="text/javascript" xml:space="preserve"></script>
+<script src="/otn/resources/js/framework/data.jcokies.js" type="text/javascript" xml:space="preserve"></script>
+<script src="/otn/resources/js/framework/jquery.validate.js" type="text/javascript" xml:space="preserve"></script>
+<script src="/otn/resources/js/common.js" type="text/javascript" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/framework/jquery.SuperSlide.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/framework/formCheck.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/framework/favorite_name.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/framework/station_name.js?station_version=1.8997" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/framework/city_name.js" xml:space="preserve"></script>
+<script type="text/javascript" src="/otn/resources/js/i18n/messages_zwdch_zh_CN.js" xml:space="preserve"></script>
+<script src="/otn/resources/js/query/zwdch.js" type="text/javascript" xml:space="preserve"></script>
+</head>
+<body><div id="dialog_result" style="display: none;"><div class="mark"></div>
+<div class="up-box"><div class="up-box-hd">正晚点查询结果<a id="dialog_result_close" href="javascript:" shape="rect">关闭</a>
+</div>
+<div class="up-box-bd"><div class="up-con clearfix"><span class="icon i-win"></span>
+<div class="r-txt"><div class="tit" id="result_div">K604次列车，正点到达霍州站的时间为<span class="colorA">15:45</span>
+，列车正点到达</div>
+</div>
+</div>
+<div class="lay-btn"><a href="javascript:" id="dialog_result_ok" class="btn92s" shape="rect">确认</a>
+</div>
+</div>
+</div>
+</div>
+<!--header start-->
+<div class="header"><div style="z-index: 2000" class="header-bd"><a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1>
+</a>
+<div class="login-info"><div class="phone-link"><a href="/otn/appDownload/init" target="true">手机版</a>
+</div>
+<div class="menu"><a href="/otn/index/initMy12306" class="menu-bd" id="js-my">我的12306<b></b>
+</a>
+<div class="menu-list"><b></b>
+<ul><li><a href="/otn/queryOrder/initNoComplete">未完成订单</a>
+</li>
+<li><a href="/otn/queryOrder/init">已完成订单(改/退)</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/insurance/init">我的保险</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/modifyUser/initQueryUserInfo">查看个人信息</a>
+</li>
+<li><a href="/otn/userSecurity/init">账户安全</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/passengers/init">常用联系人</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/icentre/qxyyInfo">重点旅客预约</a>
+</li>
+<li><a href="/otn/icentre/lostInfo">遗失物品查找</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/icentre/serviceQuery">服务查询</a>
+</li>
+<li class="line"></li>
+<li><a href="/otn/advice/complaintInfo">投诉</a>
+</li>
+<li><a href="/otn/advice/adviceInfo">建议</a>
+</li>
+</ul>
+</div>
+</div>
+<span class="login-txt" style="color: #666666"><span>意见反馈:<a class="cursor colorA" href="mailto:12306yjfk@rails.com.cn">12306yjfk@rails.com.cn</a>
+          您好，请</span>
+<a id="login_user" href="/otn/login/init" class="colorA" style="margin-left:-0.5px;">登录</a>
+| <a id="regist_out" href="/otn/regist/init">注册</a>
+</span>
+</div>
+<div class="nav"><ul><li><a href="/otn/index/init">客运首页</a>
+</li>
+<li id="selectYuding"><a href="/otn/leftTicket/init">车票预订</a>
+</li>
+<li><a href="/otn/leftTicket/init">余票查询</a>
+</li>
+<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+<div class="nav-list"><ul style="font-weight:normal"><li><a href="/otn/queryTrainInfo/init">车次查询</a>
+</li>
+<li><a href="/otn/leftTicketPrice/init">票价查询</a>
+</li>
+<li><a href="/otn/leftTicketPrice/initPublicPrice">公布票价查询</a>
+</li>
+<li><a href="/otn/czxx/init">车站车次查询</a>
+</li>
+<li><a href="/otn/zzzcx/init">中转查询</a>
+</li>
+<li><a href="/otn/zwdch/init">正晚点查询</a>
+</li>
+<li><a href="/otn/queryAgencySellTicket/init">代售点查询</a>
+</li>
+</ul>
+</div>
+</li>
+<li id="selectHelp"><a href="/otn/gonggao/help.html">信息服务</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!--header end-->
+<!--页面主体  开始-->
+<div class="content"><div class="line30"></div>
+<!--出行向导导航 开始-->
+<!-- div class="guide-nav" th:include="common::guide-frag">
+    	<ul>
+        	<li><a href="列车信息查询.html">列车信息查询</a></li>
+            <li><a href="czxxcx.html">车站信息查询</a></li>
+            <li><a href="中转查询.html">中转查询</a></li>
+            <li><a href="#nogo" class="cur">正晚点查询</a></li>
+            <li class="last"><a href="客票代售点.html">客票代售点</a></li>
+        </ul>
+    </div -->
+<!--出行向导导航 结束-->
+<!--正晚点查询 开始-->
+<form action="" id="_queryForm" method="get" enctype="application/x-www-form-urlencoded"><div class="lay-zwd"><ul><li><span class="label">查询类型</span>
+<div class="r-txt"><span class="mr15"><input id="radio_cxlx0" name="cxlx" value="0" type="radio" class="radio" checked="checked" />
+<label for="radio_cxlx0" id="label_cxlx0">到达站</label>
+</span>
+<span><input id="radio_cxlx1" name="cxlx" value="1" type="radio" class="radio" />
+<label for="radio_cxlx1" id="label_cxlx1">出发站</label>
+</span>
+</div>
+</li>
+<li><span class="label"><b>*</b>
+车站</span>
+<div class="r-txt"><input name="cz" id="cd_codeText" type="text" value="简拼/全拼/汉字" class="inptxt w150" />
+<input name="cd_code" id="cd_code" type="hidden" />
+</div>
+</li>
+<li><span class="label"><b>*</b>
+车次</span>
+<div class="r-txt" id="train_combo_box_div"><span class="inptxt w150" id="train_combo_box" style="float: left;"></span>
+</div>
+<label id="label4cc" class="error" style="margin-left: 25px;display: none;"></label>
+</li>
+<li id="randCodeLi" style="display: none;"><span class="label"><b>*</b>
+验证码</span>
+<div class="r-txt yzm"><input maxlength="4" autocomplete="off" name="randCode" id="randCode" type="text" class="inptxt w70 color333" />
+<span class="img"><img src="/otn/passcodeNew/getPassCodeNew?module=other&amp;rand=sjrand" onclick="refreshImg(&#39;other&#39;,&#39;sjrand&#39;)" title="单击刷新验证码" id="img_rand_code" />
+<!-- 	
+                		<img src="https://kyfw.12306.cn/map_zwdcx/code.jsp"
+                				onclick="refreshImg2()" title="单击刷新验证码" id="img_rand_code" />
+                		 -->
+</span>
+<span class="i-re" onclick="refreshImg(&#39;other&#39;,&#39;sjrand&#39;)" title="单击刷新验证码" id="img_rand_code2"></span>
+<span id="i-ok" class="tips"></span>
+</div>
+</li>
+</ul>
+<div class="lay-btn"><a id="_a_search_btn" href="javascript:$._to_search()" class="btn122s" shape="rect">查询</a>
+</div>
+</div>
+</form>
+<!--正晚点查询 结束-->
+<div class="tips-txt"><div class="zwd-result" style="display: none"><strong>K604</strong>
+次列车，正点到达霍州站的时间为<span class="colorA">15:45</span>
+，列车正点到达 。</div>
+<h2>使用说明：</h2>
+<P>1.本查询提供未来3小时内列车正晚点信息。</P>
+<P>2.车站输入支持简拼/全拼/汉字输入，例如:[北京]->BJ。</P>
+<p>3.本功能及查询结果仅作为参考，准确信息以车站公告为准。</p>
+</div>
+</div>
+<!--页面主体  结束-->
+<!--页面底部  开始-->
+<div class="footer"><p><a href="http://www.12306.cn/mormhweb/gljd/gywm" target="true">关于我们</a>
+|<a href="http://www.12306.cn/mormhweb/gljd/wzls/" target="true">网站声明</a>
+</p>
+<p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+<p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+<!-- 检索车站下拉框 -->
+<div id="search_div" style="z-index: 1000; position: absolute;"><div id="form_cities"><div id="top_cities">操作提示</div>
+<div id="panel_cities"></div>
+<div id="flip_cities">翻页控制区</div>
+</div>
+</div>
+<!-- 选择车站下拉框 -->
+<div id="choice_div" style="z-index: 2000; position: absolute;"><div id="form_cities2"><div id="panel_cities2"></div>
+</div>
+</div>
+</body>
+</html>
+<script xml:space="preserve">
+
+/*<![CDATA[*/
+ var ctx='/otn/';
+ var global_lang = 'zh_CN';
+ var sessionInit = '';
+ var openRandCodeCheck = 'Y';
+ /*]]>*/
+</script>
