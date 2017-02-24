@@ -34,6 +34,8 @@ def getStationCode(station_name):
     return result
 
 def getStationCodes(station_name):
+    if not station_name:
+        return
     global station_names_version
     results = []
     # 读取文件
@@ -58,6 +60,8 @@ def getStationCodes(station_name):
     return results
 
 def printStationInfo(station_info):
+    if not station_info:
+        return
     print "[ %s ] -> [ %s ]" % (station_info["station_name"], station_info["station_code"])
 
 def printStationsInfo(station_info):
