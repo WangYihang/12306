@@ -14,19 +14,28 @@ def main():
     if argv_length == 4:
         init()
         TIME = sys.argv[1]
-        FROM = stations.getStationCode(sys.argv[2])['station_code']
-        TO = stations.getStationCode(sys.argv[3])['station_code']
+        try:
+            FROM = stations.getStationCode(sys.argv[2])['station_code']
+        except:
+            print "出发站点不存在!"
+            exit(1)
+        try:
+            TO = stations.getStationCode(sys.argv[3])['station_code']
+        except:
+            print "目的站点不存在!"
+            exit(1)
         print "查询中..."
         queryResult =  querier.querier(TIME, FROM, TO, "ADULT")
         length = queryResult.length
         for i in range(length):
             print "=" * 36
+            print "列车号 : ", queryResult.getStationTrainCode(i)
             print "首发站 : ", queryResult.getStartStationName(i)
             print "起始站 : ", queryResult.getFromStationName(i)
             print "终点站 : ", queryResult.getEndStationName(i)
             print "到达站 : ", queryResult.getToStationName(i)
             print "出发时间 : ", queryResult.getStartTime(i)
-            print "到达时间", queryResult.getArriveTime(i)
+            print "到达时间 : ", queryResult.getArriveTime(i)
             print "其他 : ", queryResult.getQitaNumber(i)
             print "无座", queryResult.getWuzuoNumber(i)
             print "硬座 : ", queryResult.getYingzuoNumber(i)
