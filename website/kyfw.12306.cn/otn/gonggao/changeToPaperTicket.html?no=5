@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+<title>信息服务 | 客运服务 | 铁路客户服务中心</title>
+<script src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript"></script>
+<!-- js i18n -->
+<script src="../resources/js/i18n/messages_zh_CN.js" type="text/javascript"></script>
+<script src="../resources/js/rich/dhtmlxcommon.js"></script>
+<script src="../resources/js/rich/windows/dhtmlxwindows.js" type="text/javascript"></script>
+<script src="../resources/js/rich/dhtmlxcontainer.js" type="text/javascript"></script>
+<script src="../resources/js/framework/baseInit.js" type="text/javascript"></script>
+<script script="javascript">
+/*<![CDATA[*/
+ var ctx="";
+ /*]]>*/
+</script>
+<script src="../resources/js/common.js" type="text/javascript"></script>
+<link href="../resources/css/common.css" rel="stylesheet" />
+<link href="../resources/css/help.css"  rel="stylesheet"  type="text/css" />
+<script src="../resources/js/help/help.js"></script>
+
+<script type="text/javascript">
+	$(function(){$.sidebar_init(48);});
+</script>
+</head>
+<body>
+<!--header start-->
+<div class="header" th:include="common::header-frag">
+		<div class="header-bd">
+		<a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1></a>
+		<div class="login-info">
+			<div class="menu">
+				<a  class="menu-bd" id="js-my" href="../index/initMy12306">我的12306<b></b></a>
+				<div class="menu-list">
+					<b></b>
+					<ul>		
+						<li><a  href="../queryOrder/initNoComplete">未完成订单</a></li>	
+						<li><a  href="../queryOrder/init">已完成订单(改/退)</a></li>
+						<li class="line"></li>
+						<li><a href="../modifyUser/initQueryUserInfo">查看个人信息</a></li>
+						<li><a href="../userSecurity/init">账户安全</a></li>
+						<li class="line"></li>						
+						<li><a href="../passengers/init">常用联系人</a></li>
+					</ul>
+				</div>
+			</div>
+			<span class="login-txt" style="color: #666666"><span></span><a id="login_user" href="../login/init" class="colorA" style="margin-left:-0.5px;">登录</a>| <a id="regist_out" href="../regist/init">注册</a>
+			</span>
+			<!-- 
+            <span class="login-txt">
+            	<a id="" href="#nogo" class="colorA" th:if="${null!=session}" th:text="${session._CURRENT_USER.loginUserDTO.user_name}"></a>
+            	<a href="#" th:if="${session==null}">登录</a>|<a href="#nogo">注册</a>
+            </span>
+             var session = /*[[${session._CURRENT_USER.loginUserDTO.user_name}]]*/;    th:href="(${username})?${#httpServletRequest.contextPath}+'/login/init':${#httpServletRequest.contextPath}+'/index/initMy12306'" th:text="#{loginOrName}" -->
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="../index/init">客运首页</a></li>
+				<li id="selectYuding"><a href="../leftTicket/init">车票预订</a></li>
+				<li><a href="../lcxxcx/init">余票查询</a></li>
+				<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+					<div class="nav-list">
+						<ul style="font-weight:normal">
+							<li><a href="../queryTrainInfo/init">车次查询</a></li>
+							<li><a href="../leftTicketPrice/init">票价查询</a></li>
+							<li><a href="../czxx/init" >车站车次查询</a></li>
+							<li><a href="../zzzcx/init" >中转查询</a></li>
+							<li><a href="../zwdch/init" >正晚点查询</a></li>
+							<li><a href="../queryAgencySellTicket/init">代售点查询</a></li>
+						</ul>
+					</div></li>
+				<li id="selectHelp"><a href="../gonggao/help.html">信息服务</a></li>
+			</ul>
+		</div>
+
+
+	</div>
+</div>
+<!--header end-->
+
+<!--页面主体  开始-->
+<div class="content clearfix">
+	<!--当前位置 开始-->
+    <div class="crumbs">
+    	您现在的位置：<a href="../index/init">客运首页</a>&nbsp;>&nbsp;<a href="../gonggao/help.html">信息服务</a>&nbsp;>&nbsp;<a href="#nogo" >常见问题</a>&nbsp;>&nbsp;<strong>换取纸质车票</strong>
+    </div>
+    <!--当前位置 结束-->
+    
+	<!--左侧导航 开始-->
+    <div class="sidebar">
+        <div class="layout my">
+            <div class="lay-hd">常见问题</div>
+            <div class="lay-bd">
+                <div class="nav-label" style="display: none"><span></span></div>
+                <dl>
+                    <dt><a href="#nogo">车票</a><b></b></dt>
+                    <dd id="help1_1"><a id="ticketType" href="#nogo">车票的种类</a></dd>
+                    <dd id="help1_2"><a id="realNameTicket" href="#nogo">实名制车票</a></dd>
+                    <dd id="help1_3"><a id="reimburseVoucher" href="#nogo">报销凭证</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">购票</a><b></b></dt>
+                    <dd id="help2_1"><a id="ticketWindow" href="#nogo">售票窗口购票</a></dd>
+                    <dd id="help2_2"><a id="ticketVendor" href="#nogo">自动售票机购票</a></dd>
+                    <dd id="help2_3"><a id="phoneBooking" href="#nogo">电话订票</a></dd>
+                    <dd id="help2_4"><a id="onlineBooking" href="#nogo">互联网购票、换票</a></dd>
+                </dl>
+                <dl>
+                     <dt><a href="#nogo">改签、变更到站</a><b></b></dt>
+                    <dd id="help3_1"><a id="windowEndorse" href="#nogo">售票窗口改签、变更到站</a></dd>
+                    <dd id="help3_2"><a id="onlineEndorse" href="#nogo">互联网改签、变更到站</a></dd>
+                    <dd id="help3_3"><a id="changeOrDelay" href="#nogo">列车变更或延迟</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">退票</a><b></b></dt>
+                    <dd id="help4_1"><a id="windowRefund" href="#nogo">售票窗口退票</a></dd>
+                    <dd id="help4_2"><a id="onlineRefund" href="#nogo">互联网退票</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">特殊旅客服务</a><b></b></dt>
+                    <dd id="help5_1"><a id="children" href="#nogo">儿童</a></dd>
+                    <dd id="help5_2"><a id="student" href="#nogo">学生</a></dd>
+                    <dd id="help5_3"><a id="disabledSoldier" href="#nogo">残疾军人</a></dd>
+                    <dd id="help5_4"><a id="disabledPassenger" href="#nogo">残疾旅客</a></dd>
+                    <dd id="help5_5"><a id="groupPassengers" href="#nogo">团体旅客</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">携带品和行李</a><b></b></dt>
+                    <dd id="help6_1"><a id="luggage" href="#nogo">随身携带品</a></dd>
+                    <dd id="help6_2"><a id="luggageTransportation" href="#nogo">行李托运</a></dd>
+                    <dd id="help6_3"><a id="insuredTransportation" href="#nogo">保价运输</a></dd>
+                    <dd id="help6_4"><a id="compensation" href="#nogo">索赔</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">进站乘车</a><b></b></dt>
+                    <dd id="help7_1"><a id="enterAndExit" href="#nogo">进出站</a></dd>
+                    <dd id="help7_2"><a id="riding" href="#nogo">乘车</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">特殊情况 </a><b></b></dt>
+                    <dd id="help8_1"><a id="soldByMistake" href="#nogo">误售误购</a></dd>
+                    <dd id="help8_2"><a id="ticketLost" href="#nogo">丢失车票</a></dd>
+                    <dd id="help8_3"><a id="sickOnTheTrain" href="#nogo">途中生病</a></dd>
+                    <dd id="help8_4"><a id="personalInjury" href="#nogo">人身伤害</a></dd>
+                    <dd id="help8_5"><a id="lostItem" href="#nogo">遗失物品</a></dd>
+                    <dd id="help8_6"><a id="airconditionMalfunction" href="#nogo">空调故障</a></dd>
+                    <dd id="help8_7"><a id="trafficSuspension" href="#nogo">运输中断</a></dd>
+                    <dd id="help8_8"><a id="specialLine" href="#nogo">特殊线路</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="#nogo">客运服务</a><b></b></dt>
+                    <dd id="help9_1"><a id="railwayService" href="#nogo">站车服务</a></dd>
+                    <dd id="help9_2"><a id="dining" href="#nogo">餐饮</a></dd>
+                </dl>
+                <dl class="on">
+                    <dt><a href="#nogo">互联网售票</a><b></b></dt>
+                    <dd id="help10_1"><a id="checkIdentity" href="#nogo">身份核验</a></dd>
+                    <dd id="help10_2"><a id="register" href="#nogo">用户注册</a></dd>
+                    <dd id="help10_3"><a id="buyTicket" href="#nogo">购票</a></dd>
+                    <dd id="help10_4"><a id="onlinePay" href="#nogo">在线支付</a></dd>
+                    <dd id="help10_5"><a id="endorseAndRefund" href="#nogo">改签、变更到站、退票</a></dd>
+                    <dd id="help10_6"><a id="changeToPaperTicket" href="#nogo">换取纸质车票</a></dd>
+                    <dd id="help10_7"><a id="sgc" href="#nogo">使用居民身份证直接检票乘车</a></dd>
+                </dl>
+
+                <!--点击后DL添加样式on后下拉项DD会自动下限-->
+            </div>
+        </div>
+    </div>
+    <!--左侧导航 结束-->
+    
+    <!-- 右侧主体开始 -->
+    <div class="main">
+    	<ul class="q-list">
+        	<li class="on">
+            	<dt>1. 哪些情况需要换取纸质车票？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp;  在12306.cn网站购票后，遇以下情形，请在购票后、开车前换取纸质车票后进站乘车：<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （1）使用居民身份证购票但乘车站或下车站不具备居民身份证检票条件的。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （2）使用居民身份证购票但进站检票时无法出示居民身份证原件或居民身份证无法在自动检票机上识读的。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （3）使用居民身份证以外的其他有效身份证件购票。 <br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （4）使用同行成年人有效身份证件信息购买儿童票的。 <br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （5）购买学生票、残疾军人票的。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （6）按所购车票的乘车日期、车次在中途站进站乘车的。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;  旅客换取纸质车票后，不能再在12306.cn网站办理改签、变更到站、退票，请凭纸质车票办理改签、变更到站、退票、实名制验证、检票、验票。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>2. 如何换取纸质车票？</dt>
+                <dd>
+           &nbsp;&nbsp;&nbsp;&nbsp;  在12306.cn网站购票后，需换取纸质车票时，请按如下方式办理：<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （1）使用居民身份证购票的，可凭购票时所使用的乘车人有效居民身份证原件到车站售票窗口、铁路客票代售点或车站自动售票机上办理。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （2）居民身份证无法自动识读或者使用居民身份证以外的其他有效身份证件购票的，请携带购票时所使用的乘车人有效身份证件原件和订单号码（E+9位数字），到车站售票窗口或铁路运输企业授权的铁路客票代售点，由售票员录入证件号码和订单号码并核实后办理。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （3）购买学生票的，请凭购票时所使用的有效身份证件和附有学生火车票优惠卡的学生证（均为原件）到安装有学生火车票优惠卡识别器的车站售票窗口或铁路客票代售点办理。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （4）购买残疾军人票的，请凭购票时所使用的有效身份证件和“中华人民共和国残疾军人证”、“中华人民共和国伤残人民警察证”（均为原件）到安装有优惠卡识别器的车站售票窗口办理。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; （5）有效身份证件信息、订单号码等不一致的，不能换票。学生票、残疾军人票同时核对减价优惠（待）凭证。学生票还要核减优惠乘车次数。<br/>
+                </dd>
+            </li>
+
+            <li>
+            	<dt>3. “请报验”常用联系人（乘车人）如何换票？ </dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; “请报验”常用联系人（乘车人）在12306.cn网站购票后，请持在12306.cn网站填写的港澳居民来往内地通行证、台湾居民来往大陆通行证、按规定可使用的有效护照（均为原件）到车站售票窗口办理身份信息核验，通过预核验后（身份信息核验状态变更为“预通过”），可换取纸质车票。<br/>
+                </dd>
+            </li>
+            
+            <li>
+            	<dt>4. 如何在自动售（取）票机换取纸质车票？ </dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 在自动售（取）票机，请将乘车人的居民身份证原件，放在指定位置，由机器自动识读后，按提示操作，即可换取纸质车票。<br/>
+                </dd>
+            </li>
+           	<li>
+            	<dt>5. 换取纸质车票是否收费？</dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 在车站售票窗口换取本地乘车站车票时，不收取任何服务费；换取其他乘车地车站车票时，每张车票收取5元异地售票手续费。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 在铁路客票代售点窗口换票时（包含本地和异地），每张车票收取5元客票销售服务费。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 在自动售（取）机上换票时，不收服务费。<br/>
+                </dd>
+            </li>
+            <li>
+            	<dt>6. 旅客在12306网站购票成功，在窗口取票时为何系统提示错误？</dt>
+                <dd>
+             &nbsp;&nbsp;&nbsp;&nbsp; 产生这种情况，主要原因是旅客在网上购票时，订票人将乘车人的有效证件号码输入错误，或者在购买儿童票时，使用儿童户口簿上的身份证号码，但取票时，使用了成年人的身份证件。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 遇有上述情况时，请站售票厅值班主任窗口办理。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 请旅客在12306.cn网站购买车票时，正确录入相关信息，认真核对乘车人有效证件号码。<br/>
+                </dd>
+            </li>
+        </ul>
+	</div>
+ 	<!-- 右侧主体结束 -->	  
+</div>
+<!--页面主体  结束-->
+
+<!--页面底部  开始-->
+<div class="footer">
+	<p><a href="#nogo">关于我们</a>|<a href="#nogo">网站声明</a></p>
+    <p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+    <p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+
+</body>
+</html>
+	

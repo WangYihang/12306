@@ -1,0 +1,185 @@
+@charset "utf-8";
+/* CSS Document */
+
+.guide-nav{ border:1px solid #1678BE; border-radius:5px 5px 0 0; -moz-border-radius:5px 5px 0 0; -ms-border-radius:5px 5px 0 0; -o-border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; background-position:0 -400px; height:32px; line-height:30px; color:#E5F8FF; padding-left:20px; font-size:14px; position:relative; margin-top:10px;}
+.guide-nav li{ float:left; width:130px; padding:5px 6px 0 4px; background: url(../images/bg_line.png) right center no-repeat;}
+.guide-nav .last{ background:none;}
+.guide-nav li a{ color:#E5F8FF; display:block; width:130px; height:25px; line-height:25px; text-align:center}
+.guide-nav li a:hover{ color:#fff}
+.guide-nav li .cur{ background:#66C8E8; color:#fff; border-radius:5px 5px 0 0; -moz-border-radius:5px 5px 0 0; -ms-border-radius:5px 5px 0 0; -o-border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0}
+
+/*车票搜索框*/
+.lay-sear{ height:80px; padding:7px 0px; background:#EEF1F8; font-size:14px; border:1px solid #298CCE; margin:10px 0; border-radius:3px; -moz-border-radius:3px; -o-border-radius:3px; -webkit-border-radius:3px; position:relative; margin-top:40px;}
+.lay-sear .i-change{ position:absolute; top:21px; left:227px; cursor:pointer}
+.lay-sear ul{ float:left; width:545px;}
+.lay-sear li{ height:30px; line-height:30px; padding:5px 0; float:left; width:245px; position:relative;}
+.lay-sear li .no-change{ color:#999}
+.lay-sear .no-change .i-city{ background-position:0 -200px}
+.lay-sear .no-change .i-date{ background-position:0 -300px}
+
+.lay-sear .label{ display:block; width:72px; height:30px; line-height:30px; float:left; margin:0; padding:0; padding-right:5px; text-align: right;}
+.lay-sear .inp-w{ position:relative; width:152px; height:30px; float:left; _margin-left:-3px;}
+.lay-sear .inp-w input{ width:145px;}
+.lay-sear select{ width:150px; font-size:14px;}
+.lay-sear .btn-area{ float:left; width:430px; margin-top:25px; text-align:center}
+.lay-sear .btn-area a{ margin:0 5px;}
+.lay-sear .yzm{ position:absolute; left:77px; width:200px;}
+.lay-sear .yzm input{ float:left; margin-right:10px; width:65px;}
+.lay-sear .yzm .img{ display:block; width:58px; height:28px; border:1px solid #999; margin-right:10px; float:left}
+.lay-sear .yzm .img img{width:58px; height:28px;}
+.lay-sear .yzm .i-re{ display:block; float:left; margin-top:5px; background-position:0 -1200px;}
+.lay-sear .yzm .tips{ position:absolute; top:6px; left:180px;}
+.lay-sear .radio-w span{ margin-left:30px; font-size:12px;}
+.lay-sear-station{ height:40px;}
+.lay-sear-station ul{ width:800px;}
+.lay-sear-station .btn-area{ width:125px; margin-top:5px}
+
+.lay-sear-zz ul{ width:800px; padding-left:10px;}
+.lay-sear-zz .btn-area{ width:110px;}
+
+.lay-sear-yp{ height:40px;margin-top:10px;}
+.lay-sear-yp ul{width:570px}
+.lay-sear-yp li{ float:left; width:auto; margin-right:15px;}
+.lay-sear-yp .label{width:55px;}
+.lay-sear-yp .inp-w{width:112px;}
+.lay-sear-yp .inp-w input{width:103px;}
+.lay-sear-yp .i-change{ width: 16px;height: 16px;padding: 0; background-position: -67px -96px; cursor: pointer; top:20px; left:178px}
+.lay-sear-yp .btn-area{ width:400px; float:right; margin-top:5px;white-space:nowrap; overflow:hidden; zoom:1}
+.lay-sear-yp .btn-area a{ float:left}
+/*搜索提示*/
+.sear-tips{ line-height:25px;}
+.sear-tips p{ line-height:25px;}
+.sear-tips .sell-time span{ margin-right:25px;}
+.sear-tips .sell-time span strong{ color:#FF7F00;}
+/*车票列表*/
+/*.table-ticket{ width:100%;border:1px solid #298CCE;background:url(../images/bg_tlisthd.png) top repeat-x;}
+.table-ticket table{ width:100%; table-layout:fixed;word-wrap:break-word;}
+.table-ticket .th{  height:53px; color:#fff; overflow:hidden}
+.table-ticket th{ background:url(../images/line_tlisth.png) right center no-repeat;}
+.table-ticket .last{ background:none}
+.table-ticket td{ border-right:1px solid #B0CEDD;  border-top:1px solid #B0CEDD; line-height:20px; padding:2px 0; height:44px; text-align:center}
+.table-ticket .no-br{ border-right:none;}
+.table-ticket .bgc{ background:#EEF1F8}
+.table-ticket .two-line{ width:100%; text-align:center;}
+.table-ticket .two-line span{ line-height:20px;}
+.table-ticket .b1{ background:url(../images/icon_sj01.png) right bottom no-repeat; padding-right:13px;}
+.table-ticket .b2{ background:url(../images/icon_sj02.png) right 4px no-repeat; padding-right:13px;}
+.table-ticket .b3{ background:url(../images/icon_sj03.png) right center no-repeat; padding-right:13px;}
+.table-ticket .b4{ background:url(../images/icon_sj04.png) right center no-repeat; padding-right:13px;}
+.table-ticket table table th{ padding:2px 0}
+
+.table-ticket  td .ticket-info{ width:372px; height:44px; line-height:20px; padding:0; position:relative; text-align:left}
+.table-ticket  td strong{ color:#333}
+.table-ticket  td .color999{ color:#999}
+.table-ticket .service{ font-weight:700; color:#999}
+.table-ticket .yes{ color:#26A306; font-weight:700}
+.table-ticket .t-num{ color:#333; font-weight:700}
+.table-ticket .p-num{ color:#FC8302}
+.table-ticket .colorA{color:#FC8302; font-weight:700}
+.table-ticket .no-br{ border-right:none;}
+.table-ticket .yh{ display: inline-block; width:34px; height:16px; line-height:16px; text-align:center; overflow:hidden; background:url(../images/btn_yh.png) no-repeat; color:#fff;}
+.table-ticket .train{ width:90px; height:44px; float:left; margin-right:20px; text-align:center;}
+.table-ticket .train .number{ font-size:16px; color:#333; text-decoration:underline; display:inline-block; width:60px; margin-right:3px; text-align:right;}
+
+.table-ticket .lookup{ display:block; color:#0077FF; text-align:left; padding-left:20px;}
+.table-ticket .lookup b{ display:inline-block; width:10px; height:5px; overflow:hidden; background-position:0 -55px; vertical-align:middle; margin-left:3px;}
+.table-ticket .lookup .open{ background-position:0 -50px;}
+.table-ticket .start-t{display:block;height:22px; line-height:22px; float:left; overflow:hidden; text-align:center}
+.table-ticket .cdz{ width:113px; float:left; }
+
+.table-ticket .cdz strong{display:block; padding-left:18px; height:22px; line-height:22px; overflow:hidden; }
+.table-ticket .start-s{ background-position:0 -546px; }
+.table-ticket .end-s{ display:block;background-position:0 -496px;}
+
+.table-ticket .cds{width:70px; float:left; font-family:Tahoma; font-size:14px;}
+.table-ticket .ls{width:72px; float:left;}
+
+.table-ticket .station td{ text-align:left}
+.table-ticket .station .tc{ text-align:center}*/
+
+/*车站信息查询*/
+.train-num{ position:relative}
+.train-num .number{ font-size:16px; font-weight:400; text-decoration:underline; color:#333}
+.train-num .station{ left:85px;}
+/*正晚点*/
+.lay-zwd{ background:#EEF1F8; border:1px solid #298CCE; border-radius:5px; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; margin:10px 0; padding-top:20px;} 
+.lay-zwd li{ height:30px; line-height:30px; padding:5px 0; font-size:14px; position:relative}
+.lay-zwd li .label{ display:block; width:408px; height:30px; line-height:30px; float:left; padding-right:20px; text-align:right;}
+.lay-zwd li .label b{ color:#D90000; font-weight:400}
+.lay-zwd .yzm{ position:absolute; left:428px;}
+.lay-zwd .yzm input{ float:left; margin-right:10px;}
+.lay-zwd .yzm .img{ display:block; width:58px; height:28px; border:1px solid #999; margin-right:10px; float:left}
+.lay-zwd .yzm .img img{width:58px; height:28px;}
+.lay-zwd .yzm .i-re{ display:block; float:left; margin-top:5px; background-position:0 -1200px;}
+.lay-zwd .yzm .tips{ position:absolute; top:6px; left:180px;}
+.zwd-result{ font-size:14px; margin-bottom:10px;}
+
+/*售票点*/
+.lay-sear-place{ }
+.lay-sear-place ul{  width:600px;padding-left:20px;}
+.lay-sear-place li{ width:auto}
+.lay-sear-place .fg-line{ display:block; width:20px; height:30px; line-height:30px; text-align:center; float:left; color:#999}
+.sell-place td{ border-top:1px dashed #D9D9D9; border-right:none; height:26px;}
+.sell-place .first td{ border-top:none}
+.sell-place .tl{ text-align:left; padding-left:20px;}
+.s-box-w{ float:left; width:700px; padding-left:20px;}
+.s-box{ height:20px; width:141px; margin-top:5px; border:1px solid #125C94; float:left}
+.s-box .txt{ width:120px; height:20px; line-height:20px; background:#fff; border:0 none; float:left; border-right:1px solid #125C94; color:#999; text-indent:5px;}
+.s-box .sub{ display:block; width:20px; height:20px; border:none; background-position:0 -850px; text-indent:-9999px; float:left}
+.lay-sear-place .btn-area{ width:350px; float:right; margin-top:5px; text-align:left }
+/*中转查询*/
+.lay-s{ border:1px solid #66C8E8; margin-bottom:10px;}
+.lay-s .lay-shd{ height:35px; line-height:35px; padding:0 30px; font-size:14px;}
+.lay-s .lay-shd .num{ margin-right:25px; font-size:16px;}
+.lay-s-open{ border:1px solid #298CCE}
+.lay-s-open .lay-shd{ background:#66C8E8; color:#fff; font-family:"微软雅黑","黑体";}
+.lay-s-open .lay-shd .s{ font-size:18px; font-weight:700}
+
+.lay-s .lay-sbd{ padding:10px;}
+.lay-s .lay-sbd .w100{ display:inline-block; text-align:center;}
+.lay-s .lay-sbd .w70{ display:inline-block; text-align:center;}
+
+.lay-s .lay-sbd .zdls .b3{ margin:0 23px;}
+.lay-s .lay-sbd .zszs .b3{ margin:0 10px;}
+.lay-s .lay-sbd .fcs .b3{ margin:0 5px;}
+
+.lay-s .lay-sbd .sear-sel .section-bd{ width:870px;}
+.lay-s .lay-sbd .sear-sel .section-bd ul{ width:820px;}
+
+/*开发人员添加*/
+.lay-s .lay-sbd .sear-sel .cc-pos .section-bd{ width:110px;}
+
+/*票价查询*/
+.lay-sear-pj{ height:40px;margin-top:40px;}
+.lay-sear-pj ul{width:830px;}
+.lay-sear-pj li{ float:left; width:auto;  width:175px;}
+.lay-sear-pj .item-code{ width:280px}
+.lay-sear-pj .label{width:55px;}
+.lay-sear-pj .inp-w{width:113px;}
+.lay-sear-pj .inp-w input{width:103px;}
+.lay-sear-pj .i-change{ width: 16px;height: 16px;padding: 0; background-position: -67px -96px; cursor: pointer; top:20px; left:185px}
+.lay-sear-pj .btn-area{ width:140px; float:left; margin-top:5px;white-space:nowrap; overflow:hidden; zoom:1}
+.lay-sear-pj .btn-area a{ float:left}
+.lay-sear-pj .yzm{ left:60px; padding:0}
+
+/*1219 车次查询*/
+.t-list td .train-number{ width:368px;}
+.ticket-info .t-num{ float:left; width:40px; text-align:center}
+.ticket-info .t-station{ float:left; width:80px; text-align:center; font-weight:700; color:#333}
+.ticket-info .t-train{ float:left; width:60px; position:relative; text-align:right; padding-right:40px;}
+.ticket-info .t-train a{ font-weight:700; color:#333; text-decoration:underline; font-size:14px;}
+.ticket-info .t-train .i-card{ top:3px; right:20px}
+.no-ticket { width: 500px;margin: 120px auto 260px;height: 66px;line-height: 33px;}
+.no-ticket p { line-height: 30px;font-size: 16px;color: #AAAAAA;font-weight: 700;padding-top: 5px;}
+
+/*140618票价查询*/
+.lay-sear-pjnew{ height:80px;margin-top:40px;}
+.lay-sear-pjnew ul{width:780px;}
+.lay-sear-pjnew li{ float:left; width:auto;  width:260px;}
+.lay-sear-pjnew .label{width:100px;}
+.lay-sear-pjnew .i-change{ width: 16px;height: 16px;padding: 0; background-position: -67px -96px; cursor: pointer; top:20px; left:285px}
+.lay-sear-pjnew .btn-area{ width:198px; float:left; margin-top:25px;white-space:nowrap; overflow:hidden; zoom:1}
+.lay-sear-pjnew .yzm{ left:105px; padding:0}
+.lay-sear-pjnew .yzm input{ width:75px;}
+.lay-sear-pjnew .yzm .tips{ left:190px;}
+.lay-sear-pjnew .dc-pj{ padding-left:105px;}

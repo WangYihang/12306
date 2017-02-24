@@ -34,8 +34,17 @@ class querier(object):
         url += "&purpose_codes=" + purpose_codes
         return url
 
+    def getLishi(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["lishi"]
+
     def getStationTrainCode(self, index):
         return self.trainsJson[index]["queryLeftNewDTO"]["station_train_code"]
+
+    def getTrainNo(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["train_no"]
+
+    def getIsSupportCard(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["is_support_card"]
 
     def getStartStationName(self, index):
         return self.trainsJson[index]["queryLeftNewDTO"]["start_station_name"]

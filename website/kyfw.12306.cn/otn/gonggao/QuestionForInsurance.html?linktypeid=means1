@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/validation.css'" href="../resources/css/validation.css" rel="stylesheet"></link>
+
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/dhtmlxcalendar.css'"
+	href="../resources/js/rich/calendar/dhtmlxcalendar.css" rel="stylesheet"></link>
+
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css'"
+	href="../resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/message/skins/dhtmlxmessage_dhx_terrace.css'"
+	href="../resources/js/rich/message/skins/dhtmlxmessage_dhx_terrace.css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo.css'"
+	href="../resources/js/rich/dhtmlxCombo/dhtmlxcombo.css" rel="stylesheet"></link>
+<link rel="icon" href="../resources/images/ots/favicon.ico" th:href="${#httpServletRequest.contextPath}+'/resources/images/ots/favicon.ico'" type="image/x-icon" />
+<link rel="shortcut icon" href="../resources/images/ots/favicon.ico" th:href="${#httpServletRequest.contextPath}+'/resources/images/ots/favicon.ico'" type="image/x-icon" />
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery-1.9.1.js'"
+	src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.chromatable.js'"
+	src="../resources/js/framework/jquery.chromatable.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.jqpagination.js'" type="text/javascript"
+	src="../resources/js/framework/jquery.jqpagination.js">
+</script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.form.js'"
+	src="../resources/js/framework/jquery.form.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.validate.js'"
+	src="../resources/js/framework/jquery.validate.js" type="text/javascript"></script>
+
+<!-- js i18n -->
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/i18n/messages_zh_CN.js'"
+	src="../resources/js/i18n/messages_zh_CN.js" type="text/javascript">
+	</script>
+<!-- jquery validation i18n -->
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/i18n/validation_messages_zh_CN.js'"
+	type="text/javascript" src="../resources/js/i18n/validation_messages_zh_CN.js">
+</script>
+
+
+
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jsrender.js'"
+	src="../resources/js/framework/jsrender.js">
+</script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxcommon.js'" type="text/javascript"
+	src="../resources/js/rich/dhtmlxcommon.js">
+</script>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/dhtmlxwindows.css'"
+	href="../resources/js/rich/windows/dhtmlxwindows.css" type="text/css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/skins/dhtmlxwindows_dhx_terrace.css'"
+	href="../resources/js/rich/windows/skins/dhtmlxwindows_dhx_terrace.css" type="text/css" rel="stylesheet"></link>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/dhtmlxwindows.js'"
+	src="../resources/js/rich/windows/dhtmlxwindows.js" type="text/javascript"></script>
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxcontainer.js'"
+	src="../resources/js/rich/dhtmlxcontainer.js" type="text/javascript">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo.js">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js">
+</script>
+<script type="text/javascript" utils:merger="common_js"
+	th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/message/dhtmlxmessage.js'"
+	src="../resources/js/rich/message/dhtmlxmessage.js">
+</script>
+<script script="javascript">
+/*<![CDATA[*/
+ var ctx="";
+ /*]]>*/
+</script>
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/baseInit.js'" type="text/javascript"
+	src="../resources/js/framework/baseInit.js">
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+<title>信息服务 | 客运服务 | 铁路客户服务中心</title>
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/common.css'" href="../resources/css/common.css" rel="stylesheet" th:remove="all"></link>
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/help.css'" href="../resources/css/help.css"  rel="stylesheet" rev="stylesheet" type="text/css" />
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery-1.9.1.js'" src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript" th:remove="all"></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/common.js'" src="../resources/js/common.js" type="text/javascript" th:remove="all"></script>
+
+</head>
+<body>
+<input id="linktype" type="hidden" th:value="${linktype}" ></input>
+<!--header start-->
+<div class="header">
+		<div class="header-bd">
+		<a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1></a>
+		<div class="login-info">
+			<div class="menu">
+				<a  class="menu-bd" id="js-my" href="../index/initMy12306">我的12306<b></b></a>
+				<div class="menu-list">
+					<b></b>
+					<ul>		
+						<li><a  href="../queryOrder/initNoComplete">未完成订单</a></li>	
+						<li><a  href="../queryOrder/init">已完成订单(改/退)</a></li>
+						<li class="line"></li>
+						<li><a href="../modifyUser/initQueryUserInfo">查看个人信息</a></li>
+						<li><a href="../userSecurity/init">账户安全</a></li>
+						<li class="line"></li>						
+						<li><a href="../passengers/init">常用联系人</a></li>
+					</ul>
+				</div>
+			</div>
+			<span class="login-txt" style="color: #666666"><span></span><a id="login_user" href="../login/init" class="colorA" style="margin-left:-0.5px;">登录</a>| <a id="regist_out" href="../regist/init">注册</a>
+			</span>
+			<!-- 
+            <span class="login-txt">
+            	<a id="" href="#nogo" class="colorA" th:if="${null!=session}" th:text="${session._CURRENT_USER.loginUserDTO.user_name}"></a>
+            	<a href="#" th:if="${session==null}">登录</a>|<a href="#nogo">注册</a>
+            </span>
+             var session = /*[[${session._CURRENT_USER.loginUserDTO.user_name}]]*/;    th:href="(${username})?${#httpServletRequest.contextPath}+'/login/init':${#httpServletRequest.contextPath}+'/index/initMy12306'" th:text="#{loginOrName}" -->
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="../index/init">客运首页</a></li>
+				<li id="selectYuding"><a href="../leftTicket/init">车票预订</a></li>
+				<li><a href="../lcxxcx/init">余票查询</a></li>
+				<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+					<div class="nav-list">
+						<ul style="font-weight:normal">
+							<li><a href="../queryTrainInfo/init">车次查询</a></li>
+							<li><a href="../leftTicketPrice/init" >票价查询</a></li>
+							<li><a href="../czxx/init" >车站车次查询</a></li>
+							<li><a href="../zzzcx/init" >中转查询</a></li>
+							<li><a href="../zwdch/init" >正晚点查询</a></li>
+							<li><a href="../queryAgencySellTicket/init">代售点查询</a></li>
+						</ul>
+					</div></li>
+				<li id="selectHelp"><a href="../gonggao/help.html">信息服务</a></li>
+			</ul>
+		</div>
+
+
+	</div>
+</div>
+<!--header end-->
+
+<!--页面主体  开始-->
+<div class="content clearfix">
+	<!--当前位置 开始-->
+    <div class="crumbs">
+    	    	您现在的位置：<a href="../index/init">客运首页</a>&nbsp;>&nbsp;<a href="../gonggao/help.html">信息服务</a>&nbsp;>&nbsp;<a href="#nogo">铁路保险</a>&nbsp;>&nbsp;<strong><label id="daohang"></label></strong>
+    </div>
+    <!--当前位置 结束-->
+	<!--左侧导航 开始-->
+    <div class="sidebar">
+        <div class="layout my">
+            <div class="lay-hd">铁路保险</div>
+            <div class="lay-bd">
+                <div class="nav-label" id="nav-label" ><span></span></div>
+                <dl class="on">
+                	<dt class="hide">&nbsp;</dt>
+                    <dd id="means_one" onclick="$.displaydiv('means1')"><a href="javascript:" id="means1" onclick="$.displaydiv(id)">保险条款</a></dd>
+                    <dd id="means_two" onclick="$.displaydiv('means2')"><a href="javascript:" id="means2" onclick="$.displaydiv(id)">投保须知</a></dd>
+                    <dd id="means_three" onclick="$.displaydiv('means3')"><a href="javascript:" id="means3" onclick="$.displaydiv(id)">常见问题</a></dd>
+                </dl>
+                
+
+                <!--点击后DL添加样式on后下拉项DD会自动下限-->
+            </div>
+        </div>
+    </div>
+    <!--左侧导航 结束-->
+    
+    <!--右侧主体 开始-->
+    <div class="main" id="main">
+    	<div class="txt-box" id="means1-box" style="display: none;">
+			<h1>铁路旅客人身意外伤害保险条款（A款）</h1>
+            <h2 style="text-align:center;">总则</h2>
+ 		 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一条   本保险合同由保险条款、投保单、保险单、批单和特别约定共同组成。凡涉及本保险合同的约定，均应采用书面形式。</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二条   凡持铁路有效乘车凭证合法乘坐在中华人民共和国境内（不包括港、澳、台地区，下同）营运的铁路客运列车（以下简称境内列车）的自然人，可作为本保险合同的被保险人。</p>
+			  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随同成人旅客免费乘坐境内列车的儿童，在本保险合同中视为其持有有效乘车凭证。</p>
+ 
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三条   具有完全民事行为能力的被保险人本人、在订立本保险合同时对被保险人具有保险利益的其他个人或组织均可作为本保险合同的投保人。</p>
+  			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投保人不得为无民事行为能力人投保本保险合同，但父母为其未成年子女投保的除外。</p>
+ 
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第四条   除父母为其未成年子女投保的以外，本保险合同应经被保险人同意并认可保险金额，<strong>否则以死亡为给付保险金条件的条款无效，保险人不承担保险责任</strong>。</p>
+ 
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第五条   本保险合同的受益人包括:</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）身故保险金受益人</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订立本保险合同时，被保险人或投保人可指定一人或数人为身故保险金受益人。身故保险金受益人为数人时，应确定其受益顺序和受益份额；未确定受益份额的，各身故保险金受益人按照相等份额享有受益权。</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被保险人死亡后，有下列情形之一的，保险金作为被保险人的遗产，由保险人依照《中华人民共和国继承法》的规定履行给付保险金的义务：</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）没有指定受益人，或者受益人指定不明无法确定的；</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）受益人先于被保险人死亡，没有其他受益人的；</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）受益人依法丧失受益权或者放弃受益权，没有其他受益人的。</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;受益人与被保险人在同一事件中死亡，且不能确定死亡先后顺序的，推定受益人死亡在先。</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被保险人或投保人可以变更身故保险金受益人，但需书面通知保险人，由保险人在本保险合同上批注。<strong>对因身故保险金受益人变更发生的法律纠纷，保险人不承担任何责任</strong>。</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投保人指定或变更身故保险金受益人时须经被保险人同意。被保险人为无民事行为能力人或限制民事行为能力人的，应由其监护人指定或变更身故保险金受益人。</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）其他保险金受益人</p>
+ 			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除另有约定外，本保险合同的伤残保险金受益人、医疗费用保险金受益人均为被保险人本人。</p>
+			<h2  style="text-align:center;">保险责任</h2>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第六条 在保险期间内，被保险人持有效乘车凭证合法乘坐境内列车遭受意外伤害，并以该意外伤害为直接且单独原因而导致被保险人本人身故、伤残或治疗的，保险人按照下列约定给付保险金。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、意外伤害保险责任</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）身故保险责任</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在保险期间内，被保险人遭受意外伤害，并自该意外伤害发生之日起一百八十日内因该意外伤害身故的，保险人按保险单所载的该被保险人意外伤害保险金额给付身故保险金，对该被保险人的保险责任终止。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在保险期间内，被保险人因遭受意外伤害且自该意外伤害发生之日起下落不明，后经人民法院宣告死亡的，保险人按该被保险人意外伤害保险金额给付身故保险金。但若被保险人被宣告死亡后重新出现或身故保险金受领人确知其没有死亡的，身故保险金受领人应于知道或应当知道被保险人没有死亡后三十日内退还保险人给付的身故保险金。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被保险人身故前，保险人已按本保险合同约定给付伤残保险金的，身故保险金应扣除已给付金额。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;父母为其未成年子女投保本保险的，因被保险人身故给付的保险金总和不得超过国务院保险监督管理机构规定的限额。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）伤残保险责任</p>
+			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在保险期间内，被保险人遭受意外伤害，并自该意外伤害发生之日起一百八十日内依据中国保险行业协会、中国法医学会联合发布的《人身保险伤残评定标准》（中保协发〔2013〕88 号）鉴定为一至十级中任一级伤残的，保险人按照《人身保险伤残评定标准》中规定的给付比例乘以该被保险人意外伤害保险金额给付伤残保险金。如第一百八十日治疗仍未结束的，按当日的身体情况进行伤残鉴定，并据此给付伤残保险金。<strong>若被保险人因遭受意外伤害事故导致的伤残不在《人身保险伤残评定标准》之列，保险人不承担给付伤残保险金责任</strong>。</p>
+			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）在保险期间内，保险人依据本保险合同对被保险人给付身故保险金和伤残保险金的总额，以保险单所载明的该被保险人的意外伤害保险金额为限。一次或多次累计给付的身故保险金和伤残保险金总和达到意外伤害保险金额时，保险人对该被保险人的身故保险责任和伤残保险责任终止。</p>
+			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、意外伤害医疗费用保险责任</p>
+			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在保险期间内，被保险人遭受意外伤害，在中华人民共和国境内二级及以上公立医院或保险人认可的医疗机构治疗，对被保险人实际支出的、符合当地政府颁布的社会基本医疗保险报销范围内的、合理且必要的医疗费用，保险人在扣除社会基本医疗保险或其他任何途径（包括但不限于任何商业保险机构、公费医疗、侵权责任人等）已经补偿或给付的部分以及人民币二百元的免赔额后，按其剩余部分的数额依据本保险合同的约定给付医疗费用保险金。</p>
+			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;若保险期间届满时被保险人治疗仍未结束的，保险人继续承担给付保险金的责任，但对住院治疗者最长不超过自该意外伤害发生之日起连续一百八十日，对门诊治疗者最长不超过自该意外伤害发生之日起连续十五日。</p>
+ 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险人依据本保险合同对被保险人医疗费用保险金的给付总额，以保险单所载明的该被保险人的意外伤害医疗费用保险金额为限。一次或多次累计给付医疗费用保险金总和达到意外伤害医疗费用保险金额时，保险人对该被保险人的意外伤害医疗费用保险责任终止。</p>
+
+			 <h2  style="text-align:center;">责任免除</h2>
+			 <strong>
+			 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第七条 因下列原因之一，造成被保险人身故、伤残或治疗的，保险人不承担给付保险金责任：</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）投保人的重大过失或故意行为；</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）被保险人故意犯罪或抗拒依法采取的强制措施；</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）被保险人自致伤害或自杀，但被保险人自杀时为无民事行为能力人的除外；</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）被保险人自致伤害或自杀，但被保险人自杀时为无民事行为能力人的除外；</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（四）因被保险人挑衅或故意行为而导致的打架、斗殴、被袭击或被谋杀；</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（五）被保险人违反《中华人民共和国铁路法》、《铁路安全管理条例》等法律、法规、规章或未遵守铁路部门安全管理规定；</p>
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（六）被保险人妊娠、流产、分娩、疾病、猝死、药物过敏、食物中毒、高原病（高山病）、减压病、中暑、细菌或病毒感染，但因意外伤害事故导致流产、分娩和创伤感染的除外；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（七）被保险人接受手术或其他医疗；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（八）被保险人未遵医嘱，私自服用、涂用、注射药物；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（九）被保险人因遭受铁路交通事故以外的原因失踪而被人民法院宣告死亡的；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（十）任何生物、化学、原子能武器，原子能或核能装置、核燃料、核废料所造成的爆炸、灼伤、污染或辐射；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（十一）恐怖主义行为、恐怖袭击、绑架。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第八条 被保险人在下列期间遭受意外伤害导致身故、伤残或治疗的，保险人也不承担给付保险金责任：</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）被保险人精神和行为障碍（以世界卫生组织颁布的《疾病和有关健康问题的国际统计分类（ICD—10）》为准）期间；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）战争、军事行动、暴动、武装叛乱期间；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）被保险人醉酒或受毒品、管制药物的影响期间；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（四）被保险人非乘坐境内列车期间，或虽在乘坐境内列车期间但未持有与保险期间对应的有效乘车凭证；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（五）被保险人从事违法犯罪活动期间或被依法限制人身自由、在逃期间。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第九条 保险人对下列费用也不承担给付保险金责任：</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）非治疗与此次意外为直接且单独原因导致的身体伤害而发生的医疗费用；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）当地社会基本医疗保险规定的自费项目和药品费用；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）矫形、整容、美容、体检、验光、心理咨询和治疗、器官移植，以及修复、安装及购买残疾用具（包括但不限于轮椅、假肢、假眼、助听器、配镜）的费用；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（四）洗牙、牙齿美白、正畸、烤瓷牙、种植牙、镶牙等牙齿保健和修复费用；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（五）在境外医院、中外合资医院、民营医院、康复中心、联合诊所、特需（色）门诊、特需病房等非保险人指定或者认可的医疗机构发生的费用，但符合本条款第二十八条约定的情形的除外；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（六）营养费、食宿费、交通费、误工费、丧葬费、生活补助费以及疗养或康复治疗的费用；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（七）本保险合同中载明的免赔额。</p>
+              </strong>
+			<h2  style="text-align:center;">保险金额和保险费</h2>
+ 			  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十条 保险金额是保险人承担给付保险金责任的最高限额。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险金额由投保人、保险人双方协商确定，并在保险单中载明，但父母为其未成年子女投保的，其意外伤害保险金额不得超过国务院保险监督管理机构规定的限额。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险金额一经确定，不得变更。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十一条 除另有约定外，投保人应当在本保险合同成立时交清保险费。<strong>保险费交清前发生的保险事故，保险人不承担给付保险金责任</strong>。</p>
+             
+              <h2 style="text-align:center;">保险期间</h2>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十二条 本保险合同的保险期间为被保险人按保险单载明的乘车日期、列车车次和发到站（以下简称指定行程），持有效乘车凭证合法乘坐境内列车期间。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>经铁路部门同意对保险单所对应的乘车凭证进行改签、变更到站的，本保险合同继续有效，保险期间以改签、变更到站后的乘车日期、列车车次和发到站为准</strong>。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;被保险人在指定行程中途离开列车并出站的，则保险人对该被保险人的保险责任中止，直至该被保险人返回继续原指定行程。若被保险人未返回或未在指定行程结束前返回的，保险人对该被保险人的保险责任自被保险人中途离开时终止，但因当日当次列车停驶、铁路线中断等情形，被保险人按照铁路部门的安排转乘其他列车而变更原指定行程的，保险人对该被保险人变更后的行程（即变更后的乘车日期、列车车次和发到站），按本保险合同的约定继续承担保险责任。</p>
+            
+              <h2 style="text-align:center;">保险人义务</h2>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十三条 订立保险合同时，采用保险人提供的格式条款的，保险人向投保人提供的投保单应当附格式条款，保险人应当向投保人说明保险合同的内容。对保险合同中免除保险人责任的条款，保险人在订立合同时应当在投保单、保险单或者其他保险凭证上作出足以引起投保人注意的提示，并对该条款的内容以书面或者口头形式向投保人作出明确说明；未作提示或者明确说明的，该条款不产生效力。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十四条 本保险合同成立后，保险人应当及时向投保人签发保险单或其他保险凭证。</p>
+              
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十五条 保险人依据本条款第十九条所取得的保险合同解除权，自保险人知道有解除事由之日起，超过三十日不行使而消灭。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险人在合同订立时已经知道投保人未如实告知的情况的，保险人不得解除合同；发生保险事故的，保险人应当承担给付保险金责任。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十六条 保险人认为保险金申请人提供的有关索赔的证明和资料不完整的，应当及时一次性通知保险金申请人补充提供。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十七条 保险人收到保险金申请人的给付保险金的请求后，应当及时作出是否属于保险责任的核定；情形复杂的，应当在三十日内作出核定，但保险合同另有约定的除外。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险人应当将核定结果通知保险金申请人；对属于保险责任的，在与保险金申请人达成给付保险金的协议后十日内，履行给付保险金义务。保险合同对给付保险金的期限有约定的，保险人应当按照约定履行给付保险金义务。保险人依照本条约定作出核定后，对不属于保险责任的，应当自作出核定之日起三日内向保险金申请人发出拒绝给付保险金通知书，并说明理由。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十八条 保险人自收到给付保险金的请求和有关证明、资料之日起六十日内，对其给付的数额不能确定的，应当根据已有证明和资料可以确定的数额先予支付；保险人最终确定给付的数额后，应当支付相应的差额。</p>
+				<h2  style="text-align:center;">投保人、被保险人义务</h2>
+               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第十九条 订立保险合同，保险人就被保险人的有关情况提出询问的，投保人应当如实告知。</p><strong>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投保人故意或者因重大过失未履行前款规定的义务，足以影响保险人决定是否同意承保或者提高保险费率的，保险人有权解除本保险合同。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投保人故意不履行如实告知义务的，保险人对于合同解除前发生的保险事故，不承担给付保险金责任，并不退还保险费。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投保人因重大过失未履行如实告知义务，对保险事故的发生有严重影响的，保险人对于合同解除前发生的保险事故，不承担给付保险金责任，但应当退还保险费。</p></strong>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十条 投保人住所或通讯地址变更时，应及时以书面形式或通过客服电话通知保险人。投保人未通知的，保险人按本保险合同所载的最后住所或通讯地址发送的有关通知，均视为已发送给投保人。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十一条 投保人、被保险人或者受益人知道保险事故发生后，应当在四十八小时内通知保险人。<strong>故意或者因重大过失未及时通知，致使保险事故的性质、原因、损失程度等难以确定的，保险人对无法确定的部分，不承担给付保险金责任</strong>，但保险人通过其他途径已经及时知道或者应当及时知道保险事故发生的除外。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上述约定，不包括因不可抗力而导致的迟延。</p>
+              
+              <h2  style="text-align:center;">保险金申请与给付</h2>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十二条 保险金申请人向保险人申请给付保险金时，应提交以下材料。保险金申请人因特殊原因不能提供以下材料的，应提供其他合法有效的材料。<strong>保险金申请人未能提供有关材料，导致保险人无法核实该申请的真实性的，保险人对无法核实的部分不承担给付保险金责任。</strong></p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）身故保险金申请</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）保险金给付申请书；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）保险金申请人的有效身份证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）乘车证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）中华人民共和国境内二级及以上的公立医院或保险人认可的医疗机构出具的被保险人死亡证明，或人民法院出具的宣告死亡证明文件，以及公安部门出具的被保险人的户籍注销证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）保险金申请人所能提供的与确认保险事故的性质、原因、损失程度等有关的其他证明和资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）监护人代无民事行为能力人或者限制民事行为能力人申领保险金的，应提供监护人的有效身份证明等资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）委托他人申领保险金的，应提供授权委托书原件、委托人和受托人的有效身份证明等相关证明文件。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）伤残保险金申请</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）保险金给付申请书；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）保险金申请人的有效身份证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）乘车证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）中华人民共和国境内二级及以上的公立医院或保险人认可的医疗机构或司法鉴定机构出具的伤残鉴定诊断书；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）保险金申请人所能提供的与确认保险事故的性质、原因、损失程度等有关的其他证明和资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）监护人代无民事行为能力人或者限制民事行为能力人申领保险金的，应提供监护人的有效身份证明等资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）委托他人申领保险金的，应提供授权委托书原件、委托人和受托人的有效身份证明等相关证明文件。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）医疗费用保险金申请</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）保险金给付申请书；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）保险金申请人的有效身份证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）乘车证明；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）中华人民共和国境内二级及以上公立医院或保险人认可的医疗机构出具的入院出院证明、诊断证明、医疗费用原始收据及明细清单、病历资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）保险金申请人所能提供的与确认保险事故的性质、原因、损失程度等有关的其他证明和资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）监护人代无民事行为能力人或者限制民事行为能力人申领保险金的，应提供监护人的有效身份证明等资料；</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）委托他人申领保险金的，应提供授权委托书原件、委托人和受托人的有效身份证明等相关证明文件。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十三条 保险金申请人向保险人请求给付保险金的诉讼时效期间为二年，自其知道或者应当知道保险事故发生之日起计算。</p>
+              
+              
+              <h2  style="text-align:center;"	>争议处理和法律适用</h2>
+               <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十四条 因履行本保险合同发生的争议，由当事人协商解决。协商不成的，提交保险单载明的仲裁机构仲裁；保险单未载明仲裁机构或者争议发生后未达成仲裁协议的，依法向人民法院起诉。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十五条 与本保险合同有关的以及履行本保险合同产生的一切争议处理适用中华人民共和国法律（不包括港、澳、台地区法律）。</p>
+              
+              <h2 style="text-align:center;">其他事项</h2>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十六条 在本保险合同成立后、保险责任开始前，投保人可以书面形式通知保险人解除本保险合同，本保险合同自保险人接到保险合同解除通知之时起解除。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>在本保险合同成立后、保险责任开始前，经铁路部门同意对保险单所对应的乘车凭证进行退票的，本保险合同自退票成功之时起自动解除</strong>。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>保险责任开始后，投保人不得要求解除本保险合同</strong>。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十七条 本保险合同依据第二十六条约定解除的，除另有约定外，<strong>保险人可以向投保人收取应交保险费20%的手续费，</strong>并在三十日内向投保人退还保险费。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十八条 保险事故发生后，被保险人若因急诊等特殊情况未在保险人指定或认可的医疗机构治疗的，应在三日内通知保险人，并根据病情及时转入保险人指定或认可的医疗机构。若确需在非保险人指定或认可的医疗机构治疗的，应向保险人提出书面申请，保险人在接到申请后三日内给予答复。对于保险人同意在其他医疗机构治疗的，保险人对该期间发生的医疗费用按本保险合同约定承担给付医疗费用保险金责任。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二十九条 投保人、被保险人通过保险人同意或认可的网站投保或者对保险合同进行变更，视为投保人、被保险人的书面申请。投保人、被保险人、受益人向保险人在线提交的电子信息与向保险人提交的纸质文件具有相同的法律效力。</p>                                          
+              
+              <h2 style="text-align:center;">释  义</h2>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三十条  除另有约定外，本保险合同中的下列词语具有如下含义：</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;书面形式：指合同书、信件和数据电文（包括电报、电传、传真、电子数据交换和电子邮件）等可以有形地表现所载内容的形式。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乘车凭证：指铁路旅客运输合同凭证，包括纸质车票、电子车票及铁路部门认可的其他乘车凭证。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险人：指与投保人签订本保险合同的中国铁路财产保险自保有限公司及各分支机构。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;意外伤害：指以外来的、突发的、非本意的和非疾病的客观事件为直接且单独的原因致使身体受到的伤害。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;故意：指明知自己的行为会产生一定的结果而希望或者放任这种结果的发生。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;恐怖主义：指任何个人或集团运用武力或暴力，以达到政治上的、宗教上的或意识形态上的目的，包括意图影响政府，或致使民众或部分民众处于恐慌。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;猝死：指由于潜在的自然疾病突然发作或恶化而发生的出人意料的急骤死亡。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乘坐境内列车期间：指被保险人持有效乘车凭证通过实名制验证或检票进站时起，至被保险人到站检票出站时止，但不包括被保险人中途下车出站至重新进站期间和被保险人所乘列车在境外运行期间。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保险金申请人：指被保险人、受益人或被保险人的继承人或依法享有保险金请求权的其他人。</p>   
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不可抗力：指不能预见、不能避免并不能克服的客观情况。</p>                 
+              
+        </div>
+        
+        
+       
+        
+        
+        <div id="means2-box" class="txt-box" style="display: none;">
+			<h1>铁路旅客人身意外伤害保险（指定行程）投保须知</h1>
+   			
+          	<p>尊敬的旅客：</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为保障旅客合法权益，中国铁路财产保险自保有限公司为您提供了铁路旅客人身意外伤害保险（以下简称铁路乘意险），特将有关事项告知如下：</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、旅客购买火车票时可自愿购买铁路乘意险，投保使用证件与本网站规定相同，即：中华人民共和国二代居民身份证、港澳居民来往内地通行证、台湾居民来往大陆通行证、按规定可使用的有效护照。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、每张火车票可投保1份铁路乘意险，每份保险费3元，最高保障30万元意外身故、伤残和3万元意外医疗费用；未成年人须由其父母投保，每份保险费1元，最高保障10万元意外身故、伤残和1万元意外医疗保险金。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、铁路乘意险保险期间自被保险人持有效乘车凭证实名制验证或检票进站时起，至到达有效乘车凭证载明的到站检票出站时止。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四、投保人不得为无民事行为能力人投保以死亡为给付保险金条件的人身保险（父母为其未成年子女投保的人身保险不受此规定限制，但以被保险人死亡为给付条件的保险金总和不得超过国务院保险监督管理机构规定的限额）。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、除父母为其未成年子女投保的以外，本保险合同应经被保险人同意并认可保险金额，否则以死亡为给付保险金条件的条款无效，保险人不承担保险责任。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;六、在12306网站购票并购保的成年父母，若其免费携带一名身高不足1.2米且不满10周岁的子女（经二代身份证核验），可在其购票账户的“我的保险”中领取一份中国铁路保险公司赠送的未成年人铁路乘意险。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;七、在本网站已投保旅客，可在不晚于自火车票所载乘车日期之日起31天内，凭火车票或投保时使用的有效身份证件到车站指定窗口补领保险发票。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;八、投保旅客（投保人）应妥善保管火车票、保险发票，以及投保时所使用的有效身份证件，便于出险时查询和核实相关信息。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;九、如需退保，请在保险责任开始前办理退保手续。尚未换取纸质车票且在本网站允许的退票办理时限内的，可在本网站直接办理，否则应到车站指定窗口办理。退票、改签或变更到站时，保险合同将自动解除或批改。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;十、投保人投保时应履行如实告知义务，否则保险人有权依据有关规定解除保险合同并不承担给付保险金责任。</p>
+        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;十一、您可在本网站“我的保险”中查询投保信息，可拨打12306人工查询，也可登录中国铁路保险www.china-ric.com查询和下载保险条款和电子保单，请您仔细阅读并充分理解保险条款、责任免除、保险期间、合同解除等约定。</p>
+        </div>
+        
+        <div id="means3-box" class="txt-box" style="display: none;">
+			<h1>铁路旅客人身意外伤害保险（指定行程）常见问题</h1>
+   			
+          	<h2>1.什么是铁路乘意险？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：铁路乘意险是指由中国铁路财产保险自保有限公司（以下简称铁路保险公司）经中国保监会核准经营的，保障旅客在保险期间内持有效乘车凭证合法乘坐境内列车遭受意外伤害致使旅客本人身故、伤残或治疗的，铁路保险公司按照约定给付保险金的一种保险产品。</p>
+            <h2>2.铁路乘意险保险期间是如何规定的？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：铁路乘意险指定行程产品的保险期间为被保险人按保险单载明的乘车日期、列车车次和发到站，持有效乘车凭证合法乘坐境内列车期间。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乘坐境内列车期间指被保险人持有效乘车凭证通过实名制验证或检票进站时起，至被保险人检票出站时止，但不包括被保险人中途下车出站至重新进站期间和被保险人所乘列车在境外运行期间。</p>
+            <h2>3.铁路乘意险有哪些特点？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：（1）购买渠道多。目前可通过中国铁路客户服务中心（www.12306.cn)、车站售票窗口、铁路自动售票机等渠道购买。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）购买费用少。只需花3元钱（未成年人花1元），即可获得保险期间内的人身意外保险保障。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）保障额度高。成年人最高保障30万元意外身故、伤残保险金和3万元意外医疗费用，未成年人最高保障10万元意外身故、伤残保险金和1万元意外医疗费用。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）保障范围广。铁路乘意险将保险责任扩展到旅客自持有效乘车凭证实名制验证或检票进站时起，至旅客到达所持乘车凭证载明的到站检票出站时止，即由“车上”扩展到“车上和站内”。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）网站购买优惠大。在12306网站购买铁路乘意险的成人父母，其免费携带的一名身高不足1.2米且不满10周岁的乘车子女（经二代身份证核验）可免费领取一份铁路乘意险。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）出险报案便利。保险事故发生后，可直接向列车或车站现场铁路客运工作人员报案，并为被保险人提供便利的解决渠道。</p>
+            <h2>4.如何购买铁路乘意险？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：（1）铁路乘意险自愿投保，旅客在12306网站投保时需点击“购买乘意险，已阅读并同意《保险条款》和《投保须知》”；旅客在自动售票机投保时需点击车票后的□购保，确认无误后点击“确认购买”按钮；旅客在车站售票窗口投保时需使用投保确认器“确认”。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）铁路乘意险实行实名制投保，投保时应准确提供被保险人（乘车人）的有效身份证件信息。有效身份证件包括：</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;①中华人民共和国二代居民身份证；</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②港澳居民来往内地通行证；</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;③台湾居民来往大陆通行证；</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;④按规定可使用的有效护照等。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）每张火车票限定购买一份指定行程乘意险。</p>
+            <h2>5.如何查询铁路乘意险信息？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：旅客在12306网站购买铁路乘意险后，会收到短信通知；在人工售票窗口和自动售票机购买铁路乘意险后，会收到保险告知单。旅客可凭短信或保险告知单载明的保单查询号和投保时使用的有效身份证件号，拨打12306人工查询保单信息，也可登录中国铁路保险（www.china-ric.com）网站查询、下载并打印电子保单。在12306网站购票购保的，也可登陆购票账户，在“我的12306—我的保险”中查询投保信息。</p>
+            <h2>6.购买铁路乘意险应注意哪些事项？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：（1）一张火车票只能投保一份铁路乘意险。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）投保人不得为无民事行为能力人投保铁路乘意险（父母为其未成年子女投保的，不受此规定限制，但是因被保险人死亡给付的保险金总和不得超过国务院保险监督管理机构规定的限额）。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）除父母为其未成年子女投保的以外，投保乘意险应经被保险人同意并认可保险金额，否则以死亡为给付保险金条件的条款无效，保险人不承担保险责任。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）人工售票窗口购买铁路乘意险仅支持现金支付保费。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）铁路自动售票机仅支持18周岁以上成人旅客持二代身份证投保。</p>
+            <h2>7.购买乘意险后应注意什么？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：（1）已投保旅客应妥善保管火车票、12306所发的投保短信或保险告知单、购保时所使用的有效身份证件和保险发票。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）在12306网站投保的，可在不晚于自所购火车票载明的乘车日期起31日内，凭火车票或投保时使用的有效身份证件到车站指定窗口领取保险发票。</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）在自动售票机购保的旅客，可持车票到车站指定窗口领取保险发票。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）投保人应妥善保管火车票、保险发票，以及投保时所使用的有效身份证件，便于出险时查询和核实有关信息。</p>
+            <h2>8.在铁路12306网站投保的父母如何为未成年子女领取赠保？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：与父母同行身高不足1.2米且不满10周岁的一名免费乘车子女，在父母已从12306.cn网站购得铁路乘意险的前提下，可通过“我的12306—我的保险”中点击“立即购保/领取赠保”按钮，在展开的界面中勾选已录入常用联系人中的子女姓名领取赠保。</p>
+            <h2>9.车票变更后，铁路乘意险如何处理？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：旅客办理车票改签、变更到站时，保单将按照保险条款的约定自动批改，保单号不变；退票时且保险责任尚未开始的，保险合同将自动解除。</p>
+            <h2>10.购买了车票但未购买保险的旅客，如何购买铁路乘意险？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：在铁路12306网站已购票的未购保旅客，可在12306网站或售票窗口购买指定行程乘意险；已购/换纸质车票的未购保旅客，可在人工售票窗口购买指定行程乘意险。</p>
+            <h2>11.发生保险事故，申请乘意险赔偿金理赔，都需要提交哪些资料？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：保险金申请人向保险人申请给付保险金时，应提交以下材料。保险金申请人因特殊原因不能提供以下材料的，应提供其他合法有效的材料。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（一）身故保险金申请</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）保险金给付申请书；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）保险金申请人的有效身份证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）乘车证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）中华人民共和国境内二级及以上的公立医院或保险人认可的医疗机构出具的被保险人死亡证明，或人民法院出具的宣告死亡证明文件，以及公安部门出具的被保险人的户籍注销证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）保险金申请人所能提供的与确认保险事故的性质、原因、损失程度等有关的其他证明和资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）监护人代无民事行为能力人或者限制民事行为能力人申领保险金的，应提供监护人的有效身份证明等资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）委托他人申领保险金的，应提供授权委托书原件、委托人和受托人的有效身份证明等相关证明文件。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（二）伤残保险金申请</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）保险金给付申请书；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）保险金申请人的有效身份证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）乘车证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）中华人民共和国境内二级及以上的公立医院或保险人认可的医疗机构或司法鉴定机构出具的伤残鉴定诊断书；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）保险金申请人所能提供的与确认保险事故的性质、原因、损失程度等有关的其他证明和资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）监护人代无民事行为能力人或者限制民事行为能力人申领保险金的，应提供监护人的有效身份证明等资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）委托他人申领保险金的，应提供授权委托书原件、委托人和受托人的有效身份证明等相关证明文件。</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（三）医疗费用保险金申请</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）保险金给付申请书；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）保险金申请人的有效身份证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（3）乘车证明；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（4）中华人民共和国境内二级及以上公立医院或保险人认可的医疗机构出具的入院出院证明、诊断证明、医疗费用原始收据及明细清单、病历资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（5）保险金申请人所能提供的与确认保险事故的性质、原因、伤害程度等有关的其他证明和资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（6）监护人代无民事行为能力人或者限制民事行为能力人申领保险金的，应提供监护人的有效身份证明等资料；</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（7）委托他人申领保险金的，应提供授权委托书原件、委托人和受托人的有效身份证明等相关证明文件。</p>
+            <h2>12.被保险人在车站或列车上发生意外伤害，如何办理乘意险理赔？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：按照铁路乘意险理赔处理的有关规定，发生意外伤害事故后，请及时向铁路现场客运工作人员寻求帮助，并出示已购买保险的车票、保险发票或保险告知单，列车或火车站的铁路客运工作人员会在第一时间向您提供帮助。对于乘意险责任范围内的，会协助您办理相关索赔手续。</p>
+            <h2>13.如何办理单独退保业务？</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;答：未换取纸质车票且在铁路12306网站允许的退票办理时限内，可在本网站办理单独退保；已取得纸质车票的或在铁路12306网站允许的退票办理时限外，须凭与保险期间一致的火车票在车站指定窗口办理单独退保。</p>
+            
+        </div>
+        
+        
+     
+	
+ 
+        
+    </div>
+    <!--右侧主体 结束-->
+</div>
+<!--页面主体  结束-->
+
+<!--页面底部  开始-->
+<div class="footer">
+	<p><a href="#nogo">关于我们</a>|<a href="#nogo">网站声明</a></p>
+    <p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+    <p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+</body>
+	<script th:src="${#httpServletRequest.contextPath}+'/resources/js/help/saleTicketMeans.js'" type="text/javascript" 
+	src="../resources/js/help/QuestionForInsurance.js" ></script>
+
+</html>

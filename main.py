@@ -30,12 +30,15 @@ def main():
         for i in range(length):
             print "=" * 36
             print "列车号 : ", queryResult.getStationTrainCode(i)
+            print "列车编号 : ", queryResult.getTrainNo(i)
+            print "是否可凭身份证进出站 : ", queryResult.getIsSupportCard(i)
             print "首发站 : ", queryResult.getStartStationName(i)
             print "起始站 : ", queryResult.getFromStationName(i)
             print "终点站 : ", queryResult.getEndStationName(i)
             print "到达站 : ", queryResult.getToStationName(i)
             print "出发时间 : ", queryResult.getStartTime(i)
             print "到达时间 : ", queryResult.getArriveTime(i)
+            print "历时 : ", queryResult.getLishi(i)
             print "其他 : ", queryResult.getQitaNumber(i)
             print "无座", queryResult.getWuzuoNumber(i)
             print "硬座 : ", queryResult.getYingzuoNumber(i)

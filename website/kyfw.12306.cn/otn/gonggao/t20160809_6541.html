@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <title>客运服务 | 铁路客户服务中心</title> 
+  <script src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript"></script> 
+  <!-- js i18n --> 
+  <script src="../resources/js/i18n/messages_zh_CN.js" type="text/javascript"></script> 
+  <script src="../resources/js/rich/dhtmlxcommon.js"></script> 
+  <script src="../resources/js/rich/windows/dhtmlxwindows.js" type="text/javascript"></script> 
+  <script src="../resources/js/rich/dhtmlxcontainer.js" type="text/javascript"></script> 
+  <script script="javascript">
+/*<![CDATA[*/
+ var ctx="";
+ /*]]>*/
+</script> 
+  <script type="text/javascript" src="../resources/js/framework/baseInit.js"></script> 
+  <script src="../resources/js/common.js" type="text/javascript"></script> 
+  <link href="../resources/css/common.css" rel="stylesheet" /> 
+  <style type="text/css">
+.wt td,.wt th{border: 1px solid;}
+.wt th{border: 1px solid;}
+</style> 
+ </head> 
+ <body> 
+  <!--header start--> 
+  <div class="header" th:include="common::header-frag"> 
+   <div class="header-bd"> 
+    <a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1></a> 
+    <div class="login-info"> 
+     <div class="menu"> 
+      <a class="menu-bd" id="js-my" href="../index/initMy12306">我的12306<b></b></a> 
+      <div class="menu-list"> 
+       <b></b> 
+       <ul> 
+        <li><a href="../queryOrder/initNoComplete">未完成订单</a></li> 
+        <li><a href="../queryOrder/init">已完成订单(改/退)</a></li> 
+        <li class="line"></li> 
+        <li><a href="../modifyUser/initQueryUserInfo">查看个人信息</a></li> 
+        <li><a href="../userSecurity/init">账户安全</a></li> 
+        <li class="line"></li> 
+        <li><a href="../passengers/init">常用联系人</a></li> 
+       </ul> 
+      </div> 
+     </div> 
+     <span class="login-txt" style="color: #666666"><span></span><a id="login_user" href="../login/init" class="colorA" style="margin-left:-0.5px;">登录</a>| <a id="regist_out" href="../regist/init">注册</a> </span> 
+     <!-- 
+            <span class="login-txt">
+            	<a id="" href="#nogo" class="colorA" th:if="${null!=session}" th:text="${session._CURRENT_USER.loginUserDTO.user_name}"></a>
+            	<a href="#" th:if="${session==null}">登录</a>|<a href="#nogo">注册</a>
+            </span>
+             var session = /*[[${session._CURRENT_USER.loginUserDTO.user_name}]]*/;    th:href="(${username})?${#httpServletRequest.contextPath}+'/login/init':${#httpServletRequest.contextPath}+'/index/initMy12306'" th:text="#{loginOrName}" --> 
+    </div> 
+    <div class="nav"> 
+     <ul> 
+      <li><a href="../index/init">客运首页</a></li> 
+      <li id="selectYuding"><a href="../leftTicket/init">车票预订</a></li> 
+      <li><a href="../lcxxcx/init">余票查询</a></li> 
+      <li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a> 
+       <div class="nav-list"> 
+        <ul style="font-weight:normal"> 
+         <li><a href="../leftTicketPrice/init">票价查询</a></li> 
+         <li><a href="../czxx/init">车站车次查询</a></li> 
+         <li><a href="../zzzcx/init">中转查询</a></li> 
+         <li><a href="../zwdch/init">正晚点查询</a></li> 
+         <li><a href="../queryAgencySellTicket/init">代售点查询</a></li> 
+        </ul> 
+       </div></li> 
+      <li id="selectHelp"><a href="../gonggao/help.html">信息服务</a></li> 
+     </ul> 
+    </div> 
+   </div> 
+  </div> 
+  <!--header end--> 
+  <!--主体 开始--> 
+  <div class="content"> 
+   <!--当前位置 开始--> 
+   <div class="crumbs">
+     您现在的位置：
+    <a href="../index/init">客运首页</a>&nbsp;&gt;&nbsp;
+    <strong>最新动态</strong> 
+   </div> 
+   <!--当前位置 结束--> 
+   <div class="news-box">
+    <div class="news-box-hd">
+     关于调整网站售票时间的公告
+    </div>
+    <div class="news-box-bd">
+     <p>&nbsp;&nbsp;</p>
+     <p>为了便于旅客通过12306网站和“铁路12306”手机APP购买发车时间较早的列车车票，自2016年8月10日起，网站和手机APP每天开始售票的时间由7:00提前至6:00，特此公告。&nbsp;</p>
+     <p>&nbsp;&nbsp;</p>
+     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中国铁路客户服务中心&nbsp;&nbsp;</p>
+     <div style="text-align:center;line-height:40px">
+      [2016-08-09]
+     </div>
+    </div>
+   </div> 
+  </div> 
+  <!--主体 结束--> 
+  <!--页面底部  开始--> 
+  <div class="footer"> 
+   <p><a href="#nogo">关于我们</a>|<a href="#nogo">网站声明</a></p> 
+   <p>版权所有&copy;2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p> 
+   <p>京ICP备10009636号</p> 
+  </div> 
+  <!--页面底部  结束-->   
+ </body>
+</html>

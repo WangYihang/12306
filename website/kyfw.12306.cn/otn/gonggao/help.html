@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/validation.css'" href="../resources/css/validation.css" rel="stylesheet"></link>
+
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/dhtmlxcalendar.css'"
+	href="../resources/js/rich/calendar/dhtmlxcalendar.css" rel="stylesheet"></link>
+
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css'"
+	href="../resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/message/skins/dhtmlxmessage_dhx_terrace.css'"
+	href="../resources/js/rich/message/skins/dhtmlxmessage_dhx_terrace.css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo.css'"
+	href="../resources/js/rich/dhtmlxCombo/dhtmlxcombo.css" rel="stylesheet"></link>
+<link rel="icon" href="../resources/images/ots/favicon.ico" th:href="${#httpServletRequest.contextPath}+'/resources/images/ots/favicon.ico'" type="image/x-icon" ></link>
+<link rel="shortcut icon" href="../resources/images/ots/favicon.ico" th:href="${#httpServletRequest.contextPath}+'/resources/images/ots/favicon.ico'" type="image/x-icon" />
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery-1.9.1.js'"
+	src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.chromatable.js'"
+	src="../resources/js/framework/jquery.chromatable.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.jqpagination.js'" type="text/javascript"
+	src="../resources/js/framework/jquery.jqpagination.js"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.form.js'"
+	src="../resources/js/framework/jquery.form.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.validate.js'"
+	src="../resources/js/framework/jquery.validate.js" type="text/javascript"></script>
+
+<!-- js i18n -->
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/i18n/messages_zh_CN.js'"
+	src="../resources/js/i18n/messages_zh_CN.js" type="text/javascript"></script>
+<!-- jquery validation i18n -->
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/i18n/validation_messages_zh_CN.js'"
+	type="text/javascript" src="../resources/js/i18n/validation_messages_zh_CN.js"></script>
+
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jsrender.js'"
+	src="../resources/js/framework/jsrender.js"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxcommon.js'" type="text/javascript"
+	src="../resources/js/rich/dhtmlxcommon.js"></script>
+	
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/dhtmlxwindows.css'"
+	href="../resources/js/rich/windows/dhtmlxwindows.css" type="text/css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/skins/dhtmlxwindows_dhx_terrace.css'"
+	href="../resources/js/rich/windows/skins/dhtmlxwindows_dhx_terrace.css" type="text/css" rel="stylesheet"></link>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/dhtmlxwindows.js'"
+	src="../resources/js/rich/windows/dhtmlxwindows.js" type="text/javascript"></script>
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxcontainer.js'"
+	src="../resources/js/rich/dhtmlxcontainer.js" type="text/javascript">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo.js">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js">
+</script>
+<script type="text/javascript" utils:merger="common_js"
+	th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/message/dhtmlxmessage.js'"
+	src="../resources/js/rich/message/dhtmlxmessage.js">
+</script>
+<script script="javascript">
+/*<![CDATA[*/
+ var ctx="";
+ /*]]>*/
+</script>
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/baseInit.js'" type="text/javascript"
+	src="../resources/js/framework/baseInit.js">
+</script>
+<!-- head and footer -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+<title>信息服务 | 客运服务 | 铁路客户服务中心</title>
+
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/common.css'" href="../resources/css/common.css" th:remove="all" rel="stylesheet"></link>
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/help.css'" href="../resources/css/help.css"  rel="stylesheet" rev="stylesheet" type="text/css" />
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery-1.9.1.js'" src="../resources/js/framework/jquery-1.9.1.js" th:remove="all" type="text/javascript"></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/common.js'" src="../resources/js/common.js" th:remove="all" type="text/javascript"></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.SuperSlide.js'" type="text/javascript"
+	src="../resources/js/framework/jquery.SuperSlide.js" ></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/baseInit.js'" type="text/javascript" 
+	src="../resources/js/framework/baseInit.js" th:remove="all"></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/help/help.js'" type="text/javascript" src="../resources/js/help/help.js"></script>
+</head>
+<body>
+<!--header start-->
+<div class="header">
+		<div class="header-bd">
+		<a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1></a>
+		<div class="login-info">
+			<div class="menu">
+				<a  class="menu-bd" id="js-my" href="../index/initMy12306">我的12306<b></b></a>
+				<div class="menu-list">
+					<b></b>
+					<ul>		
+						<li><a  href="../queryOrder/initNoComplete">未完成订单</a></li>	
+						<li><a  href="../queryOrder/init">已完成订单(改/退)</a></li>
+						<li class="line"></li>
+						<li><a href="../modifyUser/initQueryUserInfo">查看个人信息</a></li>
+						<li><a href="../userSecurity/init">账户安全</a></li>
+						<li class="line"></li>						
+						<li><a href="../passengers/init">常用联系人</a></li>
+					</ul>
+				</div>
+			</div>
+			<span class="login-txt" style="color: #666666"><span></span><a id="login_user" href="../login/init" class="colorA" style="margin-left:-0.5px;">登录</a>| <a id="regist_out" href="../regist/init">注册</a>
+			</span>
+			<!-- 
+            <span class="login-txt">
+            	<a id="" href="#nogo" class="colorA" th:if="${null!=session}" th:text="${session._CURRENT_USER.loginUserDTO.user_name}"></a>
+            	<a href="#" th:if="${session==null}">登录</a>|<a href="#nogo">注册</a>
+            </span>
+             var session = /*[[${session._CURRENT_USER.loginUserDTO.user_name}]]*/;    th:href="(${username})?${#httpServletRequest.contextPath}+'/login/init':${#httpServletRequest.contextPath}+'/index/initMy12306'" th:text="#{loginOrName}" -->
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="../index/init">客运首页</a></li>
+				<li id="selectYuding"><a href="../leftTicket/init">车票预订</a></li>
+				<li><a href="../lcxxcx/init">余票查询</a></li>
+				<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+					<div class="nav-list">
+						<ul style="font-weight:normal">
+							<li><a href="../queryTrainInfo/init">车次查询</a></li>
+							<li><a href="../leftTicketPrice/init">票价查询</a></li>
+							<li><a href="../czxx/init" >车站车次查询</a></li>
+							<li><a href="../zzzcx/init" >中转查询</a></li>
+							<li><a href="../zwdch/init" >正晚点查询</a></li>
+							<li><a href="../queryAgencySellTicket/init">代售点查询</a></li>
+						</ul>
+					</div></li>
+				<li id="selectHelp"><a href="../gonggao/help.html">信息服务</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--header end-->
+<!--页面主体  开始-->
+<div class="content">
+	<div class="search">
+    	
+    </div>
+
+	<div class="help-tab">
+    	<div class="hd">
+        	<ul>
+            	<li class="on"><span class="cjwt"></span>常见问题<b></b></li>
+                <li><span class="syxz"></span>使用须知<b></b></li>
+                <li><span class="xggz"></span>相关规章<b></b></li>
+                <li><span class="tlbx"></span>铁路保险<b></b></li>
+            </ul>
+        </div>
+        <div class="bd">
+        	<div class="down">
+                <ul class="question clearfix">
+                    <li>
+                    	<dl>
+	                        <dt>车票</dt>
+	                        <dd><a id="ticketType" href="#nogo">车票的种类</a></dd>
+	                        <dd><a id="realNameTicket" href="#nogo">实名制车票</a></dd>
+	                        <dd><a id="reimburseVoucher" href="#nogo">报销凭证</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                    	<dl>
+	                        <dt>购票</dt>
+	                        <dd><a id="ticketWindow" href="#nogo">售票窗口购票</a></dd>
+	                        <dd><a id="ticketVendor" href="#nogo">自动售票机购票</a></dd>
+	                        <dd><a id="phoneBooking" href="#nogo">电话订票</a></dd>
+	                        <dd><a id="onlineBooking" href="#nogo">互联网购票、换票</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                    	<dl>
+	                        <dt>改签、变更到站 </dt>
+	                        <dd><a id="windowEndorse" href="#nogo">售票窗口改签、变更到站</a></dd>
+	                        <dd><a id="onlineEndorse" href="#nogo">互联网改签、变更到站</a></dd>
+	                        <dd><a id="changeOrDelay" href="#nogo">列车变更或延迟</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                    	<dl>
+	                        <dt>退票</dt>
+	                        <dd><a id="windowRefund" href="#nogo">售票窗口退票</a></dd>
+	                        <dd><a id="onlineRefund" href="#nogo">互联网退票</a></dd>
+                        </dl>
+                    </li>
+                    <li class="end">
+                    	<dl>
+	                        <dt>特殊旅客服务</dt>
+	                        <dd><a id="children" href="#nogo">儿童</a></dd>
+	                        <dd><a id="student" href="#nogo">学生</a></dd>
+	                        <dd><a id="disabledSoldier" href="#nogo">残疾军人</a></dd>
+	                        <dd><a id="disabledPassenger" href="#nogo">残疾旅客</a></dd>
+	                        <dd><a id="groupPassengers" href="#nogo">团体旅客</a></dd>
+                        </dl>
+                    </li>
+                    <li class="line20"></li>
+                    <li>
+                    	<dl>
+	                        <dt>携带品和行李</dt>
+	                        <dd><a id="luggage" href="#nogo">随身携带品</a></dd>
+	                        <dd><a id="luggageTransportation" href="#nogo">行李托运</a></dd>
+	                        <dd><a id="insuredTransportation" href="#nogo">保价运输</a></dd>
+	                        <dd><a id="compensation" href="#nogo">索赔</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                    	<dl>
+	                        <dt>进站乘车</dt>
+	                        <dd><a id="enterAndExit" href="#nogo">进出站</a></dd>
+	                        <dd><a id="riding" href="#nogo">乘车</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                    	<dl>
+	                        <dt><a href="../gonggao/soldByMistake.html">更多></a>特殊情况 </dt>
+	                        <dd><a id="soldByMistake" href="#nogo">误售误购</a></dd>
+	                        <dd><a id="ticketLost" href="#nogo">丢失车票</a></dd>
+	                        <dd><a id="sickOnTheTrain" href="#nogo">途中生病</a></dd>
+	                        <dd><a id="personalInjury" href="#nogo">人身伤害</a></dd>
+	                        <dd><a id="lostItem" href="#nogo">遗失物品</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                    	<dl>
+	                        <dt>客运服务 </dt>
+	                        <dd><a id="railwayService" href="#nogo">站车服务</a></dd>
+	                        <dd><a id="dining" href="#nogo">餐饮</a></dd>
+                        </dl>
+                    </li>
+                    <li class="end">
+                   		<dl>
+	                        <dt><a href="../gonggao/register.html">更多></a>互联网售票</dt>
+	                        <dd><a id="checkIdentity" href="#nogo">身份核验</a></dd>
+	                        <dd><a id="register" href="#nogo">用户注册</a></dd>
+	                        <dd><a id="buyTicket" href="#nogo">购票</a></dd>
+	                        <dd><a id="onlinePay" href="#nogo">在线支付</a></dd>
+	                        <dd><a id="endorseAndRefund" href="#nogo">改签、变更到站、退票</a></dd>
+	                        
+	                        <!-- <dd><a id="changeToPaperTicket" href="#nogo">换取纸质车票</a></dd> -->
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="down">
+            	<ul class="list">
+                	<li><a href="../gonggao/usersNeedToKnow.html?linktypeid=reg" th:href="@{/usertoknow/untk(linktypeid='reg')}">注册新用户</a></li>
+                    <li><a href="../gonggao/usersNeedToKnow.html?linktypeid=buy" th:href="@{/usertoknow/untk(linktypeid='buy')}">网上购票流程</a></li>
+                    <li><a href="../gonggao/usersNeedToKnow.html?linktypeid=txt" th:href="@{/usertoknow/untk(linktypeid='txt')}">铁路电子客票</a></li>
+                    <li><a href="../gonggao/saleTicketMeans.html?linktypeid=means5" th:href="@{/saleticketmeans/stm5}">身份核验</a></li>
+                    <li><a href="../gonggao/usersNeedToKnow.html?linktypeid=express" th:href="@{/usertoknow/untk(linktypeid='express')}">《铁路车票快递服务须知》</a></li>
+                </ul>
+            </div>
+            <div class="down">
+            	<ul class="list">
+                	<li><a href="../gonggao/saleTicketMeans.html?linktypeid=means1" th:href="@{/saleticketmeans/stm1}">《铁路互联网售票暂行办法》</a></li>
+                    <li><a href="../gonggao/saleTicketMeans.html?linktypeid=means2" th:href="@{/saleticketmeans/stm2}">《铁路旅客运输规程》</a></li>
+                    <li><a href="../gonggao/saleTicketMeans.html?linktypeid=means3" th:href="@{/saleticketmeans/stm3}">《铁路互联网购票须知》</a></li>
+                    <li><a href="../gonggao/saleTicketMeans.html?linktypeid=means4" th:href="@{/saleticketmeans/stm4}">《铁路旅客运输办理细则》</a></li>
+                    <li><a href="../gonggao/saleTicketMeans.html?linktypeid=means5" th:href="@{/saleticketmeans/stm5}">《铁路互联网购票身份核验须知》</a></li>
+                    
+                </ul>
+                
+            </div>
+            <div class="down">
+                <ul class="list list-lg">
+                    <li><a style="width: 400px" href="../gonggao/QuestionForInsurance.html?linktypeid=means1" th:href="@{/questionForInsurance/stm1}">《铁路旅客人身意外伤害保险条款（A款）》</a></li>
+                </ul>
+                <ul class="list list-lg">
+                    <li><a style="width: 400px" href="../gonggao/QuestionForInsurance.html?linktypeid=means2" th:href="@{/questionForInsurance/stm2}">《铁路旅客人身意外伤害保险（指定行程）投保须知》</a></li>
+                </ul>
+                <ul class="list list-lg">
+                    <li><a style="width: 400px" href="../gonggao/QuestionForInsurance.html?linktypeid=means3" th:href="@{/questionForInsurance/stm3}">《铁路旅客人身意外伤害保险（指定行程）常见问题》</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    jQuery(".help-tab").slide();
+    </script>
+</div>
+<!--页面主体  结束-->
+
+<!--页面底部  开始-->
+<div class="footer">
+	<p><a href="#nogo">关于我们</a>|<a href="#nogo">网站声明</a></p>
+    <p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+    <p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+</body>
+</html>

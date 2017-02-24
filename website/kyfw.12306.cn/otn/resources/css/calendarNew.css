@@ -1,0 +1,48 @@
+新日历开始*/
+body,td,.p1,.p2,.i{font-family:arial}
+body{margin:0 0 0;background-color:#fff;color:#000;}
+table{border:0}
+.cal-wrap{border:#2b8cce solid 1px; overflow: hidden; zoom: 1;  background: #fff; position: absolute; z-index: 2000;}
+.cal{width:261px;font-size:12px;background:#fff; float: left}
+.cal-top{height:20px;line-height:20px;background:#fff;color:#003784;padding:5px 10px; position: relative; z-index: 2000;}
+.cal-right .cal-top{ text-align: right;}
+.cal-top select{font-size:12px; vertical-align: middle;}
+.cal-top input{padding:0}
+.cal-top a{ float: left; width: 16px; height: 16px; background: url(../images/img.gif) no-repeat; vertical-align: middle;}
+.cal-top .first{ background-position: 0 0; margin-right: 5px;}
+.cal-top .prev{ background-position: -16px 0; margin-right: 5px;}
+.cal-top .next{ background-position: -32px 0; margin-left: 5px;}
+.cal-top .last{ background-position: -48px 0; margin-left: 5px;}
+.cal-top .next,.cal-top .last{ float: right;}
+.cal-week{margin:0;padding:0;height:25px; border-right: 1px solid #ddd; margin-right: -1px; background: #bdebef}
+.cal-right .cal-week{border-left: 1px solid #ddd;}
+.cal-week li{float:left;width:36px;text-align:center;line-height:25px;list-style:none}
+.cal-week li b{font-weight:normal;color:#c60b02}
+.cal-cm{clear:left;border-top:1px solid #ddd;border-right:1px solid #ddd;position:relative;margin-right: -1px; min-height: 100px;}
+.cal-right .cal-cm{border-left:1px solid #ddd;}
+
+.cal-cm .cell{position:absolute;width:36px;height:18px;text-align:center;}
+.cal-cm .cell .so{font: bold 12px "宋体";}
+.cal-ft{ clear: both; text-align: right; height: 20px; padding: 4px 10px; background: #fff; border-top: 1px solid #ddd; width: 502px;}
+.cal-ft .cal-btn{ display: inline-block; height:20px; width:50px;text-align: center; text-decoration: none; color:#297405;background:#f1f1f1; border:1px solid #cdcdcd; font-size:12px; line-height:20px; cursor:pointer;}
+.cal-top a{float: left; margin: 2px 0 0 0;}
+.cal-top .year{ float: left; position: relative; margin-right: 10px;}
+.cal-top .year input{ width: 50px; height: 18px; line-height: 18px;border: 0 none; background: #fff; text-align: center; }
+.cal-top .month{ float: left; position: relative; }
+.cal-top .month input{ width: 50px; height: 18px; line-height: 18px;border: 0 none; background: #fff; text-align: center; }
+.cal-top .time-list{ position: absolute; top:20px; left: 0; border: 1px solid #ddd; width: 90px; background: #fff; padding: 0; margin: 0; list-style: none; overflow: hidden; zoom: 1; z-index: 1000; display: none;}
+.cal-top .time-list ul{ margin: 0; padding: 0; overflow: hidden; zoom: 1;}
+.cal-top .time-list li{ float: left; width: 40px; list-style: none; height: 20px; line-height: 20px; padding-left: 5px; cursor: pointer;}
+.cal-top .time-list .dis{ color: #999}
+.cal-right .month,.cal-right .year{ float: right; text-align: left}
+.cal-top .time-list-ft{text-align: center; padding: 0 10px;}
+.cal-top .time-list-ft a{ margin: 0; background: none; height: 20px; line-height: 20px; text-decoration: none; font-size: 12px; float: none;}
+.cal-top .time-list-ft .close{ font-size: 16px; display: inline-block; width: 20px; text-align: center;}
+.cal-top .time-list-ft .close:hover{background: #beebee}
+.fl{ float: left !important;}
+.fr{ float: right !important;}
+/*单日历*/
+.cal-one{width: 261px;}
+.cal-one .cal-right{ display: none;}
+.cal-one .cal-top .prev{margin-right: 34px;}
+.cal-one .cal-ft{ width: 241px; }

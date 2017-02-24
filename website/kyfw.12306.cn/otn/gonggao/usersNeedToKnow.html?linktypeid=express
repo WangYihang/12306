@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/validation.css'" href="../resources/css/validation.css" rel="stylesheet"></link>
+
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/dhtmlxcalendar.css'"
+	href="../resources/js/rich/calendar/dhtmlxcalendar.css" rel="stylesheet"></link>
+
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css'"
+	href="../resources/js/rich/calendar/skins/dhtmlxcalendar_dhx_terrace.css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/message/skins/dhtmlxmessage_dhx_terrace.css'"
+	href="../resources/js/rich/message/skins/dhtmlxmessage_dhx_terrace.css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo.css'"
+	href="../resources/js/rich/dhtmlxCombo/dhtmlxcombo.css" rel="stylesheet"></link>
+<link rel="icon" href="../resources/images/ots/favicon.ico" th:href="${#httpServletRequest.contextPath}+'/resources/images/ots/favicon.ico'" type="image/x-icon" />
+<link rel="shortcut icon" href="../resources/images/ots/favicon.ico" th:href="${#httpServletRequest.contextPath}+'/resources/images/ots/favicon.ico'" type="image/x-icon" />
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery-1.9.1.js'"
+	src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.chromatable.js'"
+	src="../resources/js/framework/jquery.chromatable.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.jqpagination.js'" type="text/javascript"
+	src="../resources/js/framework/jquery.jqpagination.js">
+</script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.form.js'"
+	src="../resources/js/framework/jquery.form.js" type="text/javascript"></script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery.validate.js'"
+	src="../resources/js/framework/jquery.validate.js" type="text/javascript"></script>
+
+<!-- js i18n -->
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/i18n/messages_zh_CN.js'"
+	src="../resources/js/i18n/messages_zh_CN.js" type="text/javascript">
+	</script>
+<!-- jquery validation i18n -->
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/i18n/validation_messages_zh_CN.js'"
+	type="text/javascript" src="../resources/js/i18n/validation_messages_zh_CN.js">
+</script>
+
+
+
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jsrender.js'"
+	src="../resources/js/framework/jsrender.js">
+</script>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxcommon.js'" type="text/javascript"
+	src="../resources/js/rich/dhtmlxcommon.js">
+</script>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/dhtmlxwindows.css'"
+	href="../resources/js/rich/windows/dhtmlxwindows.css" type="text/css" rel="stylesheet"></link>
+<link utils:merger="common_css" th:href="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/skins/dhtmlxwindows_dhx_terrace.css'"
+	href="../resources/js/rich/windows/skins/dhtmlxwindows_dhx_terrace.css" type="text/css" rel="stylesheet"></link>
+
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/windows/dhtmlxwindows.js'"
+	src="../resources/js/rich/windows/dhtmlxwindows.js" type="text/javascript"></script>
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxcontainer.js'"
+	src="../resources/js/rich/dhtmlxcontainer.js" type="text/javascript">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo.js">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo_whp.js">
+</script>
+<script type="text/javascript" utils:merger="common_js"
+	th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js'"
+	src="../resources/js/rich/dhtmlxCombo/dhtmlxcombo_extra_html.js">
+</script>
+<script type="text/javascript" utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/rich/message/dhtmlxmessage.js'"
+	src="../resources/js/rich/message/dhtmlxmessage.js">
+</script>
+<script script="javascript">
+/*<![CDATA[*/
+ var ctx="";
+ /*]]>*/
+</script>
+<script utils:merger="common_js" th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/baseInit.js'" type="text/javascript"
+	src="../resources/js/framework/baseInit.js">
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+<title>信息服务 | 客运服务 | 铁路客户服务中心</title>
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/common.css'" href="../resources/css/common.css" rel="stylesheet" th:remove="all"></link>
+<link th:href="${#httpServletRequest.contextPath}+'/resources/css/help.css'" href="../resources/css/help.css"  rel="stylesheet" rev="stylesheet" type="text/css" />
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/framework/jquery-1.9.1.js'" src="../resources/js/framework/jquery-1.9.1.js" type="text/javascript" th:remove="all"></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/common.js'" src="../resources/js/common.js" type="text/javascript" th:remove="all"></script>
+<script th:src="${#httpServletRequest.contextPath}+'/resources/js/help/usersNeedToKnow.js'" type="text/javascript" 
+	src="../resources/js/help/usersNeedToKnow.js" ></script>
+</head>
+
+<body>
+<input id="linktype" type="hidden" th:value="${linktype}" ></input>
+
+<!--header start-->
+<div class="header" th:include="common::header-frag" >
+			<div class="header-bd">
+		<a href="http://www.12306.cn/"><h1 class="logo">中国铁路客户服务中心-客运中心</h1></a>
+		<div class="login-info">
+			<div class="menu">
+				<a  class="menu-bd" id="js-my" href="../index/initMy12306">我的12306<b></b></a>
+				<div class="menu-list">
+					<b></b>
+					<ul>		
+						<li><a  href="../queryOrder/initNoComplete">未完成订单</a></li>	
+						<li><a  href="../queryOrder/init">已完成订单(改/退)</a></li>
+						<li class="line"></li>
+						<li><a href="../modifyUser/initQueryUserInfo">查看个人信息</a></li>
+						<li><a href="../userSecurity/init">账户安全</a></li>
+						<li class="line"></li>						
+						<li><a href="../passengers/init">常用联系人</a></li>
+					</ul>
+				</div>
+			</div>
+			<span class="login-txt" style="color: #666666"><span></span><a id="login_user" href="../login/init" class="colorA" style="margin-left:-0.5px;">登录</a>| <a id="regist_out" href="../regist/init">注册</a>
+			</span>
+			<!-- 
+            <span class="login-txt">
+            	<a id="" href="#nogo" class="colorA" th:if="${null!=session}" th:text="${session._CURRENT_USER.loginUserDTO.user_name}"></a>
+            	<a href="#" th:if="${session==null}">登录</a>|<a href="#nogo">注册</a>
+            </span>
+             var session = /*[[${session._CURRENT_USER.loginUserDTO.user_name}]]*/;    th:href="(${username})?${#httpServletRequest.contextPath}+'/login/init':${#httpServletRequest.contextPath}+'/index/initMy12306'" th:text="#{loginOrName}" -->
+		</div>
+		<div class="nav">
+			<ul>
+				<li><a href="../index/init">客运首页</a></li>
+				<li id="selectYuding"><a href="../leftTicket/init">车票预订</a></li>
+				<li><a href="../lcxxcx/init">余票查询</a></li>
+				<li style="width: 71px;" id="js-xd" class="nav-guide"><a href="javascript:">出行向导</a>
+					<div class="nav-list">
+						<ul style="font-weight:normal">
+							<li><a href="../queryTrainInfo/init">车次查询</a></li>
+							<li><a href="../leftTicketPrice/init" >票价查询</a></li>
+							<li><a href="../czxx/init" >车站车次查询</a></li>
+							<li><a href="../zzzcx/init" >中转查询</a></li>
+							<li><a href="../zwdch/init" >正晚点查询</a></li>
+							<li><a href="../queryAgencySellTicket/init">代售点查询</a></li>
+						</ul>
+					</div></li>
+				<li id="selectHelp"><a href="../gonggao/help.html">信息服务</a></li>
+			</ul>
+		</div>
+
+
+	</div>
+</div>
+<!--header end-->
+
+<!--页面主体  开始-->
+<div class="content clearfix">
+	<!--当前位置 开始-->
+    <div class="crumbs">
+    	您现在的位置：<a href="../index/init">客运首页</a>&nbsp;>&nbsp;<a href="../gonggao/help.html">信息服务</a>&nbsp;>&nbsp;<a href="#nogo">使用须知</a>&nbsp;>&nbsp;<strong id="insert">铁路电子客票</strong>
+    </div>
+    <!--当前位置 结束-->
+	<!--左侧导航 开始-->
+    <div class="sidebar">
+        <div class="layout my">
+            <div class="lay-hd">使用须知</div>
+            <div class="lay-bd">
+                <div class="nav-label" id="nav-label"><span></span></div>
+                <dl class="on">
+                	<dt class="hide">&nbsp;</dt>
+                    <dd onclick="$.displaydiv('reg')"><a href="#nogo" id="reg" onclick="$.displaydiv(id)">注册新用户</a></dd>
+                    <dd onclick="$.displaydiv('buy')"><a href="#nogo" id="buy" onclick="$.displaydiv(id)">网上购票流程</a></dd>
+                    <dd onclick="$.displaydiv('txt')"><a href="#nogo" id="txt" onclick="$.displaydiv(id)">铁路电子客票</a></dd>
+                    <dd onclick="$.displaydiv('express')"><a href="#nogo" id="express" onclick="$.displaydiv(id)">铁路车票快递服务须知</a></dd>
+                </dl>            
+                <!--点击后DL添加样式on后下拉项DD会自动下限-->
+            </div>
+        </div>
+    </div>
+    <!--左侧导航 结束-->
+    
+    <!--右侧主体 开始-->
+    <div class="main" id="main">
+    	<div class="txt-box" id="reg-box" style="display: none;">
+			<h1>新用户注册</h1>
+            <h2>1. 在12306.cn网站购票是否需要注册？注册需要填写哪些信息？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 12306.cn网站对注册用户提供购票服务。欢迎注册为12306.cn网站用户。注册时，请根据12306.cn网站的提示，需要如实填写相关信息。</p>
+	<h2>2. 注册可用的有效身份证件有哪些？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站注册及购票时，可使用的有效身份证件包括：中华人民共和国居民身份证、港澳居民来往内地通行证、台湾居民来往大陆通行证、按规定可使用的有效护照四种。</p>
+	<h2>3. 姓名很长、有生僻字、繁体字，怎么办？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 如果姓名中有生僻字，无法输入或者输入保存后系统无法正确显示时，该生僻字可以用小写的汉语拼音（仅英文字母，无需音调）或同音字代替。<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp; 如果姓名中有繁体字无法输入时，可用简体代替。<br/>				            	
+		&nbsp;&nbsp;&nbsp;&nbsp; 如果姓名较长，汉字或英文字符合计超过30个（1个汉字算2个英文字符）时，需按姓名中第一个汉字或英文字符开始按顺序连续输入30个字符，空格字符不输入，英文字符不需区别大小写。<br/>				
+		&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站填写身份信息后，请持所填写的有效身份证件原件到车站售票窗口办理身份信息核验，办理注册用户身份信息核验的还要提供手机号后4位或注册邮箱前3位，办理常用联系人身份信息核验的还要提供注册用户注册时填写的身份证件号码。<br/>
+						
+	</p>						
+	<h2>4. 我的名字是中文和英文组合而成，能办理互联网购票吗？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 可以。</p>
+	<h2>5. 身份证号码中包含"X"怎么输入？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 请检查您的输入法格式，将输入法中的"全角"格式改为"半角"后，再将大写字母键点亮（点击CapsLock）后输入"X"即可。</p>
+	<h2>6. 注册时，网站提示该身份信息已注册时，怎么办？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 当您在12306.cn网站办理用户注册，12306.cn网站提示该身份信息已注册时，请持本人有效身份证件原件到车站售票窗口处理，请勿委托他人代办。窗口处理完成后，请尽快注册。<br/>	</p>
+	<h2>7. 注册用户享受哪些优惠服务？</h2> 
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 12306.cn网站为注册用户提供购票、改签、变更到站和退票业务。</p>
+	<h2>8. 填写注册信息后是否可以马上订票？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 网站通过国家身份认证权威部门对注册用户、常用联系人（乘车人）的所填写的身份信息进行核验，结果为“已通过”、“预通过”、“请报验”的，可以在12306.cn网站购票。</p>
+	<h2>9. 为什么我无法登录？</h2> 
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 请您检查您的网络链接是否正常，如果正常，请您核对您输入的登录信息是否正确，您可能输入了错误的用户名或者密码。有时由于系统维护，可能会暂时不能登录，您可以稍后再试或者直接到车站窗口或代售点购票。</p>
+	<h2>10. 12306.cn网站是全天服务吗？</h2> 
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 12306.cn网站互联网售票时间原则为每日6:00至23:00。</p>
+        </div>
+        
+        
+        <div id="buy-box" class="txt-box" style="display: none;">
+			<h1>网上购票流程</h1>
+            <h2>1. 12306.cn网站互联网购票业务办理时间有无限制？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站办理购票、改签、退票等业务，请不晚于开车前30分钟；在开车前30分钟之内的，请到车站售票窗口办理。</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站，办理“变更到站”业务时，请不晚于开车前48小时。</p>
+	<h2>2. 12306.cn网站可订的车票类别有哪些？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站可以购买铁路客票系统发售的成人、儿童、学生、残疾军人（含伤残人民警察）四种各车次、各席别的直达票。</p>
+	<h2>3. 在12306.cn网站是否可以购买返程车票？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 可以。</p>
+	<h2>4. 在12306.cn网站可以购买学生票吗？</h2>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 可以。如您是学生，请在"个人资料"中修改并完善您的学生信息。如果代他人（学生）代购，请您先把要买的学生信息加入到您的"常用联系人"中。请如实填写学生的身份证信息。</p>
+	    <p>&nbsp;&nbsp;&nbsp;&nbsp; 每年的寒暑假期间（6月1日-9月30日，12月1日-次年3月31日）可以购买学生票。</p>
+	<h2>5. 我在国外可以使用12306.cn网站购票么？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 可以，只要登录12306.cn网站，就可以办理铁路互联网购票业务。</p>
+	<h2>6. 在12306.cn网站购票一个身份证可以购多少张票？一笔订单是否有购票张数限制？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 一个有效身份证件同一乘车日期同一车次限购一张车票（但使用同行成年人的有效身份证件信息为乘车儿童购买儿童票的除外）。一笔订单不能超过5张票，12306.cn网站可根据具体情况做适当限制。</p>
+	<h2>7. 12306.cn网站可以购买一次预订多个日期、目的地客票吗？</h2>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 不可以。目前仅支持单程、来回程客票预订。</p>
+	<h2>8. 12306.cn网站购票是否可以任意订票?</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 每日购票人每日连续取消3次订单，当日无法订票，只能至次日12306.cn网站服务时间再次购票。</p>
+	<h2>9. 我可以在12306.cn网站帮朋友买票吗?</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 网站提示身份信息核对状态为“已通过”、“请报验”、“预通过”的注册用户可以为自己或他人购票。登录后，请将您的朋友添加为常用联系人（乘车人），准确输入其姓名、有效身份证件、号码，网站提示其身份信息核验状态为“已通过”、“预通过”、“请报验”的，即可购票。</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 持按规定可使用的有效护照、港澳居民来往内地通行证、台湾居民来往大陆通行证的注册用户，只能为按规定可使用的有效护照、港澳居民来往内地通行证、台湾居民来往大陆通行证的常用联系人购票。</p>	
+	<h2>10. 我在查询某一天车票预订信息时，没有车次可以预订，怎么回事？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 可能有以下几种情形：该日车票还未开始发售，该日车票已售完，该日已过期。</p>
+	<h2>11. 是不是所有车票都可在12306.cn网站查询？</h2>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 在网络购票预售期内，因调整旅客列车运行方案，部分时段个别车次可能暂未发售，请关注12306.cn网站公告。</p>
+	<h2>12. 为什么时刻表中有些车次，互联网售票查询不到？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 用户进入12306.cn网站车票预订页面后可以查询预订车次的车票，包括各铁路局开通互联网售票的各次列车，并未涵盖全国所有车次。</p>
+	<h2>13. 我在12306.cn网站查询有票，但预订时就没有票了怎么回事？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 如果在12306.cn网站查询有票，而预订不成功，出现错误信息，有以下可能：<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 第一种可能：在预订的同时，有其他旅客也在申请相同需求车票，特别是所剩车票不多时，先发起请求的旅客将获得剩余车票，这个时候当回到12306.cn网站再次查询刚才的车次时，就会发现先前所选择的车次已经没有您想要的车票了。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 第二种可能：当上网的环境发生网络故障时，12306.cn网站对旅客订票申请的响应出现了问题。<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp; 第三种可能：由于其他未知原因导致预订车票没有成功，可以稍后再试一次；当12306.cn网站其他网页访问正常而订票申请总是出现故障，且12306.cn网站没有发布升级或停机通知时，可以根据页面中的提示服务电话进行咨询。<br/></p>
+	<h2>14. 如何知道购票成功？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 购票成功后，12306.cn网站会弹出"订票成功"页面，订单信息自动保存在注册用户"我的订单"中，同时向用户注册时提供的邮箱发送邮件通知、向用户注册时提供的手机号码发送短信通知。</p>
+	<h2>15. 我已经预订了车票是否可以更改姓名？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 不可以。</p>
+	<h2>16. 我在12306.cn网站购票后，发现姓名或证件号码等填写错误，怎么办？</h2>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站注册、购票时，请认真核对姓名、身份证号码等有关身份信息。如发现乘车人身份信息错误，只能在12306.cn网站退票，并按规定收取退票费；发现日期、发站、到站、车次、席别错误的，可以按规定在12306.cn网站或铁路售票窗口办理改签、变更到站、退票。</p>
+	<h2>17. 为什么我不能同时打开两个页面登录订购车票？</h2>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; 在12306.cn网站上，如您未完成订单支付前，系统不允许再次查询预订车票。</p>
+	<h2>18. 铁路电子客票是否可以验真？</h2>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp; 能成功换票或检票的即为有效的电子客票，不存在真假问题。</p>
+	<h2>19. 网上购票由于安全警告无法登录问题说明</h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 用户在点击客运服务后常出现IE浏览器报出的安全警告，"InternetExplore已阻止此12306.cn网站显示有安全证书错误的内容"、"内容被阻止，因为该内容没有签署有效的安全证书"等。其原因是没有导入12306.cn网站客运首页所载的根证书。为了保证用户顺利进行12306.cn网站的使用，请先将根证书按说明进行导入即可。</p>
+</div>
+       
+        
+        
+        <div class="txt-box" id="txt-box" style="display:none">
+			<h1>铁路电子客票</h1>
+            <h2>1. 铁路电子客票定义</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; 铁路电子客票是以电子数据形式体现的铁路旅客运输合同，与普通车票具有同等法律效力。</p>
+            <h2>2. 铁路电子客票时效</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; 在中国铁路客户服务中心网站（12306.cn，以下简称“12306.cn网站”），购买铁路电子客票以确认交易成功的时间作为铁路旅客运输合同生效的时间，退票以网站确认交易成功的时间作为铁路旅客运输合同终止的时间，改签、变更到站按照购票、退票处理。</p>
+            <h2>3. 铁路电子客票换票</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; 遇以下情形，请在购票后、开车前换取纸质车票后进站乘车：<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （1）使用居民身份证购票但乘车站或下车站不具备居民身份证检票条件的。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （2）使用居民身份证购票但进站检票时无法出示居民身份证原件或居民身份证无法在自动检票机上识读的。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （3）使用居民身份证以外的其他有效身份证件购票。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （4）使用同行成年人有效身份证件信息购买儿童票的。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （5）购买学生票、残疾军人票的。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （6）按所购车票的乘车日期、车次在中途站进站乘车的。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;  旅客换取纸质车票后，不能再在12306.cn网站办理改签、变更到站、退票手续，请凭纸质车票办理检票、验票、改签、变更到站、退票等手续。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;  旅客在12306.cn网站购票后，需换取纸质车票的，按如下方式办理：<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （1）使用居民身份证购票的，可凭购票时所使用的乘车人有效居民身份证原件到车站售票窗口、铁路代售点或车站自动售票机上办理。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （2）居民身份证无法自动识读或者使用居民身份证以外的其他有效身份证件购票的，请携带购票时所使用的乘车人有效身份证件原件和订单号码，到车站售票窗口或铁路运输企业授权的铁路代售点，由售票员录入证件号码和订单号码并核实后办理。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （3）购票后、换票前，有效身份证件丢失的，乘车人本人请到乘车站铁路公安制证口办理临时身份证明，并第（2）项办理换票手续。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （4）购买学生票的，请凭购票时所使用的有效身份证件和附有学生火车票优惠卡的学生证（均为原件）到安装有学生火车票优惠卡识别器的车站售票窗口或铁路代售点办理。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （5）购买残疾军人票的，请凭购票时所使用的有效身份证件和“中华人民共和国残疾军人证”、“中华人民共和国伤残人民警察证”（均为原件）到车站售票窗口办理。<br />
+ &nbsp;&nbsp;&nbsp;&nbsp; （6）有效身份证件信息、订单号码等经核实一致的，予以换票；不一致的，不予换票。学生票、残疾军人票同时核对减价优惠（待）凭 证。学生票还核减优惠乘车次数。<br/>
+ &nbsp;&nbsp;&nbsp;&nbsp; （7）“请报验”常用联系人（乘车人）在12306.cn网站购票后，需请持在12306.cn网站填写的按规定可使用的有效护照、港澳居民来往内地通行证、台湾居民来往大陆通行证（均为原件）到车站售票窗口办理身份信息核验且通过预核验后（身份信息核验状态变更为“预通过”），换取纸质车票。</p> 
+            <h2> 4. 铁路电子客票检验票</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp; 旅客在12306.cn网站购票后，应当或已经换取纸质车票的，请凭纸质车票办理进、出站检票手续。使用居民身份证购票，并且乘车站或下车站都具备居民身份证检票条件的，可以直接通过车站自动检票机识读居民身份证办理进、出站检票手续，无需换取纸质车票。</p>
+            <h2>5. 铁路电子客票改签、变更到站、退票</h2>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;  在有运输能力的前提下，正常注册用户可在网站12306.cn为“已通过”、“预通过”、“请报验”常用联系人（乘车人）的网上已购车票正常办理改签、变更到站，不能为“待核验”、“未通过”常用联系人（乘车人）的网上已购车票办理改签、变更到站。在12306.cn网站办理铁路电子客票改签、退票手续的，请不晚于车票发站开车前30分钟；办理“变更到站”业务时，请不晚于开车前48小时。<br />
+ 			   &nbsp;&nbsp;&nbsp;&nbsp; 在车站窗口办理改签、变更到站或退票时，请出具购票时所使用的乘车人居民身份证原件，居民身份证无法自动识读或使用其他有效身份证件购票的还请提供订单号码，经售票人员验证一致后按现行规定办理。<br />
+  			   &nbsp;&nbsp;&nbsp;&nbsp; “请报验”常用联系人（乘车人）在12306.cn网站购票后，请持在12306.cn网站填写的按规定可使用的有效护照、港澳居民来往内地通行证或台湾居民来往大陆通行证（均为原件）到车站售票窗口办理身份信息核验；通过预核验的（身份信息核验状态变更为“预通过”），可以在车站售票窗口办理改签、变更到站、退票。</p>
+        </div>
+        
+        
+        
+        <div id="express-box" class="txt-box" style="display: none;">
+			<h1>铁路车票快递服务须知</h1>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 为进一步完善铁路客户服务中心网站（以下简称“网站”）购票服务，铁路局与快递（物流）企业在网站试行开展车票快递服务，网站已注册用户（以下简称“客户”）在网站购票时，可自愿选择车票快递服务。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>以下划线部分仅限北京地区。</strong></p>			
+			<h2>1. 车票快递服务范围</h2>
+				<p><strong>1.1 适用车票</strong></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　购票人在网站购票时，符合以下条件的，可自愿选择车票快递服务。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　1.1.1购票人在铁路客户服务中心网站购票填写的乘车人有效身份证件真实有效，且有效身份证件为中华人民共和国居民身份证、<span style="text-decoration: underline;">港澳居民来往内地通行证、台湾居民来往大陆通行证、外籍人员按规定可使用的有效护照。</span></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　1.1.2 使用有效证件在网站购买的全价票（含“折”字票）和儿童票、<span style="text-decoration: underline;">残疾军人（伤残警察）优惠票</span>。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　1.1.3 购票人选择车票快递，通过与快递企业订立车票快递服务协议予以确认。北京铁路局车票快递企业选择和委托京铁物流有限公司。昆明铁路局、广州铁路（集团）公司车票快递企业选择和委托中铁快运股份有限公司。</p>
+				
+				<p><strong>1.2 城市和地址范围</strong></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　车票快递城市和地址范围以网站公布为准，超出区域暂不提供快递服务。</p>
+				
+				<p><strong>1.3 快递时限</strong></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　车票快递的服务时间为7：00-22：00，除购买当日和次日开车的车票不提供快递服务外，其他均可选择快递服务：</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　a)开车时间为第三日0:00-12:00的车票，于第二日20:00以前送达；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　b)开车时间为第三日12:01-24:00的车票，于开车前5小时送达；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　c)开车时间为第四日0:00-12:00的车票，于第三日20:00前送达。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　d)其他车票，自购票日3日内送达。</p>
+				
+			<h2>2. 车票快递服务费用</h2>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　2.1车票快递服务按件收费，每件限一个地址，且不超过5张车票。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　2.2 车票快递服务费由快递（物流）企业按照国家有关规定确定，网站代为收取。客户在网站与购票票款一并支付，快递（物流）企业送票人员在送达车票时提供车票快递服务费的发票。</p>
+			
+			<h2>3. 车票快递服务选择</h2>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　客户可在预订车票后、待支付前自愿选择车票快递服务。选择车票快递服务时需签订车票快递服务协议。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　选择车票快递服务的，视为授权快递（物流）企业代为办理换取纸质车票和送达收件人。快递（物流）企业在代为换取纸质车票后至送达收件人前，客户不能办理退票、改签、变更到站及换取纸质车票业务。</p>
+				
+				<p><strong>3.1填写收件信息</strong></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　3.1.1客户先选择省、市、区/县、街道/镇（周边地区）、就近区域等信息，然后在填写框中详细填写具体地址、门牌号码、单位等信息</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　3.1.2填写收件人姓名和手机号码。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　3.1.3客户可在“我的12306”中提前维护收件地址、收件人姓名和手机号码，维护完毕后在填写收件信息时可直接选择。</p>
+				
+				<p><strong>3.2 支付快递服务费</strong></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　车票快递服务费和购票票款一并支付。</p>
+				
+			<h2>4. 快递车票接收</h2>	
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　4.1车票送达前，收件人接到快递（物流）企业客户代表电话后，应在约定时间、地址准备好本人有效身份证件原件；<span style="text-decoration: underline;">乘车人为港、澳、台居民还需准备好来往内地通行证原件、来往大陆通行证原件，乘车人为外籍人员需准备好有效护照原件。购买残疾军人（伤残警察）优惠票的，需准备好《中华人民共和国残疾军人证》或《中华人民共和国伤残人民警察证》原件</span>。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　4.2车票送达时，快递（物流）企业客户代表将按照4.1规定查看和核验收件人有效身份证件原件，并与收件人核对车票票面信息等，收件人未能按规定提供有效身份证件原件的不予交付。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　4.3对于交付的车票，收件人核对车票无误后签字确认。对于不能交付的车票，可待网站恢复车票状态后，自行办理改签、变更到站、退票、换取纸质车票等相关业务。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　4.4收件人成功签收任意一张车票，即按件收取快递服务费，否则按本须知7.6条退还快递服务费。</p>
+				
+			<h2>5. 车票快递状态查询</h2>	
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　客户登录网站，在“我的12306”可查询到车票以下快递状态：</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（1）“待制票”：指电子客票尚未制取纸质车票。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（2）“已取消”：指客户在网站取消了车票快递服务或客户自行取票从而无法提供车票快递服务。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（3）“已制票”：指电子客票已制取纸质车票。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（4）“派件中”：快递（物流）企业客户代表正在对纸质车票派件过程中。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（5）“全部交付”：指快递（物流）企业客户代表已将全部车票交付给收件人。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（6）“部分交付”：指快递（物流）企业客户代表将部分车票交付给收件人，其它车票未交付。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　（7）“交付异常”：指整件全部车票均未正常交付，退还快递服务费。主要原因有：</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　因收件人原因，如收件信息填写错误、地址无人签收、电话无人接听、收件人拒收或未出示有效身份证件原件等造成车票无法签收。</p>
+				
+			<h2>6. 车票快递服务变更</h2>		
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　当车票处于“待制票”状态时，客户可进行以下变更操作：</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　6.1取消车票快递服务：客户可单独选择取消车票快递服务，系统自动退还快递服务费。车票快递服务一经取消，同一订单无法再次提供车票快递服务。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　6.2改签、变更到站、退票及换取纸质车票：客户可自行办理车票的改签、变更到站、退票、换取纸质车票等业务。变更后符合快递服务条件的车票将按照原约定继续提供快递服务；变更后整件不符合快递服务条件的车票将取消快递服务，同时系统自动退还快递服务费。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　6.3当车票处于“已制票”、 “派件中”状态时，客户不能在网站办理取消车票快递服务及办理车票的改签、变更到站、退票、换票等业务，如有特殊情况可联系快递（物流）企业客户代表。</p>
+				
+			<h2>7. 其他事项</h2>	
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.1客户应确保填写的收件地址、收件人姓名、手机号码等收件信息正确、完整、规范，因填写错误导致车票延误或无法送达的，客户自行承担责任。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.2请收件人保持手机通信畅通，以免耽误接收车票。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.3车票快递服务的退款均通过网站进行，退款按照付款人与银行之间签订的合同处理。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.4本须知部分条款可能因具体情况调整，请关注网站公告。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.5旅客持车票快递所订车票进站验证被发现持票人身份证件与车票记载信息不一致时，按《铁路安全管理条例》规定视作无票拒绝进站。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.6整单未交付时，甲方不承担车票快递服务费，乙方退还车票快递服务费。</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 　7.7本须知未尽事宜，依据客户和快递（物流）企业之间的铁路车票快递服务协议及有关规定办理，详情请致电12306（北京地区）、95572客服中心垂询。</p>
+		</div>
+        
+        
+        
+        
+        
+    </div>
+    <!--右侧主体 结束-->
+</div>
+<!--页面主体  结束-->
+
+<!--页面底部  开始-->
+<div class="footer">
+	<p><a href="#nogo">关于我们</a>|<a href="#nogo">网站声明</a></p>
+    <p>版权所有©2008-2015铁道部信息技术中心&nbsp;&nbsp;中国铁道科学研究院</p>
+    <p>京ICP备10009636号</p>
+</div>
+<!--页面底部  结束-->
+</body>
+</html>
