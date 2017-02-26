@@ -31,22 +31,22 @@ def main():
             exit(1)
         print "查询中..."
 
+        session = requests.Session()
+        session.headers = {
+	    "Host": "kyfw.12306.cn",
+	    "Connection": "keep-alive",
+	    "Cache-Control": "max-age=0",
+	    "Upgrade-Insecure-Requests": "1",
+	    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36",
+	    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+	    "Accept-Encoding": "gzip, deflate, sdch, br",
+	    "Accept-Language": "zh-CN,zh;q=0.8,en;q=0.6",
+        }
         queryResult =  querier.querier(TIME, FROM, TO, "ADULT")
         length = queryResult.length
         for i in range(length):
-            session = requests.Session()
-            session.headers = {
-                "Host": "kyfw.12306.cn",
-                "Connection": "keep-alive",
-                "Cache-Control": "max-age=0",
-                "Upgrade-Insecure-Requests": "1",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                "Accept-Encoding": "gzip, deflate, sdch, br",
-                "Accept-Language": "zh-CN,zh;q=0.8,en;q=0.6",
-            }
-
             print "=" * 36
+
             train_no = queryResult.getTrainNo(i)
             from_station_no = queryResult.getFromStationNo(i)
             to_station_no = queryResult.getToStationNo(i)
@@ -66,8 +66,6 @@ def main():
             yidengzuo_price = "--"
             tedengzuo_price = "--"
             shangwuzuo_price = "--"
-
-            print seat_types
 
             if tools.checkStringChars(seat_types, "OOMP"):
                 qita_price = "--"
@@ -266,17 +264,16 @@ def main():
             
 
             print "列车号 : ", queryResult.getStationTrainCode(i)
-            #print "列车编号 : ", queryResult.getTrainNo(i)
-            #print "是否可凭身份证进出站 : ", queryResult.getIsSupportCard(i)
-            #print "首发站 : ", queryResult.getStartStationName(i)
-            #print "终点站 : ", queryResult.getEndStationName(i)
-            #print "起始站 : ", queryResult.getFromStationName(i)
-            #print "到达站 : ", queryResult.getToStationName(i)
-            #print "出发时间 : ", queryResult.getStartTime(i)
-            #print "到达时间 : ", queryResult.getArriveTime(i)
-            #print "历时 : ", queryResult.getLishi(i)
+            print "列车编号 : ", queryResult.getTrainNo(i)
+            print "是否可凭身份证进出站 : ", queryResult.getIsSupportCard(i)
+            print "首发站 : ", queryResult.getStartStationName(i)
+            print "终点站 : ", queryResult.getEndStationName(i)
+            print "起始站 : ", queryResult.getFromStationName(i)
+            print "到达站 : ", queryResult.getToStationName(i)
+            print "出发时间 : ", queryResult.getStartTime(i)
+            print "到达时间 : ", queryResult.getArriveTime(i)
+            print "历时 : ", queryResult.getLishi(i)
             print "其他 [", qita_price, "] :", queryResult.getQitaNumber(i)
-            continue
             print "无座 [", wuzuo_price, "] :", queryResult.getWuzuoNumber(i)
             print "硬座 [", yingzuo_price, "] :", queryResult.getYingzuoNumber(i)
             print "硬卧 [", yingwo_price, "] :", queryResult.getYingwoNumber(i)
