@@ -2,29 +2,32 @@
 # encoding:utf-8
 
 import json
-import requests
 import logging
+import requests
 
 logging.captureWarnings(True)
 
-class querier(object):
-    train_no = ""
-    from_station_no = ""
-    to_station_no = ""
-    seat_types = ""
-    train_date = ""
+class price(object):
+    train_no="24000C22290C"
+    from_station_no="01"
+    to_station_no="03"
+    seat_types="OOMP"
+    train_date="2017-02-26"
     url = ""
     resultJson = {}
     priceJson = {}
 
-    def __init__(self, train_no, from_station_no, to_station_no, seat_types, train_date):
+    def __init__(self, train_no, from_station_no, to_station_no, seat_types, train_date, session):
         self.train_no = train_no
         self.from_station_no = from_station_no
         self.to_station_no = to_station_no
         self.seat_types = seat_types
         self.train_date = train_date
         self.url = self.__buildQueryUrl(train_no, from_station_no, to_station_no, seat_types, train_date)
-        self.resultJson = json.loads(requests.get(self.url, verify=False).text)
+        content = session.get(self.url, verify=False).text.encode("UTF-8")
+        print content
+        self.resultJson = json.loads(content, "UTF-8")
+        print str(self.resultJson)
         self.priceJson = self.resultJson["data"]
 
     def __buildQueryUrl(self, train_no, from_station_no, to_station_no, seat_types, train_date):
@@ -34,47 +37,81 @@ class querier(object):
 	url += "&to_station_no=" + to_station_no
 	url += "&seat_types=" + seat_types
 	url += "&train_date=" + train_date
+        print url
         return url
 
-    def getYingzuoPrice(self):
+    def getPrice(self, key):
         '''
-        软卧价格
+        自定义获取价格
         '''
-        return self.priceJson["A1"]
+        try:
+            return self.priceJson[key]
+        except:
+            pass
 
-    def getRuanzuoPrice(self):
-        '''
-        软座价格
-        '''
-        return self.priceJson["A2"]
 
-    def getYingwoPrice(self):
+    def getQitaPrice(self):
         '''
-        硬卧价格
+        其他价格
         '''
-        return self.priceJson["A3"]
-    
-    def getRuanwoPrice(self):
-        '''
-        软卧价格
-        '''
-        return self.priceJson["A4"]
-
-    def getRuanwoPrice(self):
-        '''
-        高级软卧价格
-        '''
-        return self.priceJson["A6"]
-
-    def getRuanwoPrice(self):
-        '''
-        商务座价格
-        '''
-        return self.priceJson["A9"]
+        return self.priceJson["train_no"]
 
     def getWuzuoPrice(self):
         '''
         无座价格
         '''
-        return self.priceJson["WZ"]
+        return self.priceJson["train_no"]
 
+    def getYingzuoPrice(self):
+        '''
+        硬座价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getYingwoPrice(self):
+        '''
+        硬卧价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getRuanzuoPrice(self):
+        '''
+        软座价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getRuanwoPrice(self):
+        '''
+        软卧价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getGaojiruanwoPrice(self):
+        '''
+        高级软卧价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getErdengzuoPrice(self):
+        '''
+        二等座价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getYidengzuoPrice(self):
+        '''
+        一等座价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getTedengzuoPrice(self):
+        '''
+        特等座价格
+        '''
+        return self.priceJson["train_no"]
+
+    def getShangwuzuoPrice(self):
+        '''
+        商务座价格
+        '''
+        return self.priceJson["train_no"]

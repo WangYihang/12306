@@ -44,3 +44,9 @@ def downloadFile(url, filename):
     f.write(requests.get(url, verify=False).text.encode("UTF-8"))
     f.close()
 
+def checkStringChars(str1, str2):
+   list1 = list(str1)
+   list2 = list(str2)
+   list1.sort()
+   list2.sort()
+   return (list1 == list2)

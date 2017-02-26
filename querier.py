@@ -22,7 +22,7 @@ class querier(object):
         self.to_station = to_station
         self.purpose_codes = purpose_codes
         self.url = self.__buildQueryUrl(self.train_date, self.from_station, self.to_station, self.purpose_codes)
-        self.resultJson = json.loads(requests.get(self.url, verify=False).text)
+        self.resultJson = json.loads(requests.Session().get(self.url, verify=False).text.encode("UTF-8"))
         self.trainsJson = self.resultJson["data"]
         self.length = len(self.trainsJson)
 
@@ -97,3 +97,17 @@ class querier(object):
     def getShangwuzuoNumber(self, index):
         return self.trainsJson[index]["queryLeftNewDTO"]["swz_num"]
 
+    def getTrainNo(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["train_no"]
+
+    def getSeatTypes(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["seat_types"]
+
+    def getFromStationNo(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["from_station_no"]
+
+    def getToStationNo(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["to_station_no"]
+
+    def getTrainDate(self, index):
+        return self.trainsJson[index]["queryLeftNewDTO"]["train_date"]
