@@ -299,7 +299,12 @@ def main():
             print "特等座 [", tedengzuo_price, "] :", queryResult.getTengdengzuoNumber(i)
             print "商务座 [", shangwuzuo_price, "] :", queryResult.getShangwuzuoNumber(i)
     else:
-        print "Usage : \n\tpython %s [TIME] [FROM] [TO]" % sys.argv[0]
-
+        print "命令 :" 
+        print "    python %s [TIME] [FROM] [TO]" % (sys.argv[0])
+        print "参数 : "
+        print "    [TIME] : 出发的日期 (今天|明天|后天|7天后|2017-02-26)"
+        print "    [FROM] : 出发地的中文名 , 支持模糊查询"
+        print "    [TO] : 目的地的中文名 , 支持模糊查询"
+                    
 if __name__ == "__main__":
     main()
