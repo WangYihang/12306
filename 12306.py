@@ -8,7 +8,7 @@ import tools
 import stations
 import querier
 import price
-
+import timeman
 
 def init():
     stations.updateStationNames()
@@ -18,7 +18,7 @@ def main():
     argv_length = len(sys.argv)
     if argv_length == 4:
         init()
-        TIME = sys.argv[1]
+        TIME = timeman.timeConvertor(sys.argv[1])
         try:
             FROM = stations.getStationCode(sys.argv[2])['station_code']
         except:
@@ -52,6 +52,8 @@ def main():
             to_station_no = queryResult.getToStationNo(i)
             seat_types = queryResult.getSeatTypes(i)
             train_date = TIME
+
+            print "座位类型 :",seat_types
 
             priceResult = price.price(train_no, from_station_no, to_station_no, seat_types, train_date, session)
 
@@ -255,6 +257,18 @@ def main():
                 ruanzuo_price = "--"
                 ruanwo_price = priceResult.getPrice("A4")
                 gaojiruanwo_price = "--"
+                erdengzuo_price = "--"
+                yidengzuo_price = "--"
+                tedengzuo_price = "--"
+                shangwuzuo_price = "--"
+            elif tools.checkStringChars(seat_types, "46"):
+                qita_price = "--"
+                wuzuo_price = "--"
+                yingzuo_price = "--"
+                yingwo_price = "--"
+                ruanzuo_price = "--"
+                ruanwo_price = priceResult.getPrice("A4")
+                gaojiruanwo_price = priceResult.getPrice("A6")
                 erdengzuo_price = "--"
                 yidengzuo_price = "--"
                 tedengzuo_price = "--"
