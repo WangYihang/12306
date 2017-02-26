@@ -28,12 +28,3 @@ def timeConvertor(content):
     else: # 所有其他没有的规则都默认查询今天
         now = datetime.datetime.now()
         return  now.strftime("%Y-%m-%d")  
-
-def test():
-    print timeConvertor("今天")
-    print timeConvertor("明天")
-    print timeConvertor("后天")
-    print timeConvertor("1天后")
-    print timeConvertor("5天后")
-    print timeConvertor("10天后")
-
