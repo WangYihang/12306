@@ -28,7 +28,7 @@ class price(object):
         self.priceJson = self.resultJson["data"]
 
     def __buildQueryUrl(self, train_no, from_station_no, to_station_no, seat_types, train_date):
-	url = "https://kyfw.12306.cn/otn/leftTicket/queryTicketPrice?"
+	url = "https://113.207.72.67/otn/leftTicket/queryTicketPrice?"
 	url += "train_no=" + train_no
 	url += "&from_station_no=" + from_station_no
 	url += "&to_station_no=" + to_station_no
