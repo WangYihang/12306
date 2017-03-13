@@ -44,7 +44,7 @@ def main():
 	    "Accept-Encoding": "gzip, deflate, sdch, br",
 	    "Accept-Language": "zh-CN,zh;q=0.8,en;q=0.6",
         }
-        queryResult =  querier.querier(TIME, FROM, TO, "ADULT", CDN)
+        queryResult =  querier.querier(TIME, FROM, TO, "ADULT", session, CDN)
         length = queryResult.length
         for i in range(length):
             print "=" * 36

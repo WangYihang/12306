@@ -26,7 +26,6 @@ class price(object):
         self.cdn = cdn
         self.url = self.__buildQueryUrl(self.cdn, self.train_no, self.from_station_no, self.to_station_no, self.seat_types, self.train_date)
         self.resultJson = json.loads(session.get(self.url, verify=False).text.encode("UTF-8"), "UTF-8")
-        print self.resultJson
         self.priceJson = self.resultJson["data"]
 
     def __buildQueryUrl(self, cdn, train_no, from_station_no, to_station_no, seat_types, train_date):
@@ -36,7 +35,6 @@ class price(object):
 	url += "&to_station_no=" + to_station_no
 	url += "&seat_types=" + seat_types
 	url += "&train_date=" + train_date
-        print url
         return url
 
     def getPrice(self, key):
