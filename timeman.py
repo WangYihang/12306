@@ -79,6 +79,7 @@ def timeConvertor(content):
         return n_days.strftime("%Y-%m-%d")
     else: # 所有其他没有的规则都默认查询今天
         now = datetime.datetime.now()
+        print "全没匹配到"
         return  now.strftime("%Y-%m-%d")  
 
 def test():

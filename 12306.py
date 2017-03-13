@@ -16,7 +16,7 @@ def init():
 
 def main():
     argv_length = len(sys.argv)
-    if argv_length == 4:
+    if argv_length == 5:
         init()
         TIME = timeman.timeConvertor(sys.argv[1])
         try:
@@ -31,6 +31,8 @@ def main():
             exit(1)
         print "查询中..."
 
+        CDN = sys.argv[4]
+
         session = requests.Session()
         session.headers = {
 	    "Host": "kyfw.12306.cn",
@@ -42,7 +44,7 @@ def main():
 	    "Accept-Encoding": "gzip, deflate, sdch, br",
 	    "Accept-Language": "zh-CN,zh;q=0.8,en;q=0.6",
         }
-        queryResult =  querier.querier(TIME, FROM, TO, "ADULT")
+        queryResult =  querier.querier(TIME, FROM, TO, "ADULT", CDN)
         length = queryResult.length
         for i in range(length):
             print "=" * 36
@@ -54,8 +56,9 @@ def main():
             train_date = TIME
 
             print "座位类型 :",seat_types
+            
 
-            priceResult = price.price(train_no, from_station_no, to_station_no, seat_types, train_date, session)
+            priceResult = price.price(train_no, from_station_no, to_station_no, seat_types, train_date, session, CDN)
 
             qita_price = "--"
             wuzuo_price = "--"
@@ -300,11 +303,12 @@ def main():
             print "商务座 [", shangwuzuo_price, "] :", queryResult.getShangwuzuoNumber(i)
     else:
         print "命令 :" 
-        print "    python %s [TIME] [FROM] [TO]" % (sys.argv[0])
+        print "    python %s [TIME] [FROM] [TO] [CDN]" % (sys.argv[0])
         print "参数 : "
         print "    [TIME] : 出发的日期 (今天|明天|后天|7天后|2017-02-26)"
         print "    [FROM] : 出发地的中文名 , 支持模糊查询"
         print "    [TO] : 目的地的中文名 , 支持模糊查询"
+        print "    [CDN] : 使用何地的CDN服务器(如果使用本地CDN不能查询到票 , 可以对别的地域进行查询)"
                     
 if __name__ == "__main__":
     main()

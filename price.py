@@ -17,23 +17,26 @@ class price(object):
     resultJson = {}
     priceJson = {}
 
-    def __init__(self, train_no, from_station_no, to_station_no, seat_types, train_date, session):
+    def __init__(self, train_no, from_station_no, to_station_no, seat_types, train_date, session, cdn):
         self.train_no = train_no
         self.from_station_no = from_station_no
         self.to_station_no = to_station_no
         self.seat_types = seat_types
         self.train_date = train_date
-        self.url = self.__buildQueryUrl(train_no, from_station_no, to_station_no, seat_types, train_date)
+        self.cdn = cdn
+        self.url = self.__buildQueryUrl(self.cdn, self.train_no, self.from_station_no, self.to_station_no, self.seat_types, self.train_date)
         self.resultJson = json.loads(session.get(self.url, verify=False).text.encode("UTF-8"), "UTF-8")
+        print self.resultJson
         self.priceJson = self.resultJson["data"]
 
-    def __buildQueryUrl(self, train_no, from_station_no, to_station_no, seat_types, train_date):
-	url = "https://113.207.72.67/otn/leftTicket/queryTicketPrice?"
+    def __buildQueryUrl(self, cdn, train_no, from_station_no, to_station_no, seat_types, train_date):
+	url = "https://"+cdn+"/otn/leftTicket/queryTicketPrice?"
 	url += "train_no=" + train_no
 	url += "&from_station_no=" + from_station_no
 	url += "&to_station_no=" + to_station_no
 	url += "&seat_types=" + seat_types
 	url += "&train_date=" + train_date
+        print url
         return url
 
     def getPrice(self, key):

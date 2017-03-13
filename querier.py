@@ -16,22 +16,24 @@ class querier(object):
     resultJson = {}
     trainsJson = []
     length = 0
-    def __init__(self, train_date, from_station, to_station, purpose_codes):
+    def __init__(self, train_date, from_station, to_station, purpose_codes, cdn):
         self.train_date = train_date
         self.from_station = from_station
         self.to_station = to_station
         self.purpose_codes = purpose_codes
-        self.url = self.__buildQueryUrl(self.train_date, self.from_station, self.to_station, self.purpose_codes)
+        self.cdn = cdn
+        self.url = self.__buildQueryUrl(self.cdn, self.train_date, self.from_station, self.to_station, self.purpose_codes)
         self.resultJson = json.loads(requests.Session().get(self.url, verify=False).text.encode("UTF-8"))
         self.trainsJson = self.resultJson["data"]
         self.length = len(self.trainsJson)
 
-    def __buildQueryUrl(self, train_date, from_station, to_station, purpose_codes):
-        url = "https://kyfw.12306.cn/otn/leftTicket/query?"
+    def __buildQueryUrl(self, cdn, train_date, from_station, to_station, purpose_codes):
+        url = "https://43.226.162.63/otn/leftTicket/query?"
         url += "leftTicketDTO.train_date=" + train_date
         url += "&leftTicketDTO.from_station=" + from_station
         url += "&leftTicketDTO.to_station=" + to_station
         url += "&purpose_codes=" + purpose_codes
+        print url
         return url
 
     def getLishi(self, index):
