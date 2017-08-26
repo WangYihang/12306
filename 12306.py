@@ -12,7 +12,7 @@ import timeman
 
 def init():
     stations.updateStationNames()
-    
+
 
 def main():
     argv_length = len(sys.argv)
@@ -56,13 +56,13 @@ def main():
             train_date = TIME
 
             print "座位类型 :",seat_types
-            
+
 
             priceResult = price.price(train_no, from_station_no, to_station_no, seat_types, train_date, session, CDN)
 
             qita_price = "--"
             wuzuo_price = "--"
-            yingzuo_price = "--" 
+            yingzuo_price = "--"
             yingwo_price = "--"
             ruanzuo_price = "--"
             ruanwo_price = "--"
@@ -75,7 +75,7 @@ def main():
             if tools.checkStringChars(seat_types, "OOMP"):
                 qita_price = "--"
                 wuzuo_price = priceResult.getPrice("WZ")
-                yingzuo_price = "--" 
+                yingzuo_price = "--"
                 yingwo_price = "--"
                 ruanzuo_price = "--"
                 ruanwo_price = "--"
@@ -87,7 +87,7 @@ def main():
             elif tools.checkStringChars(seat_types, "OMP"):
                 qita_price = "--"
                 wuzuo_price = "--"
-                yingzuo_price = "--" 
+                yingzuo_price = "--"
                 yingwo_price = "--"
                 ruanzuo_price = "--"
                 ruanwo_price = "--"
@@ -99,7 +99,7 @@ def main():
             elif tools.checkStringChars(seat_types, "O9OMP"):
                 qita_price = "--"
                 wuzuo_price = priceResult.getPrice("WZ")
-                yingzuo_price = "--" 
+                yingzuo_price = "--"
                 yingwo_price = "--"
                 ruanzuo_price = "--"
                 ruanwo_price = "--"
@@ -111,7 +111,7 @@ def main():
             elif tools.checkStringChars(seat_types, "O9MP"):
                 qita_price = "--"
                 wuzuo_price = "--"
-                yingzuo_price = "--" 
+                yingzuo_price = "--"
                 yingwo_price = "--"
                 ruanzuo_price = "--"
                 ruanwo_price = "--"
@@ -123,7 +123,7 @@ def main():
             elif tools.checkStringChars(seat_types, "O9OM"):
                 qita_price = "--"
                 wuzuo_price = "--"
-                yingzuo_price = "--" 
+                yingzuo_price = "--"
                 yingwo_price = "--"
                 ruanzuo_price = "--"
                 ruanwo_price = "--"
@@ -278,7 +278,7 @@ def main():
                 shangwuzuo_price = "--"
             else:
                 print "座位类型无法解析!"
-            
+
 
             print "列车号 : ", queryResult.getStationTrainCode(i)
             print "列车编号 : ", queryResult.getTrainNo(i)
@@ -302,13 +302,13 @@ def main():
             print "特等座 [", tedengzuo_price, "] :", queryResult.getTengdengzuoNumber(i)
             print "商务座 [", shangwuzuo_price, "] :", queryResult.getShangwuzuoNumber(i)
     else:
-        print "命令 :" 
+        print "命令 :"
         print "    python %s [TIME] [FROM] [TO] [CDN]" % (sys.argv[0])
         print "参数 : "
         print "    [TIME] : 出发的日期 (今天|明天|后天|7天后|2017-02-26)"
         print "    [FROM] : 出发地的中文名 , 支持模糊查询"
         print "    [TO] : 目的地的中文名 , 支持模糊查询"
-        print "    [CDN] : 使用何地的CDN服务器(123.123.123.123|kyfw.12306.cn)(如果使用本地CDN不能查询到票 , 可以对别的地域进行查询)"
-                    
+        print "    [CDN] : 使用何地的CDN服务器(即网站的IP地址 , 可以通过 ping kyfw.12306.cn 获得)(123.123.123.123|kyfw.12306.cn)(如果使用本地CDN不能查询到票 , 可以对别的地域进行查询)"
+
 if __name__ == "__main__":
     main()
